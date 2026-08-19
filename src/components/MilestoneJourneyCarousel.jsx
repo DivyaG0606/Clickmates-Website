@@ -68,27 +68,27 @@ export default function MilestoneJourneyCarousel({ onOpenBooking }) {
   ]
 
   return (
-    <section className="py-20 sm:py-28 bg-[#FFF0F6]/40 border-b border-[#ED78A8]/20 relative overflow-hidden">
+    <section className="pt-8 pb-14 sm:py-28 bg-[#FFF0F6]/40 border-b border-[#ED78A8]/20 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <h2 className="font-heading text-3xl sm:text-5xl font-extrabold text-[#242424] tracking-tight">
-            • ONE JOURNEY. SEVEN PRECIOUS MILESTONES. •
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-16 space-y-2.5 sm:space-y-3 reveal-on-scroll">
+          <h2 className="font-heading text-2xl sm:text-5xl font-extrabold text-[#242424] tracking-tight">
+            ONE JOURNEY SEVEN PRECIOUS MILESTONES
           </h2>
-          <p className="text-[#666666] text-sm sm:text-base font-body">
+          <p className="text-[#666666] text-xs sm:text-base font-body">
             From belly to baby's first birthday & furry companions, we preserve every step of your family's story.
           </p>
         </div>
 
         {/* 3 Cards Per Row Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-10 max-w-[320px] md:max-w-none mx-auto reveal-scale">
           {journeyShoots.map((item) => (
             <div
               key={item.id}
-              className="bg-white rounded-3xl p-5 border-2 border-[#ED78A8]/30 shadow-md hover:shadow-2xl hover:border-[#ED78A8] transition-all duration-500 flex flex-col justify-between text-center group transform hover:-translate-y-1"
+              className="bg-white rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 border-2 border-[#ED78A8]/30 shadow-md hover:shadow-2xl hover:border-[#ED78A8] transition-all duration-500 flex flex-col justify-between text-center group transform hover:-translate-y-1"
             >
-              {/* Card Image (Large & Prominent) */}
-              <div className="h-64 sm:h-72 lg:h-80 rounded-2xl overflow-hidden relative shadow-sm">
+              {/* Card Image */}
+              <div className="h-40 sm:h-72 lg:h-80 rounded-xl sm:rounded-2xl overflow-hidden relative shadow-sm">
                 <img
                   src={item.image}
                   alt={item.title}
@@ -98,25 +98,25 @@ export default function MilestoneJourneyCarousel({ onOpenBooking }) {
               </div>
 
               {/* Card Details */}
-              <div className="pt-6 pb-2 flex-1 flex flex-col justify-between space-y-3">
+              <div className="pt-3 sm:pt-6 pb-1 sm:pb-2 flex-1 flex flex-col justify-between space-y-2 sm:space-y-3">
                 <div>
-                  <h3 className="font-heading text-xl font-bold text-[#ED78A8] tracking-wider uppercase">
-                    • {item.title} •
+                  <h3 className="font-heading text-base sm:text-xl font-bold text-[#ED78A8] tracking-wider uppercase">
+                    {item.title}
                   </h3>
                   {item.subtitle && (
-                    <span className="block text-xs font-semibold text-[#ED78A8] font-nav mt-1 tracking-widest">
+                    <span className="block text-[10px] sm:text-xs font-semibold text-[#ED78A8] font-nav mt-0.5 sm:mt-1 tracking-widest">
                       {item.subtitle}
                     </span>
                   )}
-                  <p className="text-[#666666] text-xs sm:text-sm leading-relaxed mt-2.5 font-body px-2">
+                  <p className="text-[#666666] text-xs sm:text-sm leading-relaxed mt-1 sm:mt-2 font-body px-1">
                     {item.desc}
                   </p>
                 </div>
 
-                <div className="pt-4">
+                <div className="pt-2.5 sm:pt-4">
                   <button
                     onClick={onOpenBooking}
-                    className="w-full py-3 rounded-full text-xs font-semibold uppercase tracking-wider font-nav text-white bg-[#ED78A8] hover:bg-[#D9578D] transition shadow-md shadow-[#ED78A8]/20"
+                    className="w-full py-2 sm:py-3 rounded-full text-[11px] sm:text-xs font-semibold uppercase tracking-wider font-nav text-white bg-[#ED78A8] hover:bg-[#D9578D] transition shadow-md shadow-[#ED78A8]/20"
                   >
                     Book This Shoot
                   </button>

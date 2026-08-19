@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://clickmets.in/sitemap.xml
+Sitemap: https://clickmates.in/sitemap.xml

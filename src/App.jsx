@@ -16,12 +16,44 @@ import ContactPage from './pages/ContactPage'
 
 import './App.css'
 
-// Helper component to reset scroll on route change
-function ScrollToTop() {
+// Helper component to reset scroll & attach IntersectionObserver for scroll animations
+function ScrollObserver() {
   const { pathname } = useLocation()
+
   useEffect(() => {
+    // Reset scroll position to top
     window.scrollTo(0, 0)
+
+    // Setup IntersectionObserver for smooth scroll reveal animations
+    const observerCallback = (entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible')
+          obs.unobserve(entry.target)
+        }
+      })
+    }
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '100px 0px 0px 0px',
+      threshold: 0
+    }
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions)
+    
+    // Give DOM time to render before observing
+    const timer = setTimeout(() => {
+      const elements = document.querySelectorAll('.reveal-on-scroll, .reveal-scale')
+      elements.forEach((el) => observer.observe(el))
+    }, 80)
+
+    return () => {
+      clearTimeout(timer)
+      observer.disconnect()
+    }
   }, [pathname])
+
   return null
 }
 
@@ -38,7 +70,7 @@ export default function App() {
 
   return (
     <Router>
-      <ScrollToTop />
+      <ScrollObserver />
       {/* Top Scroll Progress Line */}
       <TopProgressBar />
 

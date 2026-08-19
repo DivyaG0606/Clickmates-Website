@@ -162,6 +162,7 @@ export default function ContactPage() {
                       <option value="newborn-photography">Newborn Photography</option>
                       <option value="maternity-photography">Maternity Photography</option>
                       <option value="family-photography">Family Photography</option>
+                      <option value="pet-photography">Pet Photography</option>
                       <option value="baby-milestone-photography">Milestone & Cake Smash</option>
                       <option value="event-photography">Event Photography</option>
                     </select>

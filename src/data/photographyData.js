@@ -71,7 +71,7 @@ export const brandDetails = {
 export const heroSlides = [
   {
     id: 1,
-    title: "Little Moments.",
+    title: "Little Moments",
     subtitle: "Capturing the playful giggles and innocent wonder of your baby's early milestones.",
     image: baby15,
     alt: "Adorable baby photography by ClickMates Photography",
@@ -79,7 +79,7 @@ export const heroSlides = [
   },
   {
     id: 2,
-    title: "Beautiful Beginnings.",
+    title: "Beautiful Beginnings",
     subtitle: "Graceful, editorial maternity portraits celebrating the glow of new life.",
     image: m16,
     alt: "Maternity photoshoot celebrating pregnancy by ClickMates Studio",
@@ -87,7 +87,7 @@ export const heroSlides = [
   },
   {
     id: 3,
-    title: "Precious First Days.",
+    title: "Precious First Days",
     subtitle: "Gentle, safe newborn poses in warm, sanitized studio comfort.",
     image: baby12,
     alt: "Sleepy wrapped newborn baby photography by ClickMates",
@@ -95,7 +95,7 @@ export const heroSlides = [
   },
   {
     id: 4,
-    title: "Memories That Last Forever.",
+    title: "Memories That Last Forever",
     subtitle: "Natural family interactions filled with real warmth and connection.",
     image: e30,
     alt: "Family portrait session by ClickMates Studio",
@@ -103,7 +103,7 @@ export const heroSlides = [
   },
   {
     id: 5,
-    title: "Joyful Celebrations.",
+    title: "Joyful Celebrations",
     subtitle: "Vibrant event coverage for birth celebrations, baby showers, and birthdays.",
     image: m18,
     alt: "Event photography by ClickMates Studio",

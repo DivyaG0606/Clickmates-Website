@@ -119,6 +119,7 @@ export default function BookingModal({ isOpen, onClose }) {
                     <option value="maternity-photography">Maternity Photography</option>
                     <option value="newborn-photography">Newborn Photography</option>
                     <option value="family-photography">Family Photography</option>
+                    <option value="pet-photography">Pet Photography</option>
                     <option value="event-photography">Event Photography</option>
                     <option value="baby-milestone-photography">Baby Milestone Photography</option>
                   </select>

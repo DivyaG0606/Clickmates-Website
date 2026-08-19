@@ -276,28 +276,28 @@ export default function PackagesSection({ onOpenBooking }) {
   ]
 
   return (
-    <section className="py-20 sm:py-28 bg-[#FFF0F6]/30" id="packages">
+    <section className="pt-8 pb-14 sm:py-28 bg-[#FFF0F6]/30" id="packages">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-          <span className="text-xs font-semibold uppercase tracking-widest font-nav text-[#ED78A8] bg-white px-3.5 py-1.5 rounded-full border border-[#ED78A8]/20 shadow-sm">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 space-y-2.5 sm:space-y-3 reveal-on-scroll">
+          <span className="inline-block text-[10px] sm:text-xs font-semibold uppercase tracking-widest font-nav text-[#ED78A8] bg-white px-3.5 py-1.5 rounded-full border border-[#ED78A8]/20 shadow-sm max-w-full text-center leading-normal">
             PACKAGES & INVESTMENT
           </span>
-          <h2 className="font-heading text-3xl sm:text-5xl font-bold text-[#242424]">
+          <h2 className="font-heading text-2xl sm:text-5xl font-bold text-[#242424]">
             Official Photography Packages
           </h2>
-          <p className="text-[#666666] text-sm sm:text-base font-body">
+          <p className="text-[#666666] text-xs sm:text-base font-body">
             Transparent pricing for newborn, baby, maternity, and celebration photoshoots.
           </p>
         </div>
 
         {/* Category Tabs Selector Bar */}
-        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12 font-nav text-xs font-semibold">
+        <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-3 mb-8 sm:mb-12 font-nav text-[11px] sm:text-xs font-semibold reveal-on-scroll reveal-delay-1">
           {categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
-              className={`px-5 py-2.5 rounded-full transition-all duration-300 uppercase tracking-wider ${
+              className={`px-3.5 py-1.5 sm:px-5 sm:py-2.5 rounded-full transition-all duration-300 uppercase tracking-wider ${
                 activeCategory === cat.id
                   ? 'bg-[#ED78A8] text-white shadow-md shadow-[#ED78A8]/25 scale-105'
                   : 'bg-white text-[#242424] hover:bg-[#FFF0F6] border border-[#ED78A8]/20'
@@ -310,53 +310,53 @@ export default function PackagesSection({ onOpenBooking }) {
 
         {/* NEWBORN PACKAGES */}
         {activeCategory === 'NEWBORN' && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-[320px] sm:max-w-none mx-auto">
             {newbornPackages.map((pkg, idx) => (
               <div
                 key={idx}
-                className={`bg-white rounded-3xl overflow-hidden border flex flex-col justify-between relative transition-all duration-300 ${
+                className={`bg-white rounded-2xl sm:rounded-3xl overflow-hidden border flex flex-col justify-between relative transition-all duration-300 ${
                   pkg.popular
                     ? 'border-[#ED78A8] shadow-2xl ring-2 ring-[#ED78A8]/30'
                     : 'border-[#FFF0F6] shadow-sm hover:shadow-md'
                 }`}
               >
                 {pkg.popular && (
-                  <span className="absolute top-3 right-3 z-10 bg-[#ED78A8] text-white px-3 py-1 rounded-full text-[10px] font-semibold uppercase tracking-widest font-nav shadow-md">
+                  <span className="absolute top-2.5 right-2.5 z-10 bg-[#ED78A8] text-white px-2.5 py-0.5 rounded-full text-[9px] sm:text-[10px] font-semibold uppercase tracking-widest font-nav shadow-md">
                     Most Popular
                   </span>
                 )}
 
                 {/* Card Image Banner */}
-                <div className="h-44 sm:h-48 overflow-hidden relative">
+                <div className="h-36 sm:h-48 overflow-hidden relative">
                   <img
                     src={pkg.image}
                     alt={pkg.name}
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  <div className="absolute bottom-3 left-4 text-white">
-                    <h3 className="font-heading text-lg font-bold">{pkg.name}</h3>
+                  <div className="absolute bottom-2.5 left-3.5 text-white">
+                    <h3 className="font-heading text-base sm:text-lg font-bold">{pkg.name}</h3>
                   </div>
                 </div>
 
-                <div className="p-6 space-y-4 flex-1 flex flex-col justify-between">
-                  <div className="space-y-3">
-                    <div className="text-3xl font-extrabold text-[#ED78A8]">{pkg.price}</div>
+                <div className="p-4 sm:p-6 space-y-3 flex-1 flex flex-col justify-between">
+                  <div className="space-y-2.5 sm:space-y-3">
+                    <div className="text-2xl sm:text-3xl font-extrabold text-[#ED78A8]">{pkg.price}</div>
 
-                    <ul className="space-y-2 text-xs text-[#242424] border-t border-slate-100 pt-3 font-body">
+                    <ul className="space-y-1.5 sm:space-y-2 text-xs text-[#242424] border-t border-slate-100 pt-2.5 sm:pt-3 font-body">
                       {pkg.features.map((feat, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <CheckCircle2 className="w-4 h-4 text-[#ED78A8] shrink-0 mt-0.5" />
+                        <li key={i} className="flex items-start gap-1.5 sm:gap-2">
+                          <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#ED78A8] shrink-0 mt-0.5" />
                           <span>{feat}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <div className="pt-4">
+                  <div className="pt-3 sm:pt-4">
                     <button
                       onClick={onOpenBooking}
-                      className="w-full py-3 rounded-full text-xs font-semibold uppercase tracking-wider font-nav text-white bg-[#ED78A8] hover:bg-[#D9578D] transition shadow-md"
+                      className="w-full py-2.5 sm:py-3 rounded-full text-xs font-semibold uppercase tracking-wider font-nav text-white bg-[#ED78A8] hover:bg-[#D9578D] transition shadow-md"
                     >
                       Book Newborn Shoot
                     </button>
@@ -369,53 +369,53 @@ export default function PackagesSection({ onOpenBooking }) {
 
         {/* BABY PACKAGES */}
         {activeCategory === 'BABY' && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-[320px] sm:max-w-none mx-auto">
             {babyPackages.map((pkg, idx) => (
               <div
                 key={idx}
-                className={`bg-white rounded-3xl overflow-hidden border flex flex-col justify-between relative transition-all duration-300 ${
+                className={`bg-white rounded-2xl sm:rounded-3xl overflow-hidden border flex flex-col justify-between relative transition-all duration-300 ${
                   pkg.popular
                     ? 'border-[#ED78A8] shadow-2xl ring-2 ring-[#ED78A8]/30'
                     : 'border-[#FFF0F6] shadow-sm hover:shadow-md'
                 }`}
               >
                 {pkg.popular && (
-                  <span className="absolute top-3 right-3 z-10 bg-[#ED78A8] text-white px-3 py-1 rounded-full text-[10px] font-semibold uppercase tracking-widest font-nav shadow-md">
+                  <span className="absolute top-2.5 right-2.5 z-10 bg-[#ED78A8] text-white px-2.5 py-0.5 rounded-full text-[9px] sm:text-[10px] font-semibold uppercase tracking-widest font-nav shadow-md">
                     Most Popular
                   </span>
                 )}
 
                 {/* Card Image Banner */}
-                <div className="h-44 sm:h-48 overflow-hidden relative">
+                <div className="h-36 sm:h-48 overflow-hidden relative">
                   <img
                     src={pkg.image}
                     alt={pkg.name}
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  <div className="absolute bottom-3 left-4 text-white">
-                    <h3 className="font-heading text-lg font-bold">{pkg.name}</h3>
+                  <div className="absolute bottom-2.5 left-3.5 text-white">
+                    <h3 className="font-heading text-base sm:text-lg font-bold">{pkg.name}</h3>
                   </div>
                 </div>
 
-                <div className="p-6 space-y-4 flex-1 flex flex-col justify-between">
-                  <div className="space-y-3">
-                    <div className="text-3xl font-extrabold text-[#ED78A8]">{pkg.price}</div>
+                <div className="p-4 sm:p-6 space-y-3 flex-1 flex flex-col justify-between">
+                  <div className="space-y-2.5 sm:space-y-3">
+                    <div className="text-2xl sm:text-3xl font-extrabold text-[#ED78A8]">{pkg.price}</div>
 
-                    <ul className="space-y-2 text-xs text-[#242424] border-t border-slate-100 pt-3 font-body">
+                    <ul className="space-y-1.5 sm:space-y-2 text-xs text-[#242424] border-t border-slate-100 pt-2.5 sm:pt-3 font-body">
                       {pkg.features.map((feat, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <CheckCircle2 className="w-4 h-4 text-[#ED78A8] shrink-0 mt-0.5" />
+                        <li key={i} className="flex items-start gap-1.5 sm:gap-2">
+                          <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#ED78A8] shrink-0 mt-0.5" />
                           <span>{feat}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <div className="pt-4">
+                  <div className="pt-3 sm:pt-4">
                     <button
                       onClick={onOpenBooking}
-                      className="w-full py-3 rounded-full text-xs font-semibold uppercase tracking-wider font-nav text-white bg-[#ED78A8] hover:bg-[#D9578D] transition shadow-md"
+                      className="w-full py-2.5 sm:py-3 rounded-full text-xs font-semibold uppercase tracking-wider font-nav text-white bg-[#ED78A8] hover:bg-[#D9578D] transition shadow-md"
                     >
                       Book Baby Shoot
                     </button>
@@ -428,53 +428,53 @@ export default function PackagesSection({ onOpenBooking }) {
 
         {/* MATERNITY PACKAGES */}
         {activeCategory === 'MATERNITY' && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-[320px] sm:max-w-none mx-auto">
             {maternityPackages.map((pkg, idx) => (
               <div
                 key={idx}
-                className={`bg-white rounded-3xl overflow-hidden border flex flex-col justify-between relative transition-all duration-300 ${
+                className={`bg-white rounded-2xl sm:rounded-3xl overflow-hidden border flex flex-col justify-between relative transition-all duration-300 ${
                   pkg.popular
                     ? 'border-[#ED78A8] shadow-2xl ring-2 ring-[#ED78A8]/30'
                     : 'border-[#FFF0F6] shadow-sm hover:shadow-md'
                 }`}
               >
                 {pkg.popular && (
-                  <span className="absolute top-3 right-3 z-10 bg-[#ED78A8] text-white px-3 py-1 rounded-full text-[10px] font-semibold uppercase tracking-widest font-nav shadow-md">
+                  <span className="absolute top-2.5 right-2.5 z-10 bg-[#ED78A8] text-white px-2.5 py-0.5 rounded-full text-[9px] sm:text-[10px] font-semibold uppercase tracking-widest font-nav shadow-md">
                     Most Popular
                   </span>
                 )}
 
                 {/* Card Image Banner */}
-                <div className="h-44 sm:h-52 overflow-hidden relative">
+                <div className="h-36 sm:h-52 overflow-hidden relative">
                   <img
                     src={pkg.image}
                     alt={pkg.name}
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  <div className="absolute bottom-3 left-4 text-white">
-                    <h3 className="font-heading text-xl font-bold">{pkg.name}</h3>
+                  <div className="absolute bottom-2.5 left-3.5 text-white">
+                    <h3 className="font-heading text-base sm:text-xl font-bold">{pkg.name}</h3>
                   </div>
                 </div>
 
-                <div className="p-6 space-y-4 flex-1 flex flex-col justify-between">
-                  <div className="space-y-3">
-                    <div className="text-3xl font-extrabold text-[#ED78A8]">{pkg.price}</div>
+                <div className="p-4 sm:p-6 space-y-3 flex-1 flex flex-col justify-between">
+                  <div className="space-y-2.5 sm:space-y-3">
+                    <div className="text-2xl sm:text-3xl font-extrabold text-[#ED78A8]">{pkg.price}</div>
 
-                    <ul className="space-y-2 text-xs text-[#242424] border-t border-slate-100 pt-3 font-body">
+                    <ul className="space-y-1.5 sm:space-y-2 text-xs text-[#242424] border-t border-slate-100 pt-2.5 sm:pt-3 font-body">
                       {pkg.features.map((feat, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <CheckCircle2 className="w-4 h-4 text-[#ED78A8] shrink-0 mt-0.5" />
+                        <li key={i} className="flex items-start gap-1.5 sm:gap-2">
+                          <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#ED78A8] shrink-0 mt-0.5" />
                           <span>{feat}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <div className="pt-4">
+                  <div className="pt-3 sm:pt-4">
                     <button
                       onClick={onOpenBooking}
-                      className="w-full py-3 rounded-full text-xs font-semibold uppercase tracking-wider font-nav text-white bg-[#ED78A8] hover:bg-[#D9578D] transition shadow-md"
+                      className="w-full py-2.5 sm:py-3 rounded-full text-xs font-semibold uppercase tracking-wider font-nav text-white bg-[#ED78A8] hover:bg-[#D9578D] transition shadow-md"
                     >
                       Book Maternity Shoot
                     </button>
@@ -487,53 +487,53 @@ export default function PackagesSection({ onOpenBooking }) {
 
         {/* EVENTS PACKAGES */}
         {activeCategory === 'EVENTS' && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-[320px] sm:max-w-none mx-auto">
             {eventPackages.map((pkg, idx) => (
               <div
                 key={idx}
-                className={`bg-white rounded-3xl overflow-hidden border flex flex-col justify-between relative transition-all duration-300 ${
+                className={`bg-white rounded-2xl sm:rounded-3xl overflow-hidden border flex flex-col justify-between relative transition-all duration-300 ${
                   pkg.popular
                     ? 'border-[#ED78A8] shadow-2xl ring-2 ring-[#ED78A8]/30'
                     : 'border-[#FFF0F6] shadow-sm hover:shadow-md'
                 }`}
               >
                 {pkg.popular && (
-                  <span className="absolute top-3 right-3 z-10 bg-[#ED78A8] text-white px-3 py-1 rounded-full text-[10px] font-semibold uppercase tracking-widest font-nav shadow-md">
+                  <span className="absolute top-2.5 right-2.5 z-10 bg-[#ED78A8] text-white px-2.5 py-0.5 rounded-full text-[9px] sm:text-[10px] font-semibold uppercase tracking-widest font-nav shadow-md">
                     Most Popular
                   </span>
                 )}
 
                 {/* Card Image Banner */}
-                <div className="h-44 sm:h-48 overflow-hidden relative">
+                <div className="h-36 sm:h-48 overflow-hidden relative">
                   <img
                     src={pkg.image}
                     alt={pkg.name}
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  <div className="absolute bottom-3 left-4 text-white">
-                    <h3 className="font-heading text-lg font-bold">{pkg.name}</h3>
+                  <div className="absolute bottom-2.5 left-3.5 text-white">
+                    <h3 className="font-heading text-base sm:text-lg font-bold">{pkg.name}</h3>
                   </div>
                 </div>
 
-                <div className="p-6 space-y-4 flex-1 flex flex-col justify-between">
-                  <div className="space-y-3">
-                    <div className="text-3xl font-extrabold text-[#ED78A8]">{pkg.price}</div>
+                <div className="p-4 sm:p-6 space-y-3 flex-1 flex flex-col justify-between">
+                  <div className="space-y-2.5 sm:space-y-3">
+                    <div className="text-2xl sm:text-3xl font-extrabold text-[#ED78A8]">{pkg.price}</div>
 
-                    <ul className="space-y-2 text-xs text-[#242424] border-t border-slate-100 pt-3 font-body">
+                    <ul className="space-y-1.5 sm:space-y-2 text-xs text-[#242424] border-t border-slate-100 pt-2.5 sm:pt-3 font-body">
                       {pkg.features.map((feat, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <CheckCircle2 className="w-4 h-4 text-[#ED78A8] shrink-0 mt-0.5" />
+                        <li key={i} className="flex items-start gap-1.5 sm:gap-2">
+                          <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#ED78A8] shrink-0 mt-0.5" />
                           <span>{feat}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <div className="pt-4">
+                  <div className="pt-3 sm:pt-4">
                     <button
                       onClick={onOpenBooking}
-                      className="w-full py-3 rounded-full text-xs font-semibold uppercase tracking-wider font-nav text-white bg-[#ED78A8] hover:bg-[#D9578D] transition shadow-md"
+                      className="w-full py-2.5 sm:py-3 rounded-full text-xs font-semibold uppercase tracking-wider font-nav text-white bg-[#ED78A8] hover:bg-[#D9578D] transition shadow-md"
                     >
                       Book Event Coverage
                     </button>

@@ -42,23 +42,23 @@ export default function HeroCarousel({ onOpenBooking }) {
       {/* Hero Content Container */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center gap-6 mt-12">
         {/* Editorial Heading */}
-        <h1 className="font-heading text-5xl sm:text-7xl md:text-8xl font-extrabold tracking-tight leading-[1.1] text-white max-w-4xl drop-shadow-lg transition-all duration-700">
+        <h1 className="font-heading text-5xl sm:text-7xl md:text-8xl font-extrabold tracking-tight leading-[1.1] text-white max-w-4xl drop-shadow-lg transition-all duration-700 reveal-on-scroll">
           {currentSlide.title}
         </h1>
 
         {/* Subtitle */}
-        <p className="text-slate-200 text-base sm:text-xl max-w-2xl font-light leading-relaxed drop-shadow-md transition-all duration-700">
+        <p className="text-slate-200 text-base sm:text-xl max-w-2xl font-light leading-relaxed drop-shadow-md transition-all duration-700 reveal-on-scroll reveal-delay-1">
           {currentSlide.subtitle}
         </p>
 
         {/* Action CTAs */}
-        <div className="flex flex-col sm:flex-row items-center gap-4 pt-4 w-full sm:w-auto font-nav text-xs font-semibold uppercase tracking-wider">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-2 sm:pt-4 w-full sm:w-auto font-nav text-xs font-semibold uppercase tracking-wider reveal-scale reveal-delay-2">
           <button
             onClick={onOpenBooking}
             data-cursor="click"
-            className="w-full sm:w-auto px-9 py-4 rounded-full text-white bg-[#ED78A8] hover:bg-[#D9578D] transition-all duration-300 shadow-xl shadow-[#ED78A8]/40 flex items-center justify-center gap-2 transform hover:-translate-y-0.5"
+            className="w-[250px] sm:w-auto px-5 py-3 sm:px-9 sm:py-4 rounded-full text-white bg-[#ED78A8] hover:bg-[#D9578D] transition-all duration-300 shadow-xl shadow-[#ED78A8]/40 flex items-center justify-center gap-2 transform hover:-translate-y-0.5 whitespace-nowrap"
           >
-            <Calendar className="w-4 h-4" />
+            <Calendar className="w-4 h-4 shrink-0" />
             Book Your Shoot
           </button>
           
@@ -68,9 +68,9 @@ export default function HeroCarousel({ onOpenBooking }) {
             rel="noopener noreferrer"
             download="ClickMate_Packges_Final.pdf"
             data-cursor="click"
-            className="w-full sm:w-auto px-9 py-4 rounded-full text-white bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/30 shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
+            className="w-[250px] sm:w-auto px-5 py-3 sm:px-9 sm:py-4 rounded-full text-white bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/30 shadow-lg transition-all duration-300 flex items-center justify-center gap-2 whitespace-nowrap"
           >
-            <FileText className="w-4 h-4 text-[#ED78A8]" />
+            <FileText className="w-4 h-4 text-[#ED78A8] shrink-0" />
             Download Brochure
           </a>
         </div>

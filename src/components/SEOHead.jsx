@@ -35,8 +35,8 @@ export default function SEOHead({
     const currentUrl = canonicalUrl || window.location.href
 
     // 2. Standard Meta Tags
-    setMetaTag('meta[name="description"]', 'description', 'name', description || 'ClickMates Photography is a professional photography studio based in Kothrud, Pune, offering baby, newborn, maternity, family, milestone, and event photography.')
-    setMetaTag('meta[name="keywords"]', 'keywords', 'name', keywords || 'ClickMates Photography, Photography Studio Pune, Photographer Pune, Photography Studio Kothrud, Baby Photography Pune, Newborn Photography Pune, Maternity Photography Pune, Family Photography Pune')
+    setMetaTag('meta[name="description"]', 'description', 'name', description || 'ClickMates Photography is a top-rated photography studio based in Kothrud, Pune, offering baby, newborn safety, maternity, family portraits, cake smash, and celebration event photography.')
+    setMetaTag('meta[name="keywords"]', 'keywords', 'name', keywords || 'ClickMates Photography, Photo Studio Near Me, Photo Studio Pune, Photo Studio Kothrud, Photography Studio in Pune, Best Baby Photography Pune, Newborn Photography Pune, Maternity Photoshoot Pune, Baby Photoshoot Kothrud, Cake Smash Photoshoot Pune, Family Photographer Pune, Photo Studio Paud Road, Baby Photographer Near Me, Maternity Photographer Near Me')
     setMetaTag('meta[name="author"]', 'author', 'name', brandDetails.name)
 
     // 3. Canonical Link

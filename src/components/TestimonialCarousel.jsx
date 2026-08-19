@@ -5,164 +5,138 @@ import { testimonialsData } from '../data/photographyData'
 export default function TestimonialCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isHovered, setIsHovered] = useState(false)
-  const [cardsPerPage, setCardsPerPage] = useState(3)
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 640) {
-        setCardsPerPage(1)
-      } else if (window.innerWidth < 1024) {
-        setCardsPerPage(2)
-      } else {
-        setCardsPerPage(3)
-      }
-    }
-    handleResize()
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
 
   const totalReviews = testimonialsData.length
-  const maxIndex = Math.max(0, totalReviews - cardsPerPage)
 
   const handleNext = () => {
-    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1))
+    setCurrentIndex((prev) => (prev + 1) % totalReviews)
   }
 
   const handlePrev = () => {
-    setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1))
+    setCurrentIndex((prev) => (prev - 1 + totalReviews) % totalReviews)
   }
 
-  // Auto-play timer (scrolls every 2 seconds)
+  // Auto-play timer: rotates every 2 seconds (2000ms)
   useEffect(() => {
     if (isHovered) return
     const timer = setInterval(() => {
       handleNext()
     }, 2000)
     return () => clearInterval(timer)
-  }, [currentIndex, isHovered, maxIndex])
+  }, [isHovered, totalReviews])
+
+  const currentReview = testimonialsData[currentIndex]
+
+  // Extract initials for circular avatar badge (e.g. "Ananya & Rohan" -> "AR")
+  const getInitials = (name) => {
+    if (!name) return 'CM'
+    const parts = name.replace('&', '').split(' ').filter(Boolean)
+    if (parts.length >= 2) return `${parts[0][0]}${parts[1][0]}`
+    return parts[0] ? parts[0].slice(0, 2).toUpperCase() : 'CM'
+  }
 
   return (
-    <section className="py-20 sm:py-28 bg-[#FFF0F6]/30 border-b border-[#FFF0F6] overflow-hidden">
+    <section className="pt-8 pb-14 sm:py-28 bg-[#FFF0F6]/30 border-b border-[#FFF0F6] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-          <span className="text-xs font-semibold uppercase tracking-widest font-nav text-[#ED78A8] bg-white px-3.5 py-1.5 rounded-full border border-[#ED78A8]/20 shadow-xs">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 space-y-2.5 sm:space-y-3">
+          <span className="inline-block text-[10px] sm:text-xs font-semibold uppercase tracking-widest font-nav text-[#ED78A8] bg-white px-3.5 py-1.5 rounded-full border border-[#ED78A8]/20 shadow-xs max-w-full text-center leading-normal">
             100% VERIFIED CLIENT REVIEWS ({totalReviews} REVIEWS)
           </span>
-          <h2 className="font-heading text-3xl sm:text-5xl font-bold text-[#242424]">
+          <h2 className="font-heading text-2xl sm:text-5xl font-bold text-[#242424]">
             Loved by Families Across Pune
           </h2>
-          <p className="text-[#666666] text-sm sm:text-base font-light">
+          <p className="text-[#666666] text-xs sm:text-base font-light">
             Slide through real experiences from parents across Kothrud, Paud Road & Pune.
           </p>
         </div>
 
-        {/* 1-Line Carousel Track Container */}
+        {/* Single Focused Card View Container */}
         <div
-          className="relative px-2 sm:px-12"
+          className="relative max-w-[340px] sm:max-w-xl mx-auto"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          {/* Navigation Control Buttons */}
+          {/* Previous Arrow Button */}
           <button
             onClick={handlePrev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white text-[#242424] hover:text-white hover:bg-[#ED78A8] border border-[#FFF0F6] shadow-lg flex items-center justify-center transition-all duration-300 transform hover:scale-110 cursor-pointer hidden sm:flex"
-            aria-label="Previous reviews"
+            className="absolute -left-4 sm:-left-12 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-12 sm:h-12 rounded-full bg-white text-[#242424] hover:text-white hover:bg-[#ED78A8] border border-[#ED78A8]/30 shadow-lg flex items-center justify-center transition-all duration-300 transform hover:scale-110 cursor-pointer"
+            aria-label="Previous review"
           >
-            <ChevronLeft className="w-5 h-5" />
+            <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
 
+          {/* Next Arrow Button */}
           <button
             onClick={handleNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white text-[#242424] hover:text-white hover:bg-[#ED78A8] border border-[#FFF0F6] shadow-lg flex items-center justify-center transition-all duration-300 transform hover:scale-110 cursor-pointer hidden sm:flex"
-            aria-label="Next reviews"
+            className="absolute -right-4 sm:-right-12 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-12 sm:h-12 rounded-full bg-white text-[#242424] hover:text-white hover:bg-[#ED78A8] border border-[#ED78A8]/30 shadow-lg flex items-center justify-center transition-all duration-300 transform hover:scale-110 cursor-pointer"
+            aria-label="Next review"
           >
-            <ChevronRight className="w-5 h-5" />
+            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
 
-          {/* ALL REVIEWS IN 1 SINGLE ROW LINE TRACK */}
-          <div className="overflow-hidden py-4">
+          {/* Luxury Review Card */}
+          <div className="px-1 sm:px-0">
             <div
-              className="flex transition-transform duration-700 ease-out gap-6 flex-nowrap"
-              style={{
-                transform: `translateX(-${currentIndex * (100 / cardsPerPage)}%)`
-              }}
+              key={currentReview.id}
+              className="p-5 sm:p-8 rounded-3xl bg-gradient-to-br from-white via-[#FFFDFB] to-[#FFF0F6]/40 border-t-4 border-t-[#ED78A8] border border-[#ED78A8]/20 shadow-xl relative overflow-hidden transition-all duration-500 transform hover:-translate-y-0.5 flex flex-col justify-between space-y-4 min-h-[220px]"
             >
-              {testimonialsData.map((test) => (
-                <div
-                  key={test.id}
-                  className="shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
-                >
-                  <div className="p-8 rounded-3xl bg-white border border-[#FFF0F6] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between h-full space-y-6 relative overflow-hidden group">
-                    {/* Decorative Quote Icon (NO ROUND PHOTO IMAGE) */}
-                    <Quote className="absolute top-6 right-6 w-10 h-10 text-[#ED78A8]/15 group-hover:text-[#ED78A8]/30 transition-colors pointer-events-none" />
+              {/* Decorative Quote Icon Watermark */}
+              <Quote className="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 sm:w-14 sm:h-14 text-[#ED78A8]/15 pointer-events-none" />
 
-                    {/* Reviewer Header Details (Clean Text, No Image Round) */}
-                    <div className="space-y-1.5 relative z-10">
-                      <h3 className="font-heading font-bold text-lg text-[#242424]">
-                        {test.name}
-                      </h3>
-                      <div className="flex items-center justify-between gap-2">
-                        <span className="text-xs text-[#ED78A8] font-nav font-semibold uppercase tracking-wider">
-                          {test.type}
-                        </span>
-                        {test.location && (
-                          <span className="text-[10px] text-[#888888] font-nav flex items-center gap-1">
-                            <MapPin className="w-3 h-3 text-[#ED78A8]" />
-                            {test.location}
-                          </span>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Star Rating & Quote Text */}
-                    <div className="space-y-3.5 relative z-10">
-                      <div className="flex gap-1 text-amber-400">
-                        {[...Array(test.rating)].map((_, r) => (
-                          <Star key={r} className="w-4 h-4 fill-current" />
-                        ))}
-                      </div>
-                      <p className="text-[#333333] text-xs sm:text-sm italic leading-relaxed font-body font-light">
-                        "{test.quote}"
-                      </p>
-                    </div>
-                  </div>
+              {/* Reviewer Info Row */}
+              <div className="flex items-center gap-3 relative z-10">
+                {/* Initials Avatar */}
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#ED78A8] text-white flex items-center justify-center font-heading font-extrabold text-sm sm:text-base shadow-md shadow-[#ED78A8]/25 shrink-0">
+                  {getInitials(currentReview.name)}
                 </div>
-              ))}
+
+                <div className="space-y-0.5 flex-1 min-w-0">
+                  <div className="flex items-center justify-between gap-2 flex-wrap">
+                    <h3 className="font-heading font-bold text-base sm:text-xl text-[#242424] truncate">
+                      {currentReview.name}
+                    </h3>
+                    {currentReview.location && (
+                      <span className="text-[11px] sm:text-xs text-[#888888] font-nav flex items-center gap-1 shrink-0">
+                        <MapPin className="w-3 h-3 text-[#ED78A8]" />
+                        {currentReview.location}
+                      </span>
+                    )}
+                  </div>
+                  <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-semibold font-nav uppercase tracking-wider text-[#ED78A8] bg-[#FFF0F6] border border-[#ED78A8]/20">
+                    {currentReview.type}
+                  </span>
+                </div>
+              </div>
+
+              {/* Rating & Review Quote */}
+              <div className="space-y-2.5 relative z-10 pt-2 border-t border-[#FFF0F6]">
+                <div className="flex gap-1 text-amber-400">
+                  {[...Array(currentReview.rating)].map((_, r) => (
+                    <Star key={r} className="w-4 h-4 fill-current drop-shadow-xs" />
+                  ))}
+                </div>
+                <p className="text-[#333333] text-xs sm:text-base italic leading-relaxed font-body font-light">
+                  "{currentReview.quote}"
+                </p>
+              </div>
             </div>
           </div>
 
-          {/* Dots Indicator for Single Line Track */}
-          <div className="flex items-center justify-center gap-2 pt-8">
-            {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
+          {/* Navigation Dots Indicator */}
+          <div className="flex items-center justify-center gap-1.5 sm:gap-2 pt-5 sm:pt-6">
+            {testimonialsData.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => setCurrentIndex(idx)}
-                className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
+                className={`h-2 sm:h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
                   currentIndex === idx
-                    ? 'w-8 bg-[#ED78A8]'
-                    : 'w-2.5 bg-[#ED78A8]/30 hover:bg-[#ED78A8]/60'
+                    ? 'w-7 sm:w-8 bg-[#ED78A8] shadow-sm'
+                    : 'w-2 sm:w-2.5 bg-[#ED78A8]/30 hover:bg-[#ED78A8]/60'
                 }`}
-                aria-label={`Go to slide ${idx + 1}`}
+                aria-label={`Go to review ${idx + 1}`}
               />
             ))}
-          </div>
-
-          {/* Mobile Prev/Next Controls */}
-          <div className="flex sm:hidden items-center justify-center gap-4 pt-4">
-            <button
-              onClick={handlePrev}
-              className="w-10 h-10 rounded-full bg-white text-[#242424] border border-[#FFF0F6] shadow-md flex items-center justify-center"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button
-              onClick={handleNext}
-              className="w-10 h-10 rounded-full bg-white text-[#242424] border border-[#FFF0F6] shadow-md flex items-center justify-center"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
           </div>
         </div>
       </div>
