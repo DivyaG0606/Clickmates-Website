@@ -59,8 +59,19 @@ function ScrollObserver() {
 
 export default function App() {
   const [bookingModalOpen, setBookingModalOpen] = useState(false)
+  const [isFirstVisit, setIsFirstVisit] = useState(false)
+
+  useEffect(() => {
+    // Auto-trigger shoot enquiry modal on page reload / initial load
+    const timer = setTimeout(() => {
+      setIsFirstVisit(true)
+      setBookingModalOpen(true)
+    }, 1200)
+    return () => clearTimeout(timer)
+  }, [])
 
   const handleOpenBooking = () => {
+    setIsFirstVisit(false)
     setBookingModalOpen(true)
   }
 
@@ -101,7 +112,11 @@ export default function App() {
         <MobileStickyCTA onOpenBooking={handleOpenBooking} />
 
         {/* Booking Reservation Modal */}
-        <BookingModal isOpen={bookingModalOpen} onClose={handleCloseBooking} />
+        <BookingModal
+          isOpen={bookingModalOpen}
+          onClose={handleCloseBooking}
+          isFirstVisit={isFirstVisit}
+        />
       </div>
     </Router>
   )
