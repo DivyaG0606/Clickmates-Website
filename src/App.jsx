@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, lazy, Suspense } from 'react'
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -8,11 +8,11 @@ import CustomCursor from './components/CustomCursor'
 import TopProgressBar from './components/TopProgressBar'
 
 import HomePage from './pages/HomePage'
-import AboutPage from './pages/AboutPage'
-import ServicesPage from './pages/ServicesPage'
-import ServiceDetailPage from './pages/ServiceDetailPage'
-import PackagesPage from './pages/PackagesPage'
-import ContactPage from './pages/ContactPage'
+const AboutPage = lazy(() => import('./pages/AboutPage'))
+const ServicesPage = lazy(() => import('./pages/ServicesPage'))
+const ServiceDetailPage = lazy(() => import('./pages/ServiceDetailPage'))
+const PackagesPage = lazy(() => import('./pages/PackagesPage'))
+const ContactPage = lazy(() => import('./pages/ContactPage'))
 
 import './App.css'
 
@@ -94,15 +94,17 @@ export default function App() {
 
         {/* Main Route Content */}
         <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<HomePage onOpenBooking={handleOpenBooking} />} />
-            <Route path="/about" element={<AboutPage onOpenBooking={handleOpenBooking} />} />
-            <Route path="/services" element={<ServicesPage onOpenBooking={handleOpenBooking} />} />
-            <Route path="/services/:serviceId" element={<ServiceDetailPage onOpenBooking={handleOpenBooking} />} />
-            <Route path="/packages" element={<PackagesPage onOpenBooking={handleOpenBooking} />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="*" element={<HomePage onOpenBooking={handleOpenBooking} />} />
-          </Routes>
+          <Suspense fallback={null}>
+            <Routes>
+              <Route path="/" element={<HomePage onOpenBooking={handleOpenBooking} />} />
+              <Route path="/about" element={<AboutPage onOpenBooking={handleOpenBooking} />} />
+              <Route path="/services" element={<ServicesPage onOpenBooking={handleOpenBooking} />} />
+              <Route path="/services/:serviceId" element={<ServiceDetailPage onOpenBooking={handleOpenBooking} />} />
+              <Route path="/packages" element={<PackagesPage onOpenBooking={handleOpenBooking} />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="*" element={<HomePage onOpenBooking={handleOpenBooking} />} />
+            </Routes>
+          </Suspense>
         </main>
 
         {/* Footer */}

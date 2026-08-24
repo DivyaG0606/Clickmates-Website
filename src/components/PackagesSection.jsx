@@ -331,6 +331,10 @@ export default function PackagesSection({ onOpenBooking }) {
                   <img
                     src={pkg.image}
                     alt={pkg.name}
+                    width="400"
+                    height="250"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
@@ -390,6 +394,10 @@ export default function PackagesSection({ onOpenBooking }) {
                   <img
                     src={pkg.image}
                     alt={pkg.name}
+                    width="400"
+                    height="250"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
@@ -449,6 +457,10 @@ export default function PackagesSection({ onOpenBooking }) {
                   <img
                     src={pkg.image}
                     alt={pkg.name}
+                    width="400"
+                    height="250"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
@@ -508,6 +520,10 @@ export default function PackagesSection({ onOpenBooking }) {
                   <img
                     src={pkg.image}
                     alt={pkg.name}
+                    width="400"
+                    height="250"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />

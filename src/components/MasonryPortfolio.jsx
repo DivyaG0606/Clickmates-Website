@@ -70,8 +70,11 @@ export default function MasonryPortfolio({ onOpenBooking }) {
               <img
                 src={item.image}
                 alt={item.alt}
-                className="w-full h-52 sm:h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                width="600"
+                height="600"
                 loading="lazy"
+                decoding="async"
+                className="w-full h-52 sm:h-auto object-cover transition-transform duration-700 group-hover:scale-105"
               />
               {/* Soft Pink Overlay on Hover */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-[#ED78A8]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 sm:p-6 flex flex-col justify-end text-white">

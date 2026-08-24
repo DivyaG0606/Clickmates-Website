@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Calendar, FileText, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Calendar, ChevronLeft, ChevronRight } from 'lucide-react'
 import { heroSlides } from '../data/photographyData'
 
 export default function HeroCarousel({ onOpenBooking }) {
@@ -30,6 +30,9 @@ export default function HeroCarousel({ onOpenBooking }) {
           <img
             src={slide.image}
             alt={slide.alt}
+            loading={index === 0 ? 'eager' : 'lazy'}
+            fetchpriority={index === 0 ? 'high' : 'low'}
+            decoding="async"
             className={`w-full h-full object-cover object-center transform-gpu ${
               index === currentIndex ? 'animate-ken-burns' : ''
             }`}
@@ -52,27 +55,15 @@ export default function HeroCarousel({ onOpenBooking }) {
         </p>
 
         {/* Action CTAs */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-2 sm:pt-4 w-full sm:w-auto font-nav text-xs font-semibold uppercase tracking-wider reveal-scale reveal-delay-2">
+        <div className="flex items-center justify-center pt-2 sm:pt-4 w-full sm:w-auto font-nav text-xs font-semibold uppercase tracking-wider reveal-scale reveal-delay-2">
           <button
             onClick={onOpenBooking}
             data-cursor="click"
-            className="w-[250px] sm:w-auto px-5 py-3 sm:px-9 sm:py-4 rounded-full text-white bg-[#ED78A8] hover:bg-[#D9578D] transition-all duration-300 shadow-xl shadow-[#ED78A8]/40 flex items-center justify-center gap-2 transform hover:-translate-y-0.5 whitespace-nowrap"
+            className="w-[250px] sm:w-auto px-6 py-3.5 sm:px-10 sm:py-4 rounded-full text-white bg-[#ED78A8] hover:bg-[#D9578D] transition-all duration-300 shadow-xl shadow-[#ED78A8]/40 flex items-center justify-center gap-2.5 transform hover:-translate-y-0.5 whitespace-nowrap cursor-pointer"
           >
             <Calendar className="w-4 h-4 shrink-0" />
             Book Your Shoot
           </button>
-          
-          <a
-            href="/ClickMate_Packges_Final.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            download="ClickMate_Packges_Final.pdf"
-            data-cursor="click"
-            className="w-[250px] sm:w-auto px-5 py-3 sm:px-9 sm:py-4 rounded-full text-white bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/30 shadow-lg transition-all duration-300 flex items-center justify-center gap-2 whitespace-nowrap"
-          >
-            <FileText className="w-4 h-4 text-[#ED78A8] shrink-0" />
-            Download Brochure
-          </a>
         </div>
       </div>
 
