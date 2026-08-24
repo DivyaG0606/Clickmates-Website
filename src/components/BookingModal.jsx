@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { X, MessageCircle, CheckCircle2, Sparkles, Loader2, Gift, MapPin, Calendar, User, Phone, Mail, AlertCircle } from 'lucide-react'
+import { X, MessageCircle, CheckCircle2, Loader2, MapPin, Calendar, User, Phone, Mail, AlertCircle } from 'lucide-react'
 import { brandDetails } from '../data/photographyData'
 import { submitLead } from '../services/leadService'
 
@@ -8,7 +8,7 @@ export default function BookingModal({ isOpen, onClose, isFirstVisit = false }) 
     name: '',
     phone: '',
     email: '',
-    service: 'baby-photography',
+    service: '',
     date: '',
     city: 'Pune',
     message: ''
@@ -70,6 +70,11 @@ export default function BookingModal({ isOpen, onClose, isFirstVisit = false }) 
       newErrors.email = 'Enter a valid email address'
     }
 
+    // 4. Shoot Type validation
+    if (!formData.service) {
+      newErrors.service = 'Please select a shoot type'
+    }
+
     setErrors(newErrors)
     return Object.keys(newErrors).length === 0
   }
@@ -119,11 +124,11 @@ export default function BookingModal({ isOpen, onClose, isFirstVisit = false }) 
   return (
     <div
       onClick={onClose}
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-md animate-fade-in overflow-y-auto no-scrollbar cursor-pointer"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-md animate-backdrop-fade overflow-y-auto no-scrollbar cursor-pointer"
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="bg-[#FFFDFB] text-[#242424] w-full max-w-lg rounded-3xl p-5 sm:p-6 relative shadow-2xl border border-[#FFF0F6] my-auto max-h-[96vh] overflow-y-auto no-scrollbar cursor-default"
+        className="bg-[#FFFDFB] text-[#242424] w-full max-w-lg rounded-3xl p-5 sm:p-6 relative shadow-2xl border border-[#FFF0F6] my-auto max-h-[96vh] overflow-y-auto no-scrollbar cursor-default animate-modal-pop"
       >
         {/* Close Button */}
         <button
@@ -181,24 +186,16 @@ export default function BookingModal({ isOpen, onClose, isFirstVisit = false }) 
           </div>
         ) : (
           <div>
-            {/* Header / Offer Banner */}
-            {isFirstVisit ? (
-              <div className="mb-2.5 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-[#FFF0F6] to-[#FFE4EE] text-[#ED78A8] text-[11px] font-bold uppercase tracking-wider border border-[#ED78A8]/30 shadow-sm">
-                <Gift className="w-3.5 h-3.5" /> Welcome Offer: 10% Off First Shoot!
-              </div>
-            ) : (
-              <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wider font-nav text-[#ED78A8] mb-1.5">
-                ClickMates Studio Reservation
-              </div>
-            )}
+            {/* Header */}
+            <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wider font-nav text-[#ED78A8] mb-1.5">
+              ClickMates Studio Reservation
+            </div>
 
             <h2 className="font-heading text-2xl sm:text-3xl font-bold text-[#242424] mb-1">
-              {isFirstVisit ? 'Book Your Dream Shoot' : 'Book Your Shoot'}
+              Book Your Shoot
             </h2>
             <p className="text-xs text-[#666666] mb-3.5 leading-relaxed">
-              {isFirstVisit
-                ? 'Welcome to ClickMates! Fill in your details to lock in your free consultation & exclusive first-time booking rates.'
-                : "Let's create timeless memories together. Fill in your details below and our team will get in touch promptly."}
+              Let's create timeless memories together. Fill in your details below and our team will get in touch promptly.
             </p>
 
             <form onSubmit={handleSubmit} noValidate className="space-y-2.5 font-body text-xs">
@@ -280,8 +277,18 @@ export default function BookingModal({ isOpen, onClose, isFirstVisit = false }) 
                   <select
                     value={formData.service}
                     onChange={(e) => handleInputChange('service', e.target.value)}
-                    className="w-full px-3 py-2 rounded-xl border border-slate-200 focus:border-[#ED78A8] focus:ring-2 focus:ring-[#ED78A8]/20 outline-none transition bg-white text-xs font-semibold text-slate-800"
+                    className={`w-full px-3 py-2 rounded-xl border outline-none transition bg-white text-xs font-semibold ${
+                      formData.service ? 'text-slate-800' : 'text-slate-400'
+                    } ${
+                      errors.service
+                        ? 'border-rose-400 focus:ring-2 focus:ring-rose-200 bg-rose-50/20'
+                        : 'border-slate-200 focus:border-[#ED78A8] focus:ring-2 focus:ring-[#ED78A8]/20'
+                    }`}
                   >
+                    <option value="" disabled hidden>
+                      Select Shoot Type
+                    </option>
+                    <option value="model-shoot">Model Shoot / Portfolio</option>
                     <option value="baby-photography">Baby Photography</option>
                     <option value="maternity-photography">Maternity Photography</option>
                     <option value="newborn-photography">Newborn Photography</option>
@@ -291,6 +298,11 @@ export default function BookingModal({ isOpen, onClose, isFirstVisit = false }) 
                     <option value="baby-milestone-photography">Baby Milestone</option>
                     <option value="pre-wedding-shoot">Pre-Wedding Shoot</option>
                   </select>
+                  {errors.service && (
+                    <p className="text-rose-500 text-[11px] mt-1 font-medium flex items-center gap-1">
+                      <AlertCircle className="w-3 h-3" /> {errors.service}
+                    </p>
+                  )}
                 </div>
                 <div>
                   <label className="block text-[#242424] font-semibold mb-0.5 font-nav flex items-center gap-1.5">
@@ -345,9 +357,7 @@ export default function BookingModal({ isOpen, onClose, isFirstVisit = false }) 
                     <Loader2 className="w-4 h-4 animate-spin" /> Submitting Lead...
                   </>
                 ) : (
-                  <>
-                    {isFirstVisit ? 'Claim 10% Discount & Submit' : 'Submit Booking Enquiry'}
-                  </>
+                  'Book Your Shoot Now'
                 )}
               </button>
 
