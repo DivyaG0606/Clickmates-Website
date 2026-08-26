@@ -281,12 +281,12 @@ export default function PackagesSection({ onOpenBooking }) {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 space-y-2.5 sm:space-y-3 reveal-on-scroll">
           <span className="inline-block text-[10px] sm:text-xs font-semibold uppercase tracking-widest font-nav text-[#ED78A8] bg-white px-3.5 py-1.5 rounded-full border border-[#ED78A8]/20 shadow-sm max-w-full text-center leading-normal">
-            PACKAGES & INVESTMENT
+            CLICKMATES STUDIO KOTHRUD PUNE — PACKAGES & INVESTMENT
           </span>
           <h2 className="font-heading text-2xl sm:text-5xl font-bold text-[#242424]">
             Official Photography Packages
           </h2>
-          <p className="text-[#666666] text-xs sm:text-base font-body">
+          <p className="text-[#666666] text-xs sm:text-base font-body font-light">
             Transparent pricing for newborn, baby, maternity, and celebration photoshoots.
           </p>
         </div>
@@ -297,11 +297,10 @@ export default function PackagesSection({ onOpenBooking }) {
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
-              className={`px-3.5 py-1.5 sm:px-5 sm:py-2.5 rounded-full transition-all duration-300 uppercase tracking-wider ${
-                activeCategory === cat.id
+              className={`px-3.5 py-1.5 sm:px-5 sm:py-2.5 rounded-full transition-all duration-300 uppercase tracking-wider cursor-pointer ${activeCategory === cat.id
                   ? 'bg-[#ED78A8] text-white shadow-md shadow-[#ED78A8]/25 scale-105'
                   : 'bg-white text-[#242424] hover:bg-[#FFF0F6] border border-[#ED78A8]/20'
-              }`}
+                }`}
             >
               {cat.name}
             </button>
@@ -314,11 +313,10 @@ export default function PackagesSection({ onOpenBooking }) {
             {newbornPackages.map((pkg, idx) => (
               <div
                 key={idx}
-                className={`bg-white rounded-2xl sm:rounded-3xl overflow-hidden border flex flex-col justify-between relative transition-all duration-300 ${
-                  pkg.popular
+                className={`bg-white rounded-2xl sm:rounded-3xl overflow-hidden border flex flex-col justify-between relative transition-all duration-300 ${pkg.popular
                     ? 'border-[#ED78A8] shadow-2xl ring-2 ring-[#ED78A8]/30'
                     : 'border-[#FFF0F6] shadow-sm hover:shadow-md'
-                }`}
+                  }`}
               >
                 {pkg.popular && (
                   <span className="absolute top-2.5 right-2.5 z-10 bg-[#ED78A8] text-white px-2.5 py-0.5 rounded-full text-[9px] sm:text-[10px] font-semibold uppercase tracking-widest font-nav shadow-md">
@@ -330,7 +328,8 @@ export default function PackagesSection({ onOpenBooking }) {
                 <div className="h-36 sm:h-48 overflow-hidden relative">
                   <img
                     src={pkg.image}
-                    alt={pkg.name}
+                    alt={`${pkg.name} Newborn Photography Package at ClickMates Pune`}
+                    title={`${pkg.name} Newborn Shoot - ClickMates Studio`}
                     width="400"
                     height="250"
                     loading="lazy"
@@ -347,7 +346,7 @@ export default function PackagesSection({ onOpenBooking }) {
                   <div className="space-y-2.5 sm:space-y-3">
                     <div className="text-2xl sm:text-3xl font-extrabold text-[#ED78A8]">{pkg.price}</div>
 
-                    <ul className="space-y-1.5 sm:space-y-2 text-xs text-[#242424] border-t border-slate-100 pt-2.5 sm:pt-3 font-body">
+                    <ul className="space-y-1.5 sm:space-y-2 text-xs text-[#242424] border-t border-slate-100 pt-2.5 sm:pt-3 font-body font-light">
                       {pkg.features.map((feat, i) => (
                         <li key={i} className="flex items-start gap-1.5 sm:gap-2">
                           <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#ED78A8] shrink-0 mt-0.5" />
@@ -360,7 +359,7 @@ export default function PackagesSection({ onOpenBooking }) {
                   <div className="pt-3 sm:pt-4">
                     <button
                       onClick={onOpenBooking}
-                      className="w-full py-2.5 sm:py-3 rounded-full text-xs font-semibold uppercase tracking-wider font-nav text-white bg-[#ED78A8] hover:bg-[#D9578D] transition shadow-md"
+                      className="w-full py-2.5 sm:py-3 rounded-full text-xs font-semibold uppercase tracking-wider font-nav text-white bg-[#ED78A8] hover:bg-[#D9578D] transition shadow-md cursor-pointer"
                     >
                       Book Newborn Shoot
                     </button>
@@ -377,11 +376,10 @@ export default function PackagesSection({ onOpenBooking }) {
             {babyPackages.map((pkg, idx) => (
               <div
                 key={idx}
-                className={`bg-white rounded-2xl sm:rounded-3xl overflow-hidden border flex flex-col justify-between relative transition-all duration-300 ${
-                  pkg.popular
+                className={`bg-white rounded-2xl sm:rounded-3xl overflow-hidden border flex flex-col justify-between relative transition-all duration-300 ${pkg.popular
                     ? 'border-[#ED78A8] shadow-2xl ring-2 ring-[#ED78A8]/30'
                     : 'border-[#FFF0F6] shadow-sm hover:shadow-md'
-                }`}
+                  }`}
               >
                 {pkg.popular && (
                   <span className="absolute top-2.5 right-2.5 z-10 bg-[#ED78A8] text-white px-2.5 py-0.5 rounded-full text-[9px] sm:text-[10px] font-semibold uppercase tracking-widest font-nav shadow-md">
@@ -393,7 +391,8 @@ export default function PackagesSection({ onOpenBooking }) {
                 <div className="h-36 sm:h-48 overflow-hidden relative">
                   <img
                     src={pkg.image}
-                    alt={pkg.name}
+                    alt={`${pkg.name} Baby Photography Package at ClickMates Pune`}
+                    title={`${pkg.name} Baby Shoot - ClickMates Studio`}
                     width="400"
                     height="250"
                     loading="lazy"
@@ -410,7 +409,7 @@ export default function PackagesSection({ onOpenBooking }) {
                   <div className="space-y-2.5 sm:space-y-3">
                     <div className="text-2xl sm:text-3xl font-extrabold text-[#ED78A8]">{pkg.price}</div>
 
-                    <ul className="space-y-1.5 sm:space-y-2 text-xs text-[#242424] border-t border-slate-100 pt-2.5 sm:pt-3 font-body">
+                    <ul className="space-y-1.5 sm:space-y-2 text-xs text-[#242424] border-t border-slate-100 pt-2.5 sm:pt-3 font-body font-light">
                       {pkg.features.map((feat, i) => (
                         <li key={i} className="flex items-start gap-1.5 sm:gap-2">
                           <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#ED78A8] shrink-0 mt-0.5" />
@@ -423,7 +422,7 @@ export default function PackagesSection({ onOpenBooking }) {
                   <div className="pt-3 sm:pt-4">
                     <button
                       onClick={onOpenBooking}
-                      className="w-full py-2.5 sm:py-3 rounded-full text-xs font-semibold uppercase tracking-wider font-nav text-white bg-[#ED78A8] hover:bg-[#D9578D] transition shadow-md"
+                      className="w-full py-2.5 sm:py-3 rounded-full text-xs font-semibold uppercase tracking-wider font-nav text-white bg-[#ED78A8] hover:bg-[#D9578D] transition shadow-md cursor-pointer"
                     >
                       Book Baby Shoot
                     </button>
@@ -440,11 +439,10 @@ export default function PackagesSection({ onOpenBooking }) {
             {maternityPackages.map((pkg, idx) => (
               <div
                 key={idx}
-                className={`bg-white rounded-2xl sm:rounded-3xl overflow-hidden border flex flex-col justify-between relative transition-all duration-300 ${
-                  pkg.popular
+                className={`bg-white rounded-2xl sm:rounded-3xl overflow-hidden border flex flex-col justify-between relative transition-all duration-300 ${pkg.popular
                     ? 'border-[#ED78A8] shadow-2xl ring-2 ring-[#ED78A8]/30'
                     : 'border-[#FFF0F6] shadow-sm hover:shadow-md'
-                }`}
+                  }`}
               >
                 {pkg.popular && (
                   <span className="absolute top-2.5 right-2.5 z-10 bg-[#ED78A8] text-white px-2.5 py-0.5 rounded-full text-[9px] sm:text-[10px] font-semibold uppercase tracking-widest font-nav shadow-md">
@@ -456,7 +454,8 @@ export default function PackagesSection({ onOpenBooking }) {
                 <div className="h-36 sm:h-52 overflow-hidden relative">
                   <img
                     src={pkg.image}
-                    alt={pkg.name}
+                    alt={`${pkg.name} Maternity Photography Package at ClickMates Pune`}
+                    title={`${pkg.name} Maternity Shoot - ClickMates Studio`}
                     width="400"
                     height="250"
                     loading="lazy"
@@ -473,7 +472,7 @@ export default function PackagesSection({ onOpenBooking }) {
                   <div className="space-y-2.5 sm:space-y-3">
                     <div className="text-2xl sm:text-3xl font-extrabold text-[#ED78A8]">{pkg.price}</div>
 
-                    <ul className="space-y-1.5 sm:space-y-2 text-xs text-[#242424] border-t border-slate-100 pt-2.5 sm:pt-3 font-body">
+                    <ul className="space-y-1.5 sm:space-y-2 text-xs text-[#242424] border-t border-slate-100 pt-2.5 sm:pt-3 font-body font-light">
                       {pkg.features.map((feat, i) => (
                         <li key={i} className="flex items-start gap-1.5 sm:gap-2">
                           <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#ED78A8] shrink-0 mt-0.5" />
@@ -486,7 +485,7 @@ export default function PackagesSection({ onOpenBooking }) {
                   <div className="pt-3 sm:pt-4">
                     <button
                       onClick={onOpenBooking}
-                      className="w-full py-2.5 sm:py-3 rounded-full text-xs font-semibold uppercase tracking-wider font-nav text-white bg-[#ED78A8] hover:bg-[#D9578D] transition shadow-md"
+                      className="w-full py-2.5 sm:py-3 rounded-full text-xs font-semibold uppercase tracking-wider font-nav text-white bg-[#ED78A8] hover:bg-[#D9578D] transition shadow-md cursor-pointer"
                     >
                       Book Maternity Shoot
                     </button>
@@ -503,11 +502,10 @@ export default function PackagesSection({ onOpenBooking }) {
             {eventPackages.map((pkg, idx) => (
               <div
                 key={idx}
-                className={`bg-white rounded-2xl sm:rounded-3xl overflow-hidden border flex flex-col justify-between relative transition-all duration-300 ${
-                  pkg.popular
+                className={`bg-white rounded-2xl sm:rounded-3xl overflow-hidden border flex flex-col justify-between relative transition-all duration-300 ${pkg.popular
                     ? 'border-[#ED78A8] shadow-2xl ring-2 ring-[#ED78A8]/30'
                     : 'border-[#FFF0F6] shadow-sm hover:shadow-md'
-                }`}
+                  }`}
               >
                 {pkg.popular && (
                   <span className="absolute top-2.5 right-2.5 z-10 bg-[#ED78A8] text-white px-2.5 py-0.5 rounded-full text-[9px] sm:text-[10px] font-semibold uppercase tracking-widest font-nav shadow-md">
@@ -519,7 +517,8 @@ export default function PackagesSection({ onOpenBooking }) {
                 <div className="h-36 sm:h-48 overflow-hidden relative">
                   <img
                     src={pkg.image}
-                    alt={pkg.name}
+                    alt={`${pkg.name} Event Coverage at ClickMates Pune`}
+                    title={`${pkg.name} Event Package - ClickMates Studio`}
                     width="400"
                     height="250"
                     loading="lazy"
@@ -536,7 +535,7 @@ export default function PackagesSection({ onOpenBooking }) {
                   <div className="space-y-2.5 sm:space-y-3">
                     <div className="text-2xl sm:text-3xl font-extrabold text-[#ED78A8]">{pkg.price}</div>
 
-                    <ul className="space-y-1.5 sm:space-y-2 text-xs text-[#242424] border-t border-slate-100 pt-2.5 sm:pt-3 font-body">
+                    <ul className="space-y-1.5 sm:space-y-2 text-xs text-[#242424] border-t border-slate-100 pt-2.5 sm:pt-3 font-body font-light">
                       {pkg.features.map((feat, i) => (
                         <li key={i} className="flex items-start gap-1.5 sm:gap-2">
                           <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#ED78A8] shrink-0 mt-0.5" />
@@ -549,7 +548,7 @@ export default function PackagesSection({ onOpenBooking }) {
                   <div className="pt-3 sm:pt-4">
                     <button
                       onClick={onOpenBooking}
-                      className="w-full py-2.5 sm:py-3 rounded-full text-xs font-semibold uppercase tracking-wider font-nav text-white bg-[#ED78A8] hover:bg-[#D9578D] transition shadow-md"
+                      className="w-full py-2.5 sm:py-3 rounded-full text-xs font-semibold uppercase tracking-wider font-nav text-white bg-[#ED78A8] hover:bg-[#D9578D] transition shadow-md cursor-pointer"
                     >
                       Book Event Coverage
                     </button>
@@ -565,13 +564,13 @@ export default function PackagesSection({ onOpenBooking }) {
           <div className="bg-gradient-to-br from-[#FFF0F6] to-white p-8 sm:p-10 rounded-3xl border-2 border-[#ED78A8] shadow-2xl space-y-6">
             <div className="text-center max-w-3xl mx-auto space-y-2">
               <span className="inline-block px-4 py-1 rounded-full bg-[#ED78A8] text-white text-xs font-semibold uppercase tracking-widest font-nav">
-                ALL-IN-ONE MILESTONE BUNDLE
+                ALL-IN-ONE MILESTONE BUNDLE — CLICKMATES STUDIO PUNE
               </span>
               <h3 className="font-heading text-3xl sm:text-4xl font-extrabold text-[#242424]">
                 CLICKMATES SPECIAL SHOOT PACKAGE
               </h3>
               <div className="text-4xl sm:text-5xl font-black text-[#ED78A8]">₹85,000</div>
-              <p className="text-xs text-[#666666]">
+              <p className="text-xs text-[#666666] font-body font-light">
                 From Maternity to 1st Birthday — 6 Precious Milestones Included
               </p>
             </div>
@@ -606,7 +605,7 @@ export default function PackagesSection({ onOpenBooking }) {
             <div className="pt-4 text-center">
               <button
                 onClick={onOpenBooking}
-                className="px-8 py-3.5 rounded-full text-xs font-semibold uppercase tracking-wider font-nav text-white bg-[#ED78A8] hover:bg-[#D9578D] transition shadow-lg"
+                className="px-8 py-3.5 rounded-full text-xs font-semibold uppercase tracking-wider font-nav text-white bg-[#ED78A8] hover:bg-[#D9578D] transition shadow-lg cursor-pointer"
               >
                 Reserve Special ₹85,000 Journey Package
               </button>

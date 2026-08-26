@@ -16,12 +16,12 @@ export default function TestimonialCarousel() {
     setCurrentIndex((prev) => (prev - 1 + totalReviews) % totalReviews)
   }
 
-  // Auto-play timer: rotates every 2 seconds (2000ms)
+  // Auto-play timer: rotates every 5 seconds (5000ms) for comfortable reading
   useEffect(() => {
     if (isHovered) return
     const timer = setInterval(() => {
       handleNext()
-    }, 2000)
+    }, 5000)
     return () => clearInterval(timer)
   }, [isHovered, totalReviews])
 
@@ -36,17 +36,17 @@ export default function TestimonialCarousel() {
   }
 
   return (
-    <section className="pt-8 pb-14 sm:py-28 bg-[#FFF0F6]/30 border-b border-[#FFF0F6] overflow-hidden">
+    <section className="pt-8 pb-14 sm:py-28 bg-[#FFF0F6]/30 border-b border-[#FFF0F6] overflow-hidden" id="testimonials">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 space-y-2.5 sm:space-y-3">
           <span className="inline-block text-[10px] sm:text-xs font-semibold uppercase tracking-widest font-nav text-[#ED78A8] bg-white px-3.5 py-1.5 rounded-full border border-[#ED78A8]/20 shadow-xs max-w-full text-center leading-normal">
-            100% VERIFIED CLIENT REVIEWS ({totalReviews} REVIEWS)
+            CLICKMATES STUDIO PUNE — 100% VERIFIED CLIENT REVIEWS ({totalReviews} REVIEWS)
           </span>
           <h2 className="font-heading text-2xl sm:text-5xl font-bold text-[#242424]">
             Loved by Families Across Pune
           </h2>
-          <p className="text-[#666666] text-xs sm:text-base font-light">
+          <p className="text-[#666666] text-xs sm:text-base font-body font-light">
             Slide through real experiences from parents across Kothrud, Paud Road & Pune.
           </p>
         </div>
@@ -129,11 +129,10 @@ export default function TestimonialCarousel() {
               <button
                 key={idx}
                 onClick={() => setCurrentIndex(idx)}
-                className={`h-2 sm:h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
-                  currentIndex === idx
+                className={`h-2 sm:h-2.5 rounded-full transition-all duration-300 cursor-pointer ${currentIndex === idx
                     ? 'w-7 sm:w-8 bg-[#ED78A8] shadow-sm'
                     : 'w-2 sm:w-2.5 bg-[#ED78A8]/30 hover:bg-[#ED78A8]/60'
-                }`}
+                  }`}
                 aria-label={`Go to review ${idx + 1}`}
               />
             ))}

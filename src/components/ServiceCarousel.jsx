@@ -4,18 +4,18 @@ import { servicesData } from '../data/photographyData'
 
 export default function ServiceCarousel() {
   return (
-    <section className="pt-8 pb-16 sm:py-28 bg-[#FFFDFB] border-b border-[#FFF0F6]">
+    <section className="pt-8 pb-16 sm:py-28 bg-[#FFFDFB] border-b border-[#FFF0F6]" id="services">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-16 space-y-3 reveal-on-scroll">
-          <span className="text-xs font-semibold uppercase tracking-widest font-nav text-[#ED78A8] bg-[#FFF0F6] px-3.5 py-1.5 rounded-full border border-[#ED78A8]/20">
-            PHOTOGRAPHY SPECIALTIES
+          <span className="text-xs font-semibold uppercase tracking-widest font-nav text-[#ED78A8] bg-[#FFF0F6] px-3.5 py-1.5 rounded-full border border-[#ED78A8]/20 shadow-xs">
+            CLICKMATES STUDIO KOTHRUD PUNE — PHOTOGRAPHY SPECIALTIES
           </span>
           <h2 className="font-heading text-3xl sm:text-5xl font-bold text-[#242424]">
             Photography For Every Chapter
           </h2>
-          <p className="text-[#666666] text-sm sm:text-base font-body">
-            Explore our image-driven photography services tailored for growing families.
+          <p className="text-[#666666] text-sm sm:text-base font-body font-light">
+            Explore our image-driven photography services tailored for growing families across Pune.
           </p>
         </div>
 
@@ -27,12 +27,16 @@ export default function ServiceCarousel() {
               className="group bg-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-md hover:shadow-2xl border border-[#FFF0F6] hover:border-[#ED78A8]/40 transition-all duration-500 flex flex-col justify-between transform hover:-translate-y-1"
             >
               {/* Card Image */}
-              <div className="relative h-48 sm:h-72 lg:h-80 overflow-hidden">
+              <div className="relative h-48 sm:h-72 lg:h-80 overflow-hidden bg-slate-100">
                 <img
                   src={service.cardImage}
-                  alt={service.alt}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  alt={service.alt || `${service.title} at ClickMates Studio Kothrud Pune`}
+                  title={`${service.title} - ClickMates Photography Studio Pune`}
+                  width="600"
+                  height="400"
                   loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-70 group-hover:opacity-50 transition-opacity" />
               </div>
@@ -43,7 +47,7 @@ export default function ServiceCarousel() {
                   <h3 className="font-heading text-xl sm:text-2xl font-bold text-[#242424] group-hover:text-[#ED78A8] transition-colors">
                     {service.title}
                   </h3>
-                  <p className="text-[#666666] text-xs sm:text-sm leading-relaxed mt-1.5 sm:mt-2.5 font-body">
+                  <p className="text-[#666666] text-xs sm:text-sm leading-relaxed mt-1.5 sm:mt-2.5 font-body font-light">
                     {service.shortDesc}
                   </p>
                 </div>
@@ -51,7 +55,7 @@ export default function ServiceCarousel() {
                 <div className="pt-3 sm:pt-4 border-t border-slate-100">
                   <Link
                     to={`/services/${service.id}`}
-                    className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider font-nav text-[#ED78A8] group-hover:text-[#D9578D] transition"
+                    className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider font-nav text-[#ED78A8] group-hover:text-[#D9578D] transition cursor-pointer"
                   >
                     <span>Explore Specialty</span>
                     <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />

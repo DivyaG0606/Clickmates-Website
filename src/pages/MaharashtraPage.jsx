@@ -1,10 +1,13 @@
-import { MessageCircle, Star, CheckCircle2, Calendar } from 'lucide-react'
+import { useState } from 'react'
+import { MessageCircle, Star, CheckCircle2, Calendar, ChevronDown } from 'lucide-react'
 import SEOHead from '../components/SEOHead'
 import { brandDetails } from '../data/photographyData'
 import baby15 from '../assets/baby15.jpg'
 import m16 from '../assets/m16.jpg'
 
 export default function MaharashtraPage({ onOpenBooking }) {
+  const [openFaqIndex, setOpenFaqIndex] = useState(0)
+
   const faqs = [
     {
       q: "Where is ClickMates Photography studio located in Maharashtra?",
@@ -31,7 +34,7 @@ export default function MaharashtraPage({ onOpenBooking }) {
   ]
 
   return (
-    <div className="pt-24 pb-20 bg-[#FFFDFB] text-[#242424] font-body">
+    <div className="pt-24 pb-20 bg-[#FFFDFB] text-[#242424] font-body selection:bg-[#ED78A8] selection:text-white" itemScope itemType="https://schema.org/WebPage">
       <SEOHead
         title="Photography Services in Maharashtra | ClickMates Photography"
         description="ClickMates Photography is a flagship photography studio based in Kothrud, Pune, providing baby, newborn, maternity & family photography services across Maharashtra."
@@ -57,21 +60,24 @@ export default function MaharashtraPage({ onOpenBooking }) {
                 ClickMates Photography operates a state-of-the-art photography studio in Kothrud, Pune, welcoming families from across Maharashtra for memorable baby shoots, newborn portraiture, editorial maternity sessions, and family reunions.
               </p>
 
-              {/* Entity Address Box */}
-              <div className="bg-white p-5 rounded-2xl border border-[#ED78A8]/20 shadow-sm space-y-2 text-xs sm:text-sm">
+              {/* Entity Address Box with LocalBusiness Microdata */}
+              <div className="bg-white p-5 rounded-2xl border border-[#ED78A8]/20 shadow-sm space-y-2 text-xs sm:text-sm" itemScope itemType="https://schema.org/LocalBusiness">
+                <meta itemProp="name" content="ClickMates Photography Studio" />
+                <meta itemProp="telephone" content={brandDetails.phone} />
                 <p className="font-semibold text-[#242424] flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#ED78A8]" />
                   <span>Flagship Studio Headquarters:</span>
                 </p>
-                <p className="text-[#555555] font-light pl-6">
-                  {brandDetails.fullAddress}
+                <p className="text-[#555555] font-light pl-6" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+                  <span itemProp="streetAddress">{brandDetails.fullAddress}</span>
                 </p>
               </div>
 
               <div className="flex flex-wrap gap-4 pt-2 font-nav text-sm">
                 <button
                   onClick={onOpenBooking}
-                  className="px-8 py-4 bg-[#ED78A8] hover:bg-[#d65f8f] text-white font-semibold rounded-full shadow-lg shadow-[#ED78A8]/30 transition-all duration-300 transform hover:-translate-y-0.5 flex items-center gap-2"
+                  data-cursor="click"
+                  className="px-8 py-4 bg-[#ED78A8] hover:bg-[#d65f8f] text-white font-semibold rounded-full shadow-lg shadow-[#ED78A8]/30 transition-all duration-300 transform hover:-translate-y-0.5 flex items-center gap-2 cursor-pointer"
                 >
                   <Calendar className="w-4 h-4" />
                   <span>Book Studio Session</span>
@@ -80,7 +86,8 @@ export default function MaharashtraPage({ onOpenBooking }) {
                   href={`https://wa.me/${brandDetails.whatsapp}?text=Hi%20ClickMates%20Photography!%20I%20would%20like%20to%20enquire%20about%20a%20shoot.`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-full shadow-lg shadow-emerald-500/20 transition-all duration-300 flex items-center gap-2"
+                  data-cursor="click"
+                  className="px-8 py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-full shadow-lg shadow-emerald-500/20 transition-all duration-300 flex items-center gap-2"
                 >
                   <MessageCircle className="w-4 h-4" />
                   <span>WhatsApp Enquiries</span>
@@ -122,8 +129,8 @@ export default function MaharashtraPage({ onOpenBooking }) {
         </div>
       </section>
 
-      {/* FAQs */}
-      <section className="py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      {/* FAQs with Interactive Accordion & Schema */}
+      <section className="py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8" itemScope itemType="https://schema.org/FAQPage">
         <div className="text-center space-y-3">
           <span className="text-xs font-semibold uppercase tracking-widest font-nav text-[#ED78A8]">DIRECT ANSWERS</span>
           <h2 className="font-heading text-3xl font-bold text-[#242424]">
@@ -132,12 +139,42 @@ export default function MaharashtraPage({ onOpenBooking }) {
         </div>
 
         <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <div key={index} className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm space-y-2 text-left">
-              <h3 className="font-heading font-bold text-lg text-[#242424]">{faq.q}</h3>
-              <p className="text-[#666666] text-sm font-light leading-relaxed">{faq.a}</p>
-            </div>
-          ))}
+          {faqs.map((faq, index) => {
+            const isOpen = openFaqIndex === index
+            return (
+              <div
+                key={index}
+                className={`bg-white rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen ? 'border-[#ED78A8] shadow-md ring-1 ring-[#ED78A8]/20' : 'border-slate-100 shadow-sm'
+                  }`}
+                itemScope
+                itemProp="mainEntity"
+                itemType="https://schema.org/Question"
+              >
+                <button
+                  onClick={() => setOpenFaqIndex(isOpen ? null : index)}
+                  className="w-full p-6 text-left flex items-center justify-between gap-3 cursor-pointer"
+                  aria-expanded={isOpen}
+                >
+                  <h3 className="font-heading font-bold text-lg text-[#242424] flex items-center gap-2" itemProp="name">
+                    <CheckCircle2 className="w-5 h-5 text-[#ED78A8] shrink-0" />
+                    <span>{faq.q}</span>
+                  </h3>
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ${isOpen ? 'bg-[#ED78A8] text-white rotate-180' : 'bg-[#FFF0F6] text-[#ED78A8]'
+                    }`}>
+                    <ChevronDown className="w-4 h-4" />
+                  </div>
+                </button>
+
+                {isOpen && (
+                  <div className="px-6 pb-6 pt-0 text-left border-t border-[#FFF0F6]" itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+                    <p className="text-[#666666] text-sm font-light leading-relaxed pt-3 pl-7" itemProp="text">
+                      {faq.a}
+                    </p>
+                  </div>
+                )}
+              </div>
+            )
+          })}
         </div>
       </section>
     </div>

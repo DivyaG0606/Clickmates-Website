@@ -13,6 +13,14 @@ export const blogPosts = [
     author: "ClickMates Photography Team",
     image: baby10,
     alt: "Newborn photoshoot preparation guide by ClickMates Photography Kothrud Pune",
+    keywords: [
+      "Newborn Photography Pune",
+      "Newborn Photoshoot Kothrud",
+      "Baby Photography Studio Pune",
+      "Newborn Safety Photoshoot Paud Road",
+      "Best Newborn Photographer Near Me",
+      "ClickMates Photography Blog"
+    ],
     excerpt: "Discover essential preparation tips for a sleepy, comfortable, and safe newborn photoshoot at ClickMates Studio in Kothrud, Pune.",
     content: `
       <h2>The Ideal Window for Newborn Photography (5 to 14 Days)</h2>
@@ -52,6 +60,14 @@ export const blogPosts = [
     author: "ClickMates Photography Team",
     image: m18,
     alt: "Maternity photoshoot gown guide by ClickMates Photography Studio Kothrud Pune",
+    keywords: [
+      "Maternity Photoshoot Pune",
+      "Pregnancy Photoshoot Kothrud",
+      "Maternity Photographer Near Me",
+      "Maternity Gowns Studio Pune",
+      "Couple Maternity Photography Paud Road",
+      "Best Maternity Studio in Pune"
+    ],
     excerpt: "Learn what to wear, timing tips (28-34 weeks), and flattering poses to celebrate your pregnancy journey at ClickMates Studio.",
     content: `
       <h2>When to Book Your Maternity Photoshoot (28 to 34 Weeks)</h2>
@@ -86,6 +102,14 @@ export const blogPosts = [
     author: "ClickMates Photography Team",
     image: baby13,
     alt: "1st birthday cake smash photoshoot ideas at ClickMates Studio Pune",
+    keywords: [
+      "Cake Smash Photoshoot Pune",
+      "1st Birthday Photoshoot Kothrud",
+      "Baby Cake Smash Studio Paud Road",
+      "First Birthday Photographer Pune",
+      "Baby Bath Splash Photoshoot Pune",
+      "ClickMates Birthday Themes"
+    ],
     excerpt: "Everything you need to know about planning a fun 1st Birthday Cake Smash and splash bath session in Pune.",
     content: `
       <h2>Why 1st Birthday Cake Smash Sessions Are So Popular</h2>
@@ -124,6 +148,14 @@ export const blogPosts = [
     author: "ClickMates Photography Team",
     image: baby1,
     alt: "Best age for baby photoshoot guide by ClickMates Photography Studio Kothrud Pune",
+    keywords: [
+      "Best Baby Photography Pune",
+      "Baby Milestone Photoshoot Kothrud",
+      "6 Month Baby Photoshoot Pune",
+      "Baby Portrait Studio Paud Road",
+      "Baby Photographer Near Me Pune",
+      "ClickMates Milestone Guides"
+    ],
     excerpt: "Compare different baby milestone stages to pick the perfect time for your little one's professional portrait session.",
     content: `
       <h2>3 to 4 Months (Head Lifts & First Smiles)</h2>

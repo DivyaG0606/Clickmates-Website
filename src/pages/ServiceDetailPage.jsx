@@ -37,7 +37,7 @@ export default function ServiceDetailPage({ onOpenBooking }) {
       <SEOHead
         title={`${service.title} in Pune | ClickMates Photography Studio Kothrud`}
         description={`${service.shortDesc} Book professional ${service.title.toLowerCase()} at ClickMates Photography Studio in Kothrud, Pune.`}
-        keywords={`${service.title} Pune, ${service.title} Kothrud, ${service.title} Studio Pune, ClickMates Photography`}
+        keywords={`${service.title} Pune, ${service.title} Kothrud, ${service.title} Studio Pune, ClickMates Photography, Best ${service.title} Pune`}
         canonicalUrl={`https://${brandDetails.domain}/services/${service.id}`}
         serviceDetails={{
           name: service.title,
@@ -54,6 +54,7 @@ export default function ServiceDetailPage({ onOpenBooking }) {
           <img
             src={service.heroImage}
             alt={`${service.title} at ClickMates Photography Studio Kothrud Pune`}
+            title={`${service.title} - ClickMates Photography Pune`}
             className="w-full h-full object-cover opacity-40"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/50 to-transparent" />
@@ -67,10 +68,10 @@ export default function ServiceDetailPage({ onOpenBooking }) {
             <ArrowLeft className="w-4 h-4" /> Back to Services
           </Link>
 
-          <h1 className="font-heading text-5xl sm:text-7xl font-extrabold leading-tight">
+          <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-extrabold leading-tight">
             {service.title} in Pune
           </h1>
-          <p className="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto font-light">
+          <p className="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto font-light leading-relaxed">
             {service.shortDesc}
           </p>
         </div>
@@ -80,7 +81,7 @@ export default function ServiceDetailPage({ onOpenBooking }) {
       <section className="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 space-y-6">
-            <span className="text-xs font-semibold uppercase tracking-widest font-nav text-[#ED78A8] bg-[#FFF0F6] px-3.5 py-1.5 rounded-full border border-[#ED78A8]/20">
+            <span className="text-xs font-semibold uppercase tracking-widest font-nav text-[#ED78A8] bg-[#FFF0F6] px-3.5 py-1.5 rounded-full border border-[#ED78A8]/20 shadow-xs">
               KOTHRUD PUNE STUDIO SPECIALTY
             </span>
 
@@ -88,7 +89,7 @@ export default function ServiceDetailPage({ onOpenBooking }) {
               What Makes Our {service.title} Special
             </h2>
 
-            <p className="text-[#666666] text-base leading-relaxed">
+            <p className="text-[#666666] text-base leading-relaxed font-light">
               {service.fullDesc}
             </p>
 
@@ -98,7 +99,7 @@ export default function ServiceDetailPage({ onOpenBooking }) {
                 {service.highlights.map((h, i) => (
                   <li key={i} className="flex items-center gap-2.5 p-3 rounded-2xl bg-[#FFF0F6]/50 border border-[#FFF0F6]">
                     <CheckCircle2 className="w-4 h-4 text-[#ED78A8] shrink-0" />
-                    <span>{h}</span>
+                    <span className="font-medium text-[#333333]">{h}</span>
                   </li>
                 ))}
               </ul>
@@ -107,7 +108,7 @@ export default function ServiceDetailPage({ onOpenBooking }) {
             <div className="pt-6 flex flex-wrap gap-4 font-nav text-xs font-semibold">
               <button
                 onClick={onOpenBooking}
-                className="px-8 py-4 rounded-full text-white bg-[#ED78A8] hover:bg-[#D9578D] transition shadow-lg shadow-[#ED78A8]/20 flex items-center gap-2"
+                className="px-8 py-4 rounded-full text-white bg-[#ED78A8] hover:bg-[#D9578D] transition shadow-lg shadow-[#ED78A8]/25 flex items-center gap-2 cursor-pointer"
               >
                 <Calendar className="w-4 h-4" />
                 Book This Session
@@ -117,7 +118,7 @@ export default function ServiceDetailPage({ onOpenBooking }) {
                 href={`https://wa.me/${brandDetails.whatsapp}?text=Hi%20ClickMates!%20I'm%20interested%20in%20${service.title}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-4 rounded-full text-[#242424] bg-[#FFF0F6] hover:bg-[#ED78A8]/20 transition flex items-center gap-2"
+                className="px-8 py-4 rounded-full text-[#242424] bg-[#FFF0F6] hover:bg-[#ED78A8]/20 transition flex items-center gap-2 border border-[#ED78A8]/20"
               >
                 <MessageCircle className="w-4 h-4 text-[#ED78A8]" />
                 Enquire via WhatsApp
@@ -125,10 +126,11 @@ export default function ServiceDetailPage({ onOpenBooking }) {
             </div>
           </div>
 
-          <div className="lg:col-span-5 rounded-3xl overflow-hidden shadow-xl border border-[#FFF0F6] h-96 sm:h-[480px]">
+          <div className="lg:col-span-5 rounded-3xl overflow-hidden shadow-xl border border-[#ED78A8]/20 h-96 sm:h-[480px]">
             <img
               src={service.cardImage}
               alt={`${service.title} session at ClickMates Studio Kothrud Pune`}
+              title={`${service.title} Pune Studio`}
               className="w-full h-full object-cover"
             />
           </div>
@@ -149,12 +151,12 @@ export default function ServiceDetailPage({ onOpenBooking }) {
 
           <div className="space-y-4">
             {serviceFaqs.map((faq, i) => (
-              <div key={i} className="p-6 rounded-2xl bg-white border border-[#FFF0F6] shadow-sm space-y-2">
+              <div key={i} className="p-6 rounded-2xl bg-white border border-[#ED78A8]/25 shadow-sm space-y-2">
                 <h3 className="font-heading text-lg font-bold text-[#242424] flex items-center gap-2">
-                  <HelpCircle className="w-5 h-5 text-[#ED78A8]" />
-                  {faq.q}
+                  <HelpCircle className="w-5 h-5 text-[#ED78A8] shrink-0" />
+                  <span>{faq.q}</span>
                 </h3>
-                <p className="text-xs sm:text-sm text-[#666666] leading-relaxed font-body pl-7">
+                <p className="text-xs sm:text-sm text-[#666666] leading-relaxed font-body pl-7 font-light">
                   {faq.a}
                 </p>
               </div>
@@ -165,7 +167,8 @@ export default function ServiceDetailPage({ onOpenBooking }) {
 
       {/* Related Services */}
       <section className="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 space-y-2">
+          <span className="text-xs font-semibold uppercase tracking-widest font-nav text-[#ED78A8]">MORE OPTIONS</span>
           <h2 className="font-heading text-2xl sm:text-3xl font-bold text-[#242424]">
             Explore Related Photography Sessions in Pune
           </h2>
@@ -176,18 +179,19 @@ export default function ServiceDetailPage({ onOpenBooking }) {
             <Link
               key={rel.id}
               to={`/services/${rel.id}`}
-              className="group bg-white rounded-2xl overflow-hidden border border-[#FFF0F6] shadow-sm hover:shadow-md transition p-4 flex items-center gap-4"
+              className="group bg-white rounded-2xl overflow-hidden border border-[#ED78A8]/20 shadow-sm hover:shadow-md transition p-4 flex items-center gap-4"
             >
               <img
                 src={rel.cardImage}
                 alt={`${rel.title} ClickMates Studio Pune`}
-                className="w-20 h-20 rounded-xl object-cover"
+                title={`${rel.title} - ClickMates`}
+                className="w-20 h-20 rounded-xl object-cover shrink-0"
               />
-              <div>
-                <h4 className="font-heading text-lg font-bold text-[#242424] group-hover:text-[#ED78A8] transition">
+              <div className="space-y-1">
+                <h4 className="font-heading text-base font-bold text-[#242424] group-hover:text-[#ED78A8] transition">
                   {rel.title}
                 </h4>
-                <p className="text-xs text-[#666666] line-clamp-1">{rel.shortDesc}</p>
+                <p className="text-xs text-[#666666] line-clamp-1 font-light">{rel.shortDesc}</p>
               </div>
             </Link>
           ))}

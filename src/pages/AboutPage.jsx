@@ -7,6 +7,7 @@ import m18 from '../assets/m18.jpg'
 
 export default function AboutPage({ onOpenBooking }) {
   const [openFaqIndex, setOpenFaqIndex] = useState(0)
+
   const aboutFaqs = [
     {
       q: "What is the background and story behind ClickMates Photography in Pune?",
@@ -76,7 +77,7 @@ export default function AboutPage({ onOpenBooking }) {
   ]
 
   return (
-    <div className="bg-[#FFFDFB] text-[#242424] font-body">
+    <div className="bg-[#FFFDFB] text-[#242424] font-body" itemScope itemType="https://schema.org/AboutPage">
       <SEOHead
         title="About ClickMates Photography Studio in Kothrud, Pune | Vision, Mission & Why Us"
         description="Discover ClickMates Photography studio story, vision, mission, and why Pune parents choose us in Kothrud, Pune. Specialized in baby, newborn, maternity, family and event photography."
@@ -89,7 +90,7 @@ export default function AboutPage({ onOpenBooking }) {
       <section className="relative pt-28 pb-16 sm:pt-40 sm:pb-36 bg-[#111111] text-white text-center overflow-hidden">
         <img
           src={m18}
-          alt="ClickMates Photography Studio Story Kothrud Pune"
+          alt="ClickMates Photography Studio Story and Newborn Portraiture in Kothrud Pune"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/60" />
@@ -102,7 +103,7 @@ export default function AboutPage({ onOpenBooking }) {
             More Than Photography — We Preserve Feelings
           </h1>
           <p className="text-slate-200 text-sm sm:text-xl max-w-2xl mx-auto font-normal leading-relaxed drop-shadow-md">
-            ClickMates Photography was born out of a deep belief that every smile, tiny detail, and family milestone deserves to be frozen in time with warmth and artistic grace.
+            ClickMates Photography was born out of a deep belief that every smile, tiny detail, and family milestone deserves to be frozen in time with warmth and artistic grace in Pune.
           </p>
         </div>
       </section>
@@ -229,6 +230,7 @@ export default function AboutPage({ onOpenBooking }) {
 
           <div className="text-center pt-4">
             <button
+              type="button"
               onClick={onOpenBooking}
               className="px-8 py-4 rounded-full text-xs font-semibold uppercase tracking-wider font-nav text-white bg-[#ED78A8] hover:bg-[#D9578D] transition shadow-xl shadow-[#ED78A8]/30 cursor-pointer"
             >
@@ -269,14 +271,14 @@ export default function AboutPage({ onOpenBooking }) {
               <div className="rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-[#ED78A8]/30 shadow-xl h-52 sm:h-72 transform hover:scale-[1.02] transition-transform duration-500">
                 <img
                   src={baby10}
-                  alt="ClickMates Studio Newborn Detail Kothrud Pune"
+                  alt="ClickMates Studio Newborn Detail and Infant Photography Kothrud Pune"
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-[#ED78A8]/30 shadow-xl h-52 sm:h-72 mt-4 sm:mt-8 transform hover:scale-[1.02] transition-transform duration-500">
                 <img
                   src={m16}
-                  alt="ClickMates Maternity Photoshoot Pune"
+                  alt="ClickMates Maternity Photoshoot and Expecting Mother Portraiture Pune"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -327,6 +329,7 @@ export default function AboutPage({ onOpenBooking }) {
 
           <div className="pt-4 sm:pt-6">
             <button
+              type="button"
               onClick={onOpenBooking}
               className="w-[270px] sm:w-auto px-5 py-3 sm:px-8 sm:py-4 rounded-full text-[11px] sm:text-xs font-semibold uppercase tracking-wider font-nav text-white bg-[#ED78A8] hover:bg-[#D9578D] transition-all duration-300 shadow-xl shadow-[#ED78A8]/40 mx-auto flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap"
             >
@@ -354,13 +357,13 @@ export default function AboutPage({ onOpenBooking }) {
               return (
                 <div
                   key={index}
-                  className={`bg-white rounded-2xl border transition-all duration-300 overflow-hidden ${
-                    isOpen
+                  className={`bg-white rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen
                       ? 'border-[#ED78A8] shadow-md ring-1 ring-[#ED78A8]/20'
                       : 'border-[#FFF0F6] shadow-xs hover:border-[#ED78A8]/40'
-                  }`}
+                    }`}
                 >
                   <button
+                    type="button"
                     onClick={() => setOpenFaqIndex(isOpen ? null : index)}
                     className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3 cursor-pointer"
                     aria-expanded={isOpen}
@@ -369,9 +372,8 @@ export default function AboutPage({ onOpenBooking }) {
                       <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#ED78A8] shrink-0" />
                       <span>{faq.q}</span>
                     </h3>
-                    <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ${
-                      isOpen ? 'bg-[#ED78A8] text-white rotate-180' : 'bg-[#FFF0F6] text-[#ED78A8]'
-                    }`}>
+                    <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ${isOpen ? 'bg-[#ED78A8] text-white rotate-180' : 'bg-[#FFF0F6] text-[#ED78A8]'
+                      }`}>
                       <ChevronDown className="w-4 h-4" />
                     </div>
                   </button>

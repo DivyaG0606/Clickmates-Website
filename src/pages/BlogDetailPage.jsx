@@ -19,7 +19,7 @@ export default function BlogDetailPage({ onOpenBooking }) {
   ]
 
   return (
-    <div className="pt-24 pb-20 bg-[#FFFDFB] text-[#242424] font-body">
+    <div className="pt-24 pb-20 bg-[#FFFDFB] text-[#242424] font-body" itemScope itemType="https://schema.org/BlogPosting">
       <SEOHead
         title={`${post.title} | ClickMates Photography Pune`}
         description={post.excerpt}
@@ -39,26 +39,26 @@ export default function BlogDetailPage({ onOpenBooking }) {
             <ArrowLeft className="w-4 h-4" /> Back to All Articles
           </Link>
 
-          <span className="block text-xs font-semibold uppercase tracking-widest font-nav text-[#ED78A8]">
+          <span className="block text-xs font-semibold uppercase tracking-widest font-nav text-[#ED78A8]" itemProp="articleSection">
             {post.category}
           </span>
 
-          <h1 className="font-heading text-3xl sm:text-5xl font-bold text-[#242424] leading-tight">
+          <h1 className="font-heading text-3xl sm:text-5xl font-bold text-[#242424] leading-tight" itemProp="headline">
             {post.title}
           </h1>
 
           <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-[#777777] font-nav pt-2">
-            <span className="flex items-center gap-1.5">
+            <span className="flex items-center gap-1.5" itemProp="author" itemScope itemType="https://schema.org/Person">
               <User className="w-4 h-4 text-[#ED78A8]" />
-              {post.author}
+              <span itemProp="name">{post.author}</span>
             </span>
             <span className="flex items-center gap-1.5">
               <Calendar className="w-4 h-4 text-[#ED78A8]" />
-              {post.date}
+              <time dateTime={post.date} itemProp="datePublished">{post.date}</time>
             </span>
             <span className="flex items-center gap-1.5">
               <Clock className="w-4 h-4 text-[#ED78A8]" />
-              {post.readTime}
+              <span>{post.readTime}</span>
             </span>
           </div>
         </div>
@@ -66,11 +66,12 @@ export default function BlogDetailPage({ onOpenBooking }) {
 
       {/* Article Featured Image & Body Content */}
       <article className="py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        <div className="rounded-3xl overflow-hidden shadow-xl h-80 sm:h-112 w-full">
+        <div className="rounded-3xl overflow-hidden shadow-xl h-80 sm:h-112 w-full border border-[#ED78A8]/20">
           <img
             src={post.image}
-            alt={post.alt}
+            alt={post.alt || `${post.title} - ClickMates Photography Pune Studio`}
             className="w-full h-full object-cover"
+            itemProp="image"
           />
         </div>
 
@@ -80,6 +81,7 @@ export default function BlogDetailPage({ onOpenBooking }) {
             prose-h2:text-2xl prose-h2:sm:text-3xl prose-h2:mt-8 prose-h2:mb-4
             prose-ul:list-disc prose-ul:pl-6 prose-ul:space-y-2"
           dangerouslySetInnerHTML={{ __html: post.content }}
+          itemProp="articleBody"
         />
 
         {/* FAQs inside Article */}
@@ -92,8 +94,8 @@ export default function BlogDetailPage({ onOpenBooking }) {
               {post.faqs.map((faq, i) => (
                 <div key={i} className="bg-white p-6 rounded-2xl border border-[#FFF0F6] shadow-xs space-y-2">
                   <h4 className="font-heading font-bold text-base text-[#242424] flex items-center gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-[#ED78A8]" />
-                    {faq.q}
+                    <CheckCircle2 className="w-5 h-5 text-[#ED78A8] shrink-0" />
+                    <span>{faq.q}</span>
                   </h4>
                   <p className="text-[#666666] text-sm font-light leading-relaxed pl-7">{faq.a}</p>
                 </div>
@@ -116,6 +118,7 @@ export default function BlogDetailPage({ onOpenBooking }) {
 
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2 font-nav text-xs font-semibold">
             <button
+              type="button"
               onClick={onOpenBooking}
               className="px-8 py-4 rounded-full text-white bg-[#ED78A8] hover:bg-[#D9578D] transition shadow-lg shadow-[#ED78A8]/30 cursor-pointer"
             >

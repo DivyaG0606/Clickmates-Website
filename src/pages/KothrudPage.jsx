@@ -1,11 +1,13 @@
-import { MapPin, Phone, MessageCircle, Clock, Star, CheckCircle2, ShieldCheck, Heart, Camera, Calendar } from 'lucide-react'
+import { useState } from 'react'
+import { MapPin, Phone, MessageCircle, Clock, CheckCircle2, ShieldCheck, Heart, Camera, Calendar, ChevronDown } from 'lucide-react'
 import SEOHead from '../components/SEOHead'
 import { brandDetails, portfolioItems } from '../data/photographyData'
 import m16 from '../assets/m16.jpg'
 import baby15 from '../assets/baby15.jpg'
-import e30 from '../assets/e30.jpg'
 
 export default function KothrudPage({ onOpenBooking }) {
+  const [openFaqIndex, setOpenFaqIndex] = useState(0)
+
   const faqs = [
     {
       q: "Where is ClickMates Photography Studio located in Kothrud?",
@@ -34,7 +36,7 @@ export default function KothrudPage({ onOpenBooking }) {
   const kothrudPhotos = portfolioItems.slice(0, 6)
 
   return (
-    <div className="pt-24 pb-20 bg-[#FFFDFB] text-[#242424] font-body">
+    <div className="pt-24 pb-20 bg-[#FFFDFB] text-[#242424] font-body selection:bg-[#ED78A8] selection:text-white" itemScope itemType="https://schema.org/WebPage">
       <SEOHead
         title="Photography Studio in Kothrud, Pune | ClickMates Photography"
         description="Looking for a professional photography studio in Kothrud? ClickMates Photography on Paud Road offers premier baby, newborn, maternity, family & event photography."
@@ -60,21 +62,24 @@ export default function KothrudPage({ onOpenBooking }) {
                 Welcome to ClickMates Photography Studio in Left Bhusari Colony, Paud Road, Kothrud. We create heartwarming, high-end visual stories for baby milestones, serene newborn moments, elegant maternity portraits, and joyful family gatherings.
               </p>
 
-              {/* GEO Direct Answer Box */}
-              <div className="bg-white p-5 rounded-2xl border border-[#ED78A8]/20 shadow-sm space-y-2 text-xs sm:text-sm">
+              {/* GEO Direct Answer Box with LocalBusiness Microdata */}
+              <div className="bg-white p-5 rounded-2xl border border-[#ED78A8]/20 shadow-sm space-y-2 text-xs sm:text-sm" itemScope itemType="https://schema.org/LocalBusiness">
+                <meta itemProp="name" content="ClickMates Photography Studio Kothrud" />
+                <meta itemProp="telephone" content={brandDetails.phone} />
                 <p className="font-semibold text-[#242424] flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#ED78A8]" />
                   <span>Kothrud Studio Address:</span>
                 </p>
-                <p className="text-[#555555] font-light pl-6">
-                  {brandDetails.fullAddress}
+                <p className="text-[#555555] font-light pl-6" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+                  <span itemProp="streetAddress">{brandDetails.fullAddress}</span>
                 </p>
               </div>
 
               <div className="flex flex-wrap gap-4 pt-2 font-nav text-sm">
                 <button
                   onClick={onOpenBooking}
-                  className="px-8 py-4 bg-[#ED78A8] hover:bg-[#d65f8f] text-white font-semibold rounded-full shadow-lg shadow-[#ED78A8]/30 transition-all duration-300 transform hover:-translate-y-0.5 flex items-center gap-2"
+                  data-cursor="click"
+                  className="px-8 py-4 bg-[#ED78A8] hover:bg-[#d65f8f] text-white font-semibold rounded-full shadow-lg shadow-[#ED78A8]/30 transition-all duration-300 transform hover:-translate-y-0.5 flex items-center gap-2 cursor-pointer"
                 >
                   <Calendar className="w-4 h-4" />
                   <span>Book Kothrud Session</span>
@@ -83,7 +88,8 @@ export default function KothrudPage({ onOpenBooking }) {
                   href={`https://wa.me/${brandDetails.whatsapp}?text=Hi%20ClickMates%20Photography%20Studio%20Kothrud!%20I%20would%20like%20to%20enquire%20about%20a%20photoshoot.`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-full shadow-lg shadow-emerald-500/20 transition-all duration-300 flex items-center gap-2"
+                  data-cursor="click"
+                  className="px-8 py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-full shadow-lg shadow-emerald-500/20 transition-all duration-300 flex items-center gap-2"
                 >
                   <MessageCircle className="w-4 h-4" />
                   <span>WhatsApp Studio</span>
@@ -169,7 +175,7 @@ export default function KothrudPage({ onOpenBooking }) {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {kothrudPhotos.map((item) => (
-              <div key={item.id} className="group relative rounded-2xl overflow-hidden shadow-sm h-72">
+              <div key={item.id} className="group relative rounded-2xl overflow-hidden shadow-sm h-72" data-cursor="view">
                 <img
                   src={item.image}
                   alt={`${item.title} - ClickMates Kothrud Studio Pune`}
@@ -220,6 +226,7 @@ export default function KothrudPage({ onOpenBooking }) {
                 href="https://maps.google.com/?q=Clickmates+Photography+Studio+Kothrud+Pune"
                 target="_blank"
                 rel="noopener noreferrer"
+                data-cursor="click"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-[#242424] hover:bg-black text-white text-xs font-semibold uppercase font-nav tracking-wider rounded-full transition-all"
               >
                 <span>Get Google Maps Directions</span>
@@ -241,8 +248,8 @@ export default function KothrudPage({ onOpenBooking }) {
         </div>
       </section>
 
-      {/* Kothrud FAQs (AEO/GEO Section) */}
-      <section className="py-16 bg-[#FFF0F6]/20 border-t border-[#FFF0F6]">
+      {/* Kothrud FAQs (AEO/GEO Section) with Interactive Accordion */}
+      <section className="py-16 bg-[#FFF0F6]/20 border-t border-[#FFF0F6]" itemScope itemType="https://schema.org/FAQPage">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           <div className="text-center space-y-3">
             <span className="text-xs font-semibold uppercase tracking-widest font-nav text-[#ED78A8]">DIRECT ANSWERS & FAQS</span>
@@ -252,12 +259,42 @@ export default function KothrudPage({ onOpenBooking }) {
           </div>
 
           <div className="space-y-4">
-            {faqs.map((faq, index) => (
-              <div key={index} className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm space-y-2 text-left">
-                <h3 className="font-heading font-bold text-lg text-[#242424]">{faq.q}</h3>
-                <p className="text-[#666666] text-sm font-light leading-relaxed">{faq.a}</p>
-              </div>
-            ))}
+            {faqs.map((faq, index) => {
+              const isOpen = openFaqIndex === index
+              return (
+                <div
+                  key={index}
+                  className={`bg-white rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen ? 'border-[#ED78A8] shadow-md ring-1 ring-[#ED78A8]/20' : 'border-slate-100 shadow-sm'
+                    }`}
+                  itemScope
+                  itemProp="mainEntity"
+                  itemType="https://schema.org/Question"
+                >
+                  <button
+                    onClick={() => setOpenFaqIndex(isOpen ? null : index)}
+                    className="w-full p-6 text-left flex items-center justify-between gap-3 cursor-pointer"
+                    aria-expanded={isOpen}
+                  >
+                    <h3 className="font-heading font-bold text-lg text-[#242424] flex items-center gap-2" itemProp="name">
+                      <CheckCircle2 className="w-5 h-5 text-[#ED78A8] shrink-0" />
+                      <span>{faq.q}</span>
+                    </h3>
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ${isOpen ? 'bg-[#ED78A8] text-white rotate-180' : 'bg-[#FFF0F6] text-[#ED78A8]'
+                      }`}>
+                      <ChevronDown className="w-4 h-4" />
+                    </div>
+                  </button>
+
+                  {isOpen && (
+                    <div className="px-6 pb-6 pt-0 text-left border-t border-[#FFF0F6]" itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+                      <p className="text-[#666666] text-sm font-light leading-relaxed pt-3 pl-7" itemProp="text">
+                        {faq.a}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>

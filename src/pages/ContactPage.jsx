@@ -52,6 +52,11 @@ export default function ContactPage() {
     }
   ]
 
+  const breadcrumbs = [
+    { name: "Home", url: "/" },
+    { name: "Contact", url: "/contact" }
+  ]
+
   const handleSubmit = (e) => {
     e.preventDefault()
     setSubmitted(true)
@@ -62,20 +67,21 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="pt-20 pb-20 bg-[#FFFDFB] text-[#242424] font-body">
+    <div className="pt-20 pb-20 bg-[#FFFDFB] text-[#242424] font-body" itemScope itemType="https://schema.org/ContactPage">
       <SEOHead
         title="Contact ClickMates Photography Studio in Kothrud, Pune"
         description="Contact ClickMates Photography studio in Kothrud, Pune. Located at Left Bhusari Colony, Paud Road. Call +91 96999 45608 or WhatsApp to book your photoshoot."
         keywords="Contact ClickMates Photography, Photography Studio Kothrud Address, Photo Studio Paud Road, Photography Studio Phone Pune, Book Baby Shoot Pune"
         canonicalUrl={`https://${brandDetails.domain}/contact`}
         faqs={contactFaqs}
+        breadcrumbs={breadcrumbs}
       />
 
       {/* Image-Driven Contact Hero Banner */}
       <section className="relative py-32 sm:py-44 bg-[#111111] text-white text-center overflow-hidden">
         <img
           src={e30}
-          alt="ClickMates Photography Contact Banner Kothrud Pune"
+          alt="ClickMates Photography Contact Banner Kothrud Pune Studio"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/60" />
@@ -117,8 +123,9 @@ export default function ContactPage() {
               <form onSubmit={handleSubmit} className="space-y-4 font-nav text-xs font-medium">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <label className="text-[#242424]">Your Full Name *</label>
+                    <label htmlFor="fullName" className="text-[#242424]">Your Full Name *</label>
                     <input
+                      id="fullName"
                       type="text"
                       required
                       placeholder="e.g. Ananya Sharma"
@@ -128,8 +135,9 @@ export default function ContactPage() {
                     />
                   </div>
                   <div className="space-y-1.5">
-                    <label className="text-[#242424]">Phone Number *</label>
+                    <label htmlFor="phoneNumber" className="text-[#242424]">Phone Number *</label>
                     <input
+                      id="phoneNumber"
                       type="tel"
                       required
                       placeholder="e.g. +91 98765 43210"
@@ -142,8 +150,9 @@ export default function ContactPage() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <label className="text-[#242424]">Email Address</label>
+                    <label htmlFor="emailAddress" className="text-[#242424]">Email Address</label>
                     <input
+                      id="emailAddress"
                       type="email"
                       placeholder="e.g. ananya@example.com"
                       value={formData.email}
@@ -152,8 +161,9 @@ export default function ContactPage() {
                     />
                   </div>
                   <div className="space-y-1.5">
-                    <label className="text-[#242424]">Select Photography Service *</label>
+                    <label htmlFor="photoService" className="text-[#242424]">Select Photography Service *</label>
                     <select
+                      id="photoService"
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                       className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-hidden focus:border-[#ED78A8] bg-[#FFFDFB]"
@@ -170,8 +180,9 @@ export default function ContactPage() {
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-[#242424]">Preferred Shoot Date</label>
+                  <label htmlFor="shootDate" className="text-[#242424]">Preferred Shoot Date</label>
                   <input
+                    id="shootDate"
                     type="date"
                     value={formData.date}
                     onChange={(e) => setFormData({ ...formData, date: e.target.value })}
@@ -180,8 +191,9 @@ export default function ContactPage() {
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-[#242424]">Additional Details or Questions</label>
+                  <label htmlFor="shootDetails" className="text-[#242424]">Additional Details or Questions</label>
                   <textarea
+                    id="shootDetails"
                     rows={4}
                     placeholder="Tell us about your shoot ideas, themes, or special requests..."
                     value={formData.message}
@@ -202,9 +214,9 @@ export default function ContactPage() {
 
           {/* Right Column: Contact Info Cards */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="p-8 rounded-3xl bg-[#111111] text-white space-y-6 shadow-xl">
-              <h3 className="font-heading text-2xl font-bold border-b border-white/10 pb-4">
-                Studio Contact Details
+            <div className="p-8 rounded-3xl bg-[#111111] text-white space-y-6 shadow-xl" itemScope itemType="https://schema.org/LocalBusiness">
+              <h3 className="font-heading text-2xl font-bold border-b border-white/10 pb-4" itemProp="name">
+                ClickMates Photography Studio
               </h3>
 
               <div className="space-y-5 text-xs text-slate-300 font-body">
@@ -212,7 +224,9 @@ export default function ContactPage() {
                   <MapPin className="w-5 h-5 text-[#ED78A8] shrink-0 mt-0.5" />
                   <div>
                     <h4 className="font-semibold text-white mb-0.5">Physical Studio Address</h4>
-                    <p className="leading-relaxed">{brandDetails.fullAddress}</p>
+                    <p className="leading-relaxed" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+                      <span itemProp="streetAddress">{brandDetails.fullAddress}</span>
+                    </p>
                   </div>
                 </div>
 
@@ -221,7 +235,7 @@ export default function ContactPage() {
                   <div>
                     <h4 className="font-semibold text-white mb-0.5">Phone Numbers</h4>
                     <p>
-                      <a href={`tel:${brandDetails.phone}`} className="hover:text-[#ED78A8] transition">{brandDetails.phone}</a>
+                      <a href={`tel:${brandDetails.phone}`} className="hover:text-[#ED78A8] transition" itemProp="telephone">{brandDetails.phone}</a>
                       <span className="mx-2">•</span>
                       <a href={`tel:${brandDetails.phone2}`} className="hover:text-[#ED78A8] transition">{brandDetails.phone2}</a>
                     </p>
@@ -232,7 +246,7 @@ export default function ContactPage() {
                   <Mail className="w-5 h-5 text-[#ED78A8] shrink-0 mt-0.5" />
                   <div>
                     <h4 className="font-semibold text-white mb-0.5">Email Address</h4>
-                    <a href={`mailto:${brandDetails.email}`} className="hover:text-[#ED78A8] transition">{brandDetails.email}</a>
+                    <a href={`mailto:${brandDetails.email}`} className="hover:text-[#ED78A8] transition" itemProp="email">{brandDetails.email}</a>
                   </div>
                 </div>
 
@@ -251,6 +265,7 @@ export default function ContactPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full py-3 rounded-full text-center text-xs font-semibold tracking-wider uppercase font-nav text-white bg-emerald-600 hover:bg-emerald-700 transition flex items-center justify-center gap-2"
+                  aria-label="Contact ClickMates Photography via WhatsApp Direct"
                 >
                   <MessageCircle className="w-4 h-4" />
                   WhatsApp Direct
@@ -269,7 +284,7 @@ export default function ContactPage() {
 
           <div className="rounded-3xl overflow-hidden shadow-2xl border border-[#FFF0F6] h-96 w-full">
             <iframe
-              title="ClickMates Photography Pune Studio Location"
+              title="ClickMates Photography Pune Studio Location Map"
               src={brandDetails.mapEmbedUrl}
               className="w-full h-full border-0"
               allowFullScreen=""
@@ -282,7 +297,7 @@ export default function ContactPage() {
         {/* 8 CONTACT FAQS SECTION */}
         <div className="mt-16 max-w-4xl mx-auto space-y-8">
           <div className="text-center space-y-3">
-            <span className="text-xs font-semibold uppercase tracking-widest font-nav text-[#ED78A8] bg-[#FFF0F6] px-3.5 py-1.5 rounded-full border border-[#ED78A8]/20">
+            <span className="inline-block text-xs font-semibold uppercase tracking-widest font-nav text-[#ED78A8] bg-[#FFF0F6] px-3.5 py-1.5 rounded-full border border-[#ED78A8]/20 shadow-xs">
               DIRECT ANSWERS & FAQS
             </span>
             <h2 className="font-heading text-3xl sm:text-4xl font-bold text-[#242424]">
@@ -294,8 +309,8 @@ export default function ContactPage() {
             {contactFaqs.map((faq, index) => (
               <div key={index} className="bg-white p-6 rounded-2xl border border-[#FFF0F6] shadow-sm space-y-2 text-left">
                 <h3 className="font-heading font-bold text-lg text-[#242424] flex items-center gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-[#ED78A8]" />
-                  {faq.q}
+                  <CheckCircle2 className="w-5 h-5 text-[#ED78A8] shrink-0" />
+                  <span>{faq.q}</span>
                 </h3>
                 <p className="text-[#666666] text-sm font-light leading-relaxed pl-7">{faq.a}</p>
               </div>

@@ -16,20 +16,26 @@ export default function BlogPage() {
     }
   ]
 
+  const breadcrumbs = [
+    { name: "Home", url: "/" },
+    { name: "Blog", url: "/blog" }
+  ]
+
   return (
-    <div className="pt-24 pb-20 bg-[#FFFDFB] text-[#242424] font-body">
+    <div className="pt-24 pb-20 bg-[#FFFDFB] text-[#242424] font-body" itemScope itemType="https://schema.org/CollectionPage">
       <SEOHead
         title="Photography Tips & Guides Blog | ClickMates Photography Pune"
         description="Read professional photography guides, baby shoot preparation tips, maternity styling advice, and cake smash ideas by ClickMates Photography in Kothrud, Pune."
         keywords="Baby Photography Tips Pune, Newborn Shoot Guide, Maternity Photography Ideas, Cake Smash Tips Pune, ClickMates Blog"
         canonicalUrl={`https://${brandDetails.domain}/blog`}
         faqs={blogFaqs}
+        breadcrumbs={breadcrumbs}
       />
 
       {/* Hero Banner */}
       <section className="bg-[#FFF0F6]/40 py-16 sm:py-24 border-b border-[#FFF0F6] text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
-          <span className="text-xs font-semibold uppercase tracking-widest font-nav text-[#ED78A8] bg-[#FFF0F6] px-3.5 py-1.5 rounded-full border border-[#ED78A8]/20">
+          <span className="inline-block text-xs font-semibold uppercase tracking-widest font-nav text-[#ED78A8] bg-[#FFF0F6] px-3.5 py-1.5 rounded-full border border-[#ED78A8]/20 shadow-xs">
             KNOWLEDGE & INSPIRATION
           </span>
           <h1 className="font-heading text-4xl sm:text-6xl font-bold text-[#242424]">
@@ -48,15 +54,18 @@ export default function BlogPage() {
             <article
               key={post.slug}
               className="bg-white rounded-3xl border border-[#FFF0F6] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+              itemScope
+              itemType="https://schema.org/BlogPosting"
             >
               <div className="space-y-6">
-                <div className="h-64 sm:h-72 overflow-hidden relative">
+                <div className="h-64 sm:h-72 overflow-hidden relative border-b border-[#FFF0F6]">
                   <img
                     src={post.image}
-                    alt={post.alt}
+                    alt={post.alt || `${post.title} - ClickMates Photography Pune Studio`}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    itemProp="image"
                   />
-                  <span className="absolute top-4 left-4 bg-white/90 backdrop-blur-xs text-[#ED78A8] font-nav font-semibold text-xs uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-sm">
+                  <span className="absolute top-4 left-4 bg-white/90 backdrop-blur-xs text-[#ED78A8] font-nav font-semibold text-xs uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-sm" itemProp="articleSection">
                     {post.category}
                   </span>
                 </div>
@@ -65,19 +74,19 @@ export default function BlogPage() {
                   <div className="flex flex-wrap items-center gap-4 text-xs text-[#777777] font-nav">
                     <span className="flex items-center gap-1.5">
                       <Calendar className="w-3.5 h-3.5 text-[#ED78A8]" />
-                      {post.date}
+                      <time dateTime={post.date} itemProp="datePublished">{post.date}</time>
                     </span>
                     <span className="flex items-center gap-1.5">
                       <Clock className="w-3.5 h-3.5 text-[#ED78A8]" />
-                      {post.readTime}
+                      <span>{post.readTime}</span>
                     </span>
                   </div>
 
-                  <h2 className="font-heading text-2xl font-bold text-[#242424] group-hover:text-[#ED78A8] transition-colors leading-snug">
-                    <Link to={`/blog/${post.slug}`}>{post.title}</Link>
+                  <h2 className="font-heading text-2xl font-bold text-[#242424] group-hover:text-[#ED78A8] transition-colors leading-snug" itemProp="headline">
+                    <Link to={`/blog/${post.slug}`} itemProp="url">{post.title}</Link>
                   </h2>
 
-                  <p className="text-[#666666] text-sm font-light leading-relaxed">
+                  <p className="text-[#666666] text-sm font-light leading-relaxed" itemProp="description">
                     {post.excerpt}
                   </p>
                 </div>
@@ -87,6 +96,7 @@ export default function BlogPage() {
                 <Link
                   to={`/blog/${post.slug}`}
                   className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider font-nav text-[#ED78A8] hover:text-[#D9578D] transition"
+                  aria-label={`Read full article: ${post.title}`}
                 >
                   <span>Read Full Article</span>
                   <ChevronRight className="w-4 h-4" />

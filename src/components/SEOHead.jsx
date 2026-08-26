@@ -15,9 +15,8 @@ export default function SEOHead({
 }) {
   useEffect(() => {
     // 1. Document Title
-    const fullTitle = title 
-      ? title 
-      : 'ClickMates Photography | Baby, Maternity & Newborn Photography Studio in Kothrud, Pune'
+    const defaultTitle = 'ClickMates Photography | Baby, Maternity & Newborn Photography Studio in Kothrud, Pune'
+    const fullTitle = title || defaultTitle
     document.title = fullTitle
 
     // Helper to set or create meta tag
@@ -35,9 +34,12 @@ export default function SEOHead({
     const currentUrl = canonicalUrl || window.location.href
 
     // 2. Standard Meta Tags
-    setMetaTag('meta[name="description"]', 'description', 'name', description || 'ClickMates Photography is a top-rated photography studio based in Kothrud, Pune, offering baby, newborn safety, maternity, family portraits, cake smash, and celebration event photography.')
-    setMetaTag('meta[name="keywords"]', 'keywords', 'name', keywords || 'ClickMates Photography, Photo Studio Near Me, Photo Studio Pune, Photo Studio Kothrud, Photography Studio in Pune, Best Baby Photography Pune, Newborn Photography Pune, Maternity Photoshoot Pune, Baby Photoshoot Kothrud, Cake Smash Photoshoot Pune, Family Photographer Pune, Photo Studio Paud Road, Baby Photographer Near Me, Maternity Photographer Near Me')
-    setMetaTag('meta[name="author"]', 'author', 'name', brandDetails.name)
+    const defaultDesc = 'ClickMates Photography is a top-rated photography studio based in Kothrud, Pune, offering baby, newborn safety, maternity, family portraits, cake smash, and celebration event photography.'
+    const defaultKeywords = 'ClickMates Photography, Photo Studio Near Me, Photo Studio Pune, Photo Studio Kothrud, Photography Studio in Pune, Best Baby Photography Pune, Newborn Photography Pune, Maternity Photoshoot Pune, Baby Photoshoot Kothrud, Cake Smash Photoshoot Pune, Family Photographer Pune, Photo Studio Paud Road, Baby Photographer Near Me, Maternity Photographer Near Me'
+
+    setMetaTag('meta[name="description"]', 'description', 'name', description || defaultDesc)
+    setMetaTag('meta[name="keywords"]', 'keywords', 'name', keywords || defaultKeywords)
+    setMetaTag('meta[name="author"]', 'author', 'name', brandDetails?.name || 'ClickMates Photography')
 
     // 3. Canonical Link
     let canonicalLink = document.querySelector('link[rel="canonical"]')
@@ -49,25 +51,26 @@ export default function SEOHead({
     canonicalLink.setAttribute('href', currentUrl)
 
     // 4. Open Graph Tags
+    const resolvedOgImage = ogImage.startsWith('http') ? ogImage : `https://${brandDetails.domain}${ogImage}`
     setMetaTag('meta[property="og:title"]', 'og:title', 'property', fullTitle)
-    setMetaTag('meta[property="og:description"]', 'og:description', 'property', description)
+    setMetaTag('meta[property="og:description"]', 'og:description', 'property', description || defaultDesc)
     setMetaTag('meta[property="og:type"]', 'og:type', 'property', ogType)
     setMetaTag('meta[property="og:url"]', 'og:url', 'property', currentUrl)
-    setMetaTag('meta[property="og:image"]', 'og:image', 'property', ogImage.startsWith('http') ? ogImage : `https://${brandDetails.domain}${ogImage}`)
+    setMetaTag('meta[property="og:image"]', 'og:image', 'property', resolvedOgImage)
 
     // 5. Twitter Card Tags
     setMetaTag('meta[property="twitter:card"]', 'twitter:card', 'property', 'summary_large_image')
     setMetaTag('meta[property="twitter:url"]', 'twitter:url', 'property', currentUrl)
     setMetaTag('meta[property="twitter:title"]', 'twitter:title', 'property', fullTitle)
-    setMetaTag('meta[property="twitter:description"]', 'twitter:description', 'property', description)
-    setMetaTag('meta[property="twitter:image"]', 'twitter:image', 'property', ogImage.startsWith('http') ? ogImage : `https://${brandDetails.domain}${ogImage}`)
+    setMetaTag('meta[property="twitter:description"]', 'twitter:description', 'property', description || defaultDesc)
+    setMetaTag('meta[property="twitter:image"]', 'twitter:image', 'property', resolvedOgImage)
 
     // 6. JSON-LD Schemas Graph
     const schemaGraph = []
 
     // LocalBusiness / PhotographyBusiness Schema
     const baseBusinessSchema = {
-      "@type": "PhotographyBusiness",
+      "@type": schemaType || "PhotographyBusiness",
       "@id": `https://${brandDetails.domain}/#organization`,
       "name": brandDetails.name,
       "url": `https://${brandDetails.domain}/`,
@@ -107,7 +110,7 @@ export default function SEOHead({
       "sameAs": [
         brandDetails.instagram,
         brandDetails.facebook
-      ]
+      ].filter(Boolean)
     }
     schemaGraph.push(baseBusinessSchema)
 
@@ -173,6 +176,13 @@ export default function SEOHead({
       "@graph": schemaGraph
     }, null, 2)
 
+    // Cleanup script tag on unmount if needed
+    return () => {
+      const existingScript = document.getElementById('json-ld-schema')
+      if (existingScript) {
+        existingScript.remove()
+      }
+    }
   }, [title, description, keywords, canonicalUrl, ogType, ogImage, schemaType, faqs, serviceDetails, breadcrumbs])
 
   return null

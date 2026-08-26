@@ -1,16 +1,16 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { 
-  ArrowRight, 
-  MessageCircle, 
-  Calendar, 
+import {
+  ArrowRight,
+  MessageCircle,
+  Calendar,
   MapPin,
   CheckCircle2,
   ChevronDown
 } from 'lucide-react'
-import { 
-  whyChooseUsData, 
-  processSteps, 
+import {
+  whyChooseUsData,
+  processSteps,
   instagramFeed,
   brandDetails
 } from '../data/photographyData'
@@ -64,14 +64,19 @@ export default function HomePage({ onOpenBooking }) {
     }
   ]
 
+  const breadcrumbs = [
+    { name: "Home", url: "/" }
+  ]
+
   return (
-    <div className="min-h-screen bg-[#FFFDFB] text-[#242424] font-body selection:bg-[#ED78A8] selection:text-white">
+    <div className="min-h-screen bg-[#FFFDFB] text-[#242424] font-body selection:bg-[#ED78A8] selection:text-white" itemScope itemType="https://schema.org/WebPage">
       <SEOHead
         title="ClickMates Photography | Photography Studio in Kothrud, Pune"
         description="ClickMates Photography is a professional photography studio in Kothrud, Pune, offering baby, newborn, maternity, family, milestone, and event photography."
         keywords="ClickMates Photography, Photography Studio Pune, Photography Studio Kothrud, Photographer Pune, Baby Photographer Pune, Newborn Photographer Pune, Maternity Photographer Pune, Family Photographer Pune"
         canonicalUrl={`https://${brandDetails.domain}/`}
         faqs={homeFaqs}
+        breadcrumbs={breadcrumbs}
       />
 
       {/* SECTION 1 & 2: DYNAMIC HERO CAROUSEL */}
@@ -99,13 +104,15 @@ export default function HomePage({ onOpenBooking }) {
               </p>
 
               {/* GEO Answer Entity Summary */}
-              <div className="bg-[#FFF0F6]/50 p-5 rounded-2xl border border-[#ED78A8]/20 space-y-2 text-xs sm:text-sm">
+              <div className="bg-[#FFF0F6]/50 p-5 rounded-2xl border border-[#ED78A8]/20 space-y-2 text-xs sm:text-sm" itemScope itemType="https://schema.org/LocalBusiness">
+                <meta itemProp="name" content="ClickMates Photography Studio" />
+                <meta itemProp="telephone" content={brandDetails.phone} />
                 <p className="font-semibold text-[#242424] flex items-center gap-2">
                   <MapPin className="w-4 h-4 text-[#ED78A8]" />
                   <span>Exact Studio Address:</span>
                 </p>
-                <p className="text-[#555555] font-light pl-6">
-                  {brandDetails.fullAddress}
+                <p className="text-[#555555] font-light pl-6" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+                  <span itemProp="streetAddress">{brandDetails.fullAddress}</span>
                 </p>
                 <div className="pt-2 flex flex-wrap gap-3 pl-6 font-nav text-xs">
                   <Link to="/services" className="text-[#ED78A8] font-bold underline hover:text-[#d65f8f]">
@@ -124,7 +131,7 @@ export default function HomePage({ onOpenBooking }) {
                 <button
                   onClick={onOpenBooking}
                   data-cursor="click"
-                  className="w-[250px] sm:w-auto px-5 py-3 sm:px-8 sm:py-4 rounded-full text-white bg-[#ED78A8] hover:bg-[#D9578D] transition-all duration-300 shadow-lg shadow-[#ED78A8]/20 flex items-center justify-center gap-2 transform hover:-translate-y-0.5 whitespace-nowrap"
+                  className="w-[250px] sm:w-auto px-5 py-3 sm:px-8 sm:py-4 rounded-full text-white bg-[#ED78A8] hover:bg-[#D9578D] transition-all duration-300 shadow-lg shadow-[#ED78A8]/20 flex items-center justify-center gap-2 transform hover:-translate-y-0.5 whitespace-nowrap cursor-pointer"
                 >
                   <Calendar className="w-4 h-4 shrink-0" />
                   Book Studio Session
@@ -145,14 +152,14 @@ export default function HomePage({ onOpenBooking }) {
                 <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white transform hover:scale-[1.02] transition-transform duration-500">
                   <img
                     src={m16}
-                    alt="ClickMates Photography Studio Kothrud Pune"
+                    alt="ClickMates Photography Studio Kothrud Pune maternity and baby shoot setup"
                     className="w-full h-64 sm:h-80 lg:h-[420px] object-cover"
                   />
                 </div>
                 <div className="absolute -bottom-8 -left-8 w-48 sm:w-56 rounded-2xl overflow-hidden shadow-2xl border-4 border-white hidden sm:block">
                   <img
                     src={baby10}
-                    alt="Baby photographer in Kothrud Pune ClickMates"
+                    alt="Professional baby photographer in Kothrud Pune ClickMates studio"
                     className="w-full h-40 object-cover"
                   />
                 </div>
@@ -235,9 +242,8 @@ export default function HomePage({ onOpenBooking }) {
       {/* SECTION 10: OFFICIAL PHOTOGRAPHY PACKAGES SECTION */}
       <PackagesSection onOpenBooking={onOpenBooking} />
 
-      {/* HOMEPAGE GEO / AEO DIRECT ANSWERS & FAQS */}
       {/* HOMEPAGE GEO / AEO DIRECT ANSWERS & FAQS ACCORDION */}
-      <section className="pt-8 pb-14 sm:py-20 bg-[#FFFDFB] border-b border-[#FFF0F6]">
+      <section className="pt-8 pb-14 sm:py-20 bg-[#FFFDFB] border-b border-[#FFF0F6]" itemScope itemType="https://schema.org/FAQPage">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 sm:space-y-8">
           <div className="text-center space-y-2.5 sm:space-y-3">
             <span className="inline-block text-[10px] sm:text-xs font-semibold uppercase tracking-widest font-nav text-[#ED78A8] bg-[#FFF0F6] px-3.5 py-1.5 rounded-full border border-[#ED78A8]/20 max-w-full text-center leading-normal">
@@ -257,31 +263,32 @@ export default function HomePage({ onOpenBooking }) {
               return (
                 <div
                   key={index}
-                  className={`bg-white rounded-2xl border transition-all duration-300 overflow-hidden ${
-                    isOpen
+                  className={`bg-white rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen
                       ? 'border-[#ED78A8] shadow-md ring-1 ring-[#ED78A8]/20'
                       : 'border-[#FFF0F6] shadow-xs hover:border-[#ED78A8]/40'
-                  }`}
+                    }`}
+                  itemScope
+                  itemProp="mainEntity"
+                  itemType="https://schema.org/Question"
                 >
                   <button
                     onClick={() => setOpenFaqIndex(isOpen ? null : index)}
                     className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3 cursor-pointer"
                     aria-expanded={isOpen}
                   >
-                    <h3 className="font-heading font-bold text-sm sm:text-lg text-[#242424] flex items-center gap-2 pr-2">
+                    <h3 className="font-heading font-bold text-sm sm:text-lg text-[#242424] flex items-center gap-2 pr-2" itemProp="name">
                       <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#ED78A8] shrink-0" />
                       <span>{faq.q}</span>
                     </h3>
-                    <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ${
-                      isOpen ? 'bg-[#ED78A8] text-white rotate-180' : 'bg-[#FFF0F6] text-[#ED78A8]'
-                    }`}>
+                    <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ${isOpen ? 'bg-[#ED78A8] text-white rotate-180' : 'bg-[#FFF0F6] text-[#ED78A8]'
+                      }`}>
                       <ChevronDown className="w-4 h-4" />
                     </div>
                   </button>
 
                   {isOpen && (
-                    <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0 text-left border-t border-[#FFF0F6] animate-fade-in">
-                      <p className="text-[#555555] text-xs sm:text-sm font-light leading-relaxed pl-6 sm:pl-7 pt-2.5">
+                    <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0 text-left border-t border-[#FFF0F6] animate-fade-in" itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+                      <p className="text-[#555555] text-xs sm:text-sm font-light leading-relaxed pl-6 sm:pl-7 pt-2.5" itemProp="text">
                         {faq.a}
                       </p>
                     </div>
@@ -310,7 +317,7 @@ export default function HomePage({ onOpenBooking }) {
               <div key={img.id} className="relative rounded-2xl overflow-hidden h-48 sm:h-64 group" data-cursor="view">
                 <img
                   src={img.image}
-                  alt="ClickMates Instagram Story"
+                  alt="ClickMates Photography studio session behind the scenes on Instagram"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-nav font-semibold p-2 text-center">
@@ -349,7 +356,7 @@ export default function HomePage({ onOpenBooking }) {
             <button
               onClick={onOpenBooking}
               data-cursor="click"
-              className="w-[250px] sm:w-auto px-5 py-3 sm:px-9 sm:py-4 rounded-full text-white bg-[#ED78A8] hover:bg-[#D9578D] transition-all duration-300 shadow-xl shadow-[#ED78A8]/30 flex items-center justify-center gap-2 whitespace-nowrap"
+              className="w-[250px] sm:w-auto px-5 py-3 sm:px-9 sm:py-4 rounded-full text-white bg-[#ED78A8] hover:bg-[#D9578D] transition-all duration-300 shadow-xl shadow-[#ED78A8]/30 flex items-center justify-center gap-2 whitespace-nowrap cursor-pointer"
             >
               <Calendar className="w-4 h-4 shrink-0" />
               Book Your Shoot

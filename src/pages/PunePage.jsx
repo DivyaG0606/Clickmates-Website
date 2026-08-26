@@ -1,8 +1,7 @@
 import { MessageCircle, Star, CheckCircle2, Calendar } from 'lucide-react'
 import SEOHead from '../components/SEOHead'
-import { brandDetails, portfolioItems } from '../data/photographyData'
+import { brandDetails } from '../data/photographyData'
 import baby1 from '../assets/baby1.jpg'
-import m16 from '../assets/m16.jpg'
 import e30 from '../assets/e30.jpg'
 
 export default function PunePage({ onOpenBooking }) {
@@ -32,17 +31,17 @@ export default function PunePage({ onOpenBooking }) {
   ]
 
   const puneAreas = [
-    "Kothrud", "Paud Road", "Bhusari Colony", "Karve Nagar", "Erandwane", 
-    "Deccan", "Shivajinagar", "Bavdhan", "Pashan", "Aundh", 
+    "Kothrud", "Paud Road", "Bhusari Colony", "Karve Nagar", "Erandwane",
+    "Deccan", "Shivajinagar", "Bavdhan", "Pashan", "Aundh",
     "Baner", "Balewadi", "Wakad", "Hinjewadi", "Kharadi", "Viman Nagar"
   ]
 
   return (
     <div className="pt-24 pb-20 bg-[#FFFDFB] text-[#242424] font-body">
       <SEOHead
-        title="Photography Studio in Pune | ClickMates Photography"
-        description="ClickMates Photography is a top-rated photography studio in Pune offering baby, newborn, maternity, family, milestone & event photography services."
-        keywords="photography studio Pune, photographer Pune, best photography studio Pune, professional photography studio Pune, baby photographer Pune, newborn photographer Pune, maternity photographer Pune, family photographer Pune, event photographer Pune"
+        title="Best Photography Studio in Pune | Baby, Newborn & Maternity Photographer"
+        description="Looking for the best photography studio in Pune? ClickMates Photography in Kothrud offers top-rated baby shoots, newborn photography, maternity sessions, and family portraiture."
+        keywords="photography studio Pune, best photography studio Pune, professional photography studio Pune, baby photographer Pune, newborn photographer Pune, maternity photographer Pune, family photographer Pune, event photographer Pune, Kothrud photography studio, ClickMates Photography Pune"
         canonicalUrl={`https://${brandDetails.domain}/photography-studio-pune`}
         faqs={faqs}
         breadcrumbs={breadcrumbs}
@@ -53,22 +52,22 @@ export default function PunePage({ onOpenBooking }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 text-left">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFF0F6] border border-[#ED78A8]/30 text-[#ED78A8] text-xs font-semibold uppercase tracking-wider font-nav">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFF0F6] border border-[#ED78A8]/30 text-[#ED78A8] text-xs font-semibold uppercase tracking-wider font-nav shadow-xs">
                 <Star className="w-3.5 h-3.5 fill-[#ED78A8]" />
-                <span>Premier Photography Studio Pune</span>
+                <span>Top-Rated Photography Studio in Pune</span>
               </div>
-              <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-[#242424] leading-tight">
+              <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#242424] leading-tight">
                 Professional <span className="text-[#ED78A8]">Photography Studio in Pune</span>
               </h1>
               <p className="text-[#666666] text-base sm:text-lg font-light leading-relaxed">
-                ClickMates Photography is a specialized photography studio dedicated to capturing timeless memories for families throughout Pune. From gentle newborn poses to energetic 1st birthday cake smashes and serene maternity portraits.
+                ClickMates Photography is a premier specialized photography studio in Kothrud, Pune, dedicated to capturing timeless memories for families throughout Maharashtra. From gentle newborn poses to energetic 1st birthday cake smashes and serene maternity portraits.
               </p>
 
               {/* Entity Overview Box */}
               <div className="bg-white p-5 rounded-2xl border border-[#ED78A8]/20 shadow-sm space-y-2 text-xs sm:text-sm">
-                <p className="font-semibold text-[#242424] flex items-center gap-2">
+                <p className="font-semibold text-[#242424] flex items-center gap-2 font-nav">
                   <CheckCircle2 className="w-4 h-4 text-[#ED78A8]" />
-                  <span>ClickMates Studio Location:</span>
+                  <span>ClickMates Pune Studio Location:</span>
                 </p>
                 <p className="text-[#555555] font-light pl-6">
                   {brandDetails.fullAddress}
@@ -78,7 +77,7 @@ export default function PunePage({ onOpenBooking }) {
               <div className="flex flex-wrap gap-4 pt-2 font-nav text-sm">
                 <button
                   onClick={onOpenBooking}
-                  className="px-8 py-4 bg-[#ED78A8] hover:bg-[#d65f8f] text-white font-semibold rounded-full shadow-lg shadow-[#ED78A8]/30 transition-all duration-300 transform hover:-translate-y-0.5 flex items-center gap-2"
+                  className="px-8 py-4 bg-[#ED78A8] hover:bg-[#d65f8f] text-white font-semibold rounded-full shadow-lg shadow-[#ED78A8]/30 transition-all duration-300 transform hover:-translate-y-0.5 flex items-center gap-2 cursor-pointer"
                 >
                   <Calendar className="w-4 h-4" />
                   <span>Book Pune Session</span>
@@ -99,12 +98,14 @@ export default function PunePage({ onOpenBooking }) {
               <div className="grid grid-cols-2 gap-4">
                 <img
                   src={baby1}
-                  alt="Baby photoshoot by ClickMates photography studio Pune"
+                  alt="Baby photoshoot by ClickMates best photography studio Pune"
+                  title="Baby Photoshoot Pune - ClickMates Photography"
                   className="rounded-3xl shadow-xl h-64 sm:h-80 w-full object-cover border-4 border-white"
                 />
                 <img
                   src={e30}
-                  alt="Family photography session in Pune by ClickMates"
+                  alt="Family photography session in Pune by ClickMates studio"
+                  title="Family Photography Session Pune"
                   className="rounded-3xl shadow-xl h-64 sm:h-80 w-full object-cover border-4 border-white mt-8"
                 />
               </div>
@@ -116,36 +117,36 @@ export default function PunePage({ onOpenBooking }) {
       {/* Services Grid in Pune */}
       <section className="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="text-xs font-semibold uppercase tracking-widest font-nav text-[#ED78A8] bg-[#FFF0F6] px-3.5 py-1.5 rounded-full border border-[#ED78A8]/20">
-            OUR SPECIALIZATIONS
+          <span className="text-xs font-semibold uppercase tracking-widest font-nav text-[#ED78A8] bg-[#FFF0F6] px-3.5 py-1.5 rounded-full border border-[#ED78A8]/20 shadow-xs">
+            OUR SPECIALIZATIONS IN PUNE
           </span>
           <h2 className="font-heading text-3xl sm:text-4xl font-bold text-[#242424]">
-            Photography Services Offered in Pune
+            Professional Photography Services Offered in Pune
           </h2>
           <p className="text-[#666666] text-base font-light">
-            Every photography session is tailored with care, artistic direction, and high attention to detail.
+            Every photography session at our Kothrud studio is tailored with safety, artistic direction, and high attention to detail.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm space-y-4">
-            <h3 className="font-heading text-xl font-bold text-[#242424]">Baby & Milestone Photography</h3>
+          <div className="bg-white p-8 rounded-3xl border border-[#ED78A8]/20 shadow-sm hover:shadow-md transition-all duration-300 space-y-4">
+            <h3 className="font-heading text-xl font-bold text-[#242424]">Baby & Milestone Photography Pune</h3>
             <p className="text-[#666666] text-sm leading-relaxed font-light">
               Capturing 100-day celebrations, sitting milestones, 6 to 11 month giggles, and 1st birthday cake smashes across Pune.
             </p>
           </div>
 
-          <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm space-y-4">
-            <h3 className="font-heading text-xl font-bold text-[#242424]">Newborn Photography</h3>
+          <div className="bg-white p-8 rounded-3xl border border-[#ED78A8]/20 shadow-sm hover:shadow-md transition-all duration-300 space-y-4">
+            <h3 className="font-heading text-xl font-bold text-[#242424]">Newborn Photography Studio Pune</h3>
             <p className="text-[#666666] text-sm leading-relaxed font-light">
-              Safe, sleepy newborn sessions for babies aged 5 to 21 days in sanitized temperature-controlled studio warmth.
+              Safe, sleepy newborn sessions for babies aged 5 to 21 days in sanitized temperature-controlled studio warmth in Kothrud.
             </p>
           </div>
 
-          <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm space-y-4">
-            <h3 className="font-heading text-xl font-bold text-[#242424]">Maternity Photography</h3>
+          <div className="bg-white p-8 rounded-3xl border border-[#ED78A8]/20 shadow-sm hover:shadow-md transition-all duration-300 space-y-4">
+            <h3 className="font-heading text-xl font-bold text-[#242424]">Maternity Photography Pune</h3>
             <p className="text-[#666666] text-sm leading-relaxed font-light">
-              Editorial pregnancy shoots with designer gowns, artistic lighting, and romantic couple portraiture.
+              Editorial pregnancy shoots with designer maternity gowns, artistic lighting, and romantic couple portraiture in Pune.
             </p>
           </div>
         </div>
@@ -154,10 +155,13 @@ export default function PunePage({ onOpenBooking }) {
       {/* Areas Served in Pune */}
       <section className="py-16 bg-[#FFF0F6]/40 border-y border-[#FFF0F6]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
-          <h2 className="font-heading text-3xl font-bold text-[#242424]">
-            Serving Families Across Pune Localities
-          </h2>
-          <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
+          <div className="space-y-2">
+            <span className="text-xs font-semibold uppercase tracking-widest font-nav text-[#ED78A8]">LOCAL REACH</span>
+            <h2 className="font-heading text-3xl font-bold text-[#242424]">
+              Serving Families Across Pune Localities
+            </h2>
+          </div>
+          <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto font-nav">
             {puneAreas.map((area) => (
               <span key={area} className="px-4 py-2 bg-white rounded-full text-xs font-semibold text-[#444444] border border-[#ED78A8]/20 shadow-xs">
                 {area}
@@ -178,7 +182,7 @@ export default function PunePage({ onOpenBooking }) {
 
         <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <div key={index} className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm space-y-2 text-left">
+            <div key={index} className="bg-white p-6 rounded-2xl border border-[#ED78A8]/25 shadow-sm space-y-2 text-left">
               <h3 className="font-heading font-bold text-lg text-[#242424]">{faq.q}</h3>
               <p className="text-[#666666] text-sm font-light leading-relaxed">{faq.a}</p>
             </div>

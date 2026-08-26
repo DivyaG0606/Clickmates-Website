@@ -60,6 +60,7 @@ export default function ServicesPage({ onOpenBooking }) {
         <img
           src={baby12}
           alt="ClickMates Photography Studio Kothrud Pune Services Banner"
+          title="Photography Services Banner - ClickMates Pune"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/60" />
@@ -83,9 +84,8 @@ export default function ServicesPage({ onOpenBooking }) {
           {servicesData.map((service, index) => (
             <div
               key={service.id}
-              className={`grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center p-6 sm:p-10 rounded-3xl bg-gradient-to-br from-white via-[#FFFDFB] to-[#FFF0F6]/40 border-t-4 border-t-[#ED78A8] border border-[#ED78A8]/20 shadow-xl hover:shadow-2xl transition-all duration-300 max-w-[340px] lg:max-w-none mx-auto relative group ${
-                index % 2 === 1 ? 'lg:flex-row-reverse' : ''
-              }`}
+              className={`grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center p-6 sm:p-10 rounded-3xl bg-gradient-to-br from-white via-[#FFFDFB] to-[#FFF0F6]/40 border-t-4 border-t-[#ED78A8] border border-[#ED78A8]/20 shadow-xl hover:shadow-2xl transition-all duration-300 max-w-[340px] lg:max-w-none mx-auto relative group ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''
+                }`}
             >
               <div className={`lg:col-span-6 space-y-4 sm:space-y-5 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
                 <span className="inline-block px-3.5 py-1 rounded-full text-xs font-bold font-nav uppercase tracking-wider text-[#ED78A8] bg-[#FFF0F6] border border-[#ED78A8]/20">
@@ -112,7 +112,7 @@ export default function ServicesPage({ onOpenBooking }) {
                 <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 pt-3 font-nav text-xs font-semibold">
                   <Link
                     to={`/services/${service.id}`}
-                    className="px-5 py-3 rounded-full text-xs font-semibold uppercase tracking-wider text-white bg-[#ED78A8] hover:bg-[#D9578D] transition-all duration-300 shadow-md shadow-[#ED78A8]/30 flex items-center justify-center gap-2 whitespace-nowrap text-center"
+                    className="px-5 py-3 rounded-full text-xs font-semibold uppercase tracking-wider text-white bg-[#ED78A8] hover:bg-[#D9578D] transition-all duration-300 shadow-md shadow-[#ED78A8]/30 flex items-center justify-center gap-2 whitespace-nowrap text-center cursor-pointer"
                   >
                     <span>View Service Details</span>
                     <ChevronRight className="w-4 h-4" />
@@ -132,6 +132,7 @@ export default function ServicesPage({ onOpenBooking }) {
                 <img
                   src={service.cardImage}
                   alt={`${service.title} session at ClickMates Studio Kothrud Pune`}
+                  title={`${service.title} - ClickMates Studio Pune`}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -158,11 +159,10 @@ export default function ServicesPage({ onOpenBooking }) {
               return (
                 <div
                   key={index}
-                  className={`bg-white rounded-2xl border transition-all duration-300 overflow-hidden ${
-                    isOpen
+                  className={`bg-white rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen
                       ? 'border-[#ED78A8] shadow-md ring-1 ring-[#ED78A8]/20'
                       : 'border-[#FFF0F6] shadow-xs hover:border-[#ED78A8]/40'
-                  }`}
+                    }`}
                 >
                   <button
                     onClick={() => setOpenFaqIndex(isOpen ? null : index)}
@@ -173,9 +173,8 @@ export default function ServicesPage({ onOpenBooking }) {
                       <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#ED78A8] shrink-0" />
                       <span>{faq.q}</span>
                     </h3>
-                    <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ${
-                      isOpen ? 'bg-[#ED78A8] text-white rotate-180' : 'bg-[#FFF0F6] text-[#ED78A8]'
-                    }`}>
+                    <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ${isOpen ? 'bg-[#ED78A8] text-white rotate-180' : 'bg-[#FFF0F6] text-[#ED78A8]'
+                      }`}>
                       <ChevronDown className="w-4 h-4" />
                     </div>
                   </button>
