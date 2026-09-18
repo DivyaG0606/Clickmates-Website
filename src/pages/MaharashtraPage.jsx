@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { MessageCircle, Star, CheckCircle2, Calendar, ChevronDown } from 'lucide-react'
 import SEOHead from '../components/SEOHead'
 import { brandDetails } from '../data/photographyData'
-import baby15 from '../assets/baby15.jpg'
-import m16 from '../assets/m16.jpg'
+import baby15 from '../assets/baby/baby15.jpg'
+import m16 from '../assets/maternity/maternity13.jpg'
 
 export default function MaharashtraPage({ onOpenBooking }) {
   const [openFaqIndex, setOpenFaqIndex] = useState(0)

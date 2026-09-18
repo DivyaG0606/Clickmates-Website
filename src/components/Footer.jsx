@@ -23,13 +23,13 @@ export default function Footer() {
           <div className="md:col-span-1 space-y-4">
             <Link
               to="/"
-              className="inline-block bg-white p-3.5 rounded-2xl border border-[#FFF0F6] shadow-md transition-transform hover:scale-105"
+              className="inline-block bg-white p-3 sm:p-4 rounded-2xl border border-white/20 shadow-xl transition-transform duration-300 hover:scale-105"
               title="ClickMates Photography Pune - Home"
             >
               <img
                 src={logoImg}
                 alt="ClickMates Photography Studio Logo Kothrud Pune"
-                className="h-16 sm:h-20 lg:h-22 w-auto object-contain"
+                className="h-16 sm:h-20 lg:h-24 w-auto object-contain"
                 loading="lazy"
               />
             </Link>
@@ -83,7 +83,13 @@ export default function Footer() {
                 <Link to="/services" className="hover:text-white transition">Photography Services</Link>
               </li>
               <li>
+                <Link to="/portfolio" className="hover:text-white transition">Portfolio & Gallery</Link>
+              </li>
+              <li>
                 <Link to="/packages" className="hover:text-white transition">Packages & Pricing</Link>
+              </li>
+              <li>
+                <Link to="/blog" className="hover:text-white transition">Blog & Parenting Guides</Link>
               </li>
               <li>
                 <Link to="/contact" className="hover:text-white transition">Book a Shoot</Link>

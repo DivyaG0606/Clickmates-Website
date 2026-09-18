@@ -1,8 +1,8 @@
 import { MessageCircle, Star, CheckCircle2, Calendar } from 'lucide-react'
 import SEOHead from '../components/SEOHead'
 import { brandDetails } from '../data/photographyData'
-import baby1 from '../assets/baby1.jpg'
-import e30 from '../assets/e30.jpg'
+import baby1 from '../assets/baby/baby1.jpg'
+import e30 from '../assets/event/event1.jpg'
 
 export default function PunePage({ onOpenBooking }) {
   const faqs = [

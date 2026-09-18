@@ -11,8 +11,12 @@ import HomePage from './pages/HomePage'
 const AboutPage = lazy(() => import('./pages/AboutPage'))
 const ServicesPage = lazy(() => import('./pages/ServicesPage'))
 const ServiceDetailPage = lazy(() => import('./pages/ServiceDetailPage'))
+const PortfolioPage = lazy(() => import('./pages/PortfolioPage'))
+const CategoryGalleryPage = lazy(() => import('./pages/CategoryGalleryPage'))
 const PackagesPage = lazy(() => import('./pages/PackagesPage'))
 const ContactPage = lazy(() => import('./pages/ContactPage'))
+const BlogListPage = lazy(() => import('./pages/BlogListPage'))
+const BlogPostPage = lazy(() => import('./pages/BlogPostPage'))
 
 import './App.css'
 
@@ -100,7 +104,11 @@ export default function App() {
               <Route path="/about" element={<AboutPage onOpenBooking={handleOpenBooking} />} />
               <Route path="/services" element={<ServicesPage onOpenBooking={handleOpenBooking} />} />
               <Route path="/services/:serviceId" element={<ServiceDetailPage onOpenBooking={handleOpenBooking} />} />
+              <Route path="/portfolio" element={<PortfolioPage onOpenBooking={handleOpenBooking} />} />
+              <Route path="/portfolio/:categorySlug" element={<CategoryGalleryPage onOpenBooking={handleOpenBooking} />} />
               <Route path="/packages" element={<PackagesPage onOpenBooking={handleOpenBooking} />} />
+              <Route path="/blog" element={<BlogListPage onOpenBooking={handleOpenBooking} />} />
+              <Route path="/blog/:slug" element={<BlogPostPage onOpenBooking={handleOpenBooking} />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="*" element={<HomePage onOpenBooking={handleOpenBooking} />} />
             </Routes>

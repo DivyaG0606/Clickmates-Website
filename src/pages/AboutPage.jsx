@@ -1,354 +1,465 @@
 import { useState } from 'react'
-import { ShieldCheck, Award, Sparkles, CheckCircle2, Eye, Target, Heart, Camera, Clock, Shirt, MapPin, HeartHandshake, ChevronDown } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import {
+  ShieldCheck,
+  Award,
+  Sparkles,
+  CheckCircle2,
+  Heart,
+  Camera,
+  Clock,
+  MapPin,
+  HeartHandshake,
+  ChevronDown,
+  Calendar,
+  MessageCircle,
+  Phone,
+  ArrowRight,
+  Smile,
+  Palette,
+  Users
+} from 'lucide-react'
 import SEOHead from '../components/SEOHead'
-import baby10 from '../assets/baby10.jpg'
-import m16 from '../assets/m16.jpg'
-import m18 from '../assets/m18.jpg'
+import { brandDetails } from '../data/photographyData'
+import baby10 from '../assets/baby/baby10.jpg'
+import m16 from '../assets/maternity/maternity13.jpg'
+import m18 from '../assets/maternity/maternity15.jpg'
+import e30 from '../assets/event/event1.jpg'
 
 export default function AboutPage({ onOpenBooking }) {
   const [openFaqIndex, setOpenFaqIndex] = useState(0)
 
   const aboutFaqs = [
     {
-      q: "What is the background and story behind ClickMates Photography in Pune?",
-      a: "ClickMates Photography was founded in Kothrud, Pune with a passion for transforming family moments—from pregnancy glows to 1st birthday smiles—into timeless, high-resolution visual heirlooms for families across Pune."
+      q: "What is Clickmates Studio?",
+      a: "Clickmates Studio is a professional photography studio serving clients in Kothrud and across Pune. We specialize in capturing life's most precious milestones—from maternity glows and newborn baby innocence to 1st birthday celebrations and timeless family portraits—with artistic warmth and care."
     },
     {
-      q: "Where is ClickMates Photography Studio based in Pune?",
-      a: "ClickMates Photography is located at Office No. 2, Ishana II, Sr.No.77/2, Left Bhusari Colony, 38, Paud Road, Kothrud, Pune, Maharashtra 411038."
+      q: "Where is Clickmates Photography Studio located?",
+      a: "Our studio is located at: Ishana II, Office No. 2, Sr. No. 77/2, Left Bhusari Colony, 38 Paud Road, Kothrud, Pune, Maharashtra 411038. Clickmates Photography Studio."
     },
     {
-      q: "What photography equipment and studio amenities does ClickMates Studio provide?",
-      a: "Our Kothrud photography studio features soft continuous lights, handcrafted wooden props, designer maternity gowns, climate control (26°C-28°C), private nursing rooms, and 100% sanitized newborn baby wraps."
+      q: "What photography services does Clickmates Studio offer?",
+      a: "Clickmates Studio offers professional baby, newborn, maternity, family, kids, portrait, and event photography services tailored to your family's unique story."
     },
     {
-      q: "Does ClickMates Photography provide props and outfits for baby and maternity shoots?",
-      a: "Yes, we provide an extensive collection of sanitized baby props, baskets, headbands, tiaras, balloon setups, and designer maternity gowns for all studio sessions at no extra fee."
+      q: "Why choose Clickmates Studio for photography in Pune?",
+      a: "Clients choose Clickmates Studio for our personalized approach, comfortable climate-controlled studio environment, creative theme concepts, meticulous attention to detail, natural professional editing, and exceptional customer experience."
     },
     {
-      q: "Why do Pune parents choose ClickMates over other photography studios?",
-      a: "Pune parents choose ClickMates for our strict hygiene protocols, patient unhurried shoot pacing, eye-friendly lighting, transparent package pricing, and emotional newborn & maternity portraiture."
+      q: "Does Clickmates Studio offer baby and newborn photography in Pune?",
+      a: "Yes! Clickmates Studio provides specialized baby and newborn photography in Pune. Our studio features certified 100% baby safety protocols, sanitized props, gentle wrapping techniques, and climate-controlled warmth."
     },
     {
-      q: "Are family members and siblings allowed during baby and maternity sessions?",
-      a: "Absolutely! All ClickMates studio sessions encourage parent, partner, sibling, and immediate family involvement at no extra charge."
+      q: "Does Clickmates offer maternity photography in Pune?",
+      a: "Yes, Clickmates Studio offers elegant maternity photography in Pune. We provide complimentary designer gowns, indoor and outdoor shoot concepts, and personalized styling to celebrate your journey into motherhood."
     },
     {
-      q: "What is ClickMates Photography's approach to image editing and retouching?",
-      a: "We focus on natural editorial retouching that enhances skin warmth and color harmony without over-smoothing or altering your family's authentic look."
+      q: "Can families book photography sessions at Clickmates Studio?",
+      a: "Yes! Families can book heartwarming family photography sessions, portrait sessions, and multi-generational shoots at Clickmates Studio. Parents, siblings, and grandparents are always welcome."
     },
     {
-      q: "How can clients contact or visit ClickMates Studio in Kothrud, Pune?",
-      a: "You can visit our studio on Paud Road, Kothrud by appointment, call us directly at +91 96999 45608, or connect with us instantly on WhatsApp."
+      q: "How can I book a photography session with Clickmates Studio?",
+      a: "Booking your session is simple: Enquiry → Select service/package → Choose date → Confirm booking → Photoshoot at our studio. You can call +91 96999 45608 or message us on WhatsApp to get started."
     }
   ]
 
-  const whyUsReasons = [
+  const breadcrumbs = [
+    { name: "Home", url: "/" },
+    { name: "About Us", url: "/about" }
+  ]
+
+  const whyChooseFeatures = [
     {
       icon: ShieldCheck,
-      title: "100% Baby Safety & Sanitized Studio",
-      desc: "Every wrap, backdrop, prop, and surface is 100% disinfected. Studio is temperature-regulated (26°C-28°C) with eye-friendly soft continuous lighting."
+      title: "Professional Approach",
+      desc: "From initial consultation to final image delivery, we maintain the highest standards of safety, punctuality, and professional care."
     },
     {
-      icon: Clock,
-      title: "Unhurried Pacing & Private Nursing Lounge",
-      desc: "We schedule generous time slots so there is zero rush. Take all the breaks you need for nursing, feeding, comforting, or baby naps."
+      icon: Palette,
+      title: "Creative Concepts",
+      desc: "Every photoshoot is custom-designed with artistic themes, color-coordinated backdrops, handcrafted wooden props, and designer outfits."
     },
     {
-      icon: Shirt,
-      title: "Designer Wardrobe & Handcrafted Props",
-      desc: "Access our curated wardrobe of flowing maternity gowns, tiaras, handcrafted wooden baskets, balloon setups, and themed props at no extra fee."
+      icon: Smile,
+      title: "Comfortable Studio Environment",
+      desc: "Our Kothrud studio is climate-controlled (26°C-28°C), 100% sanitized, baby-proofed, and equipped with a private nursing lounge for mothers and infants."
+    },
+    {
+      icon: Heart,
+      title: "Personalized Sessions",
+      desc: "We tailor every shoot pace around your baby's natural mood, feeding breaks, and nap times, ensuring zero rush and complete peace of mind."
+    },
+    {
+      icon: Camera,
+      title: "Attention to Details",
+      desc: "We focus on the delicate micro-moments—tiny baby fingers, gentle glances, natural laughter, and authentic family connections."
     },
     {
       icon: Award,
-      title: "Editorial Retouching & Real Skin Tones",
-      desc: "We preserve real skin textures, authentic smiles, and rich color harmonies without artificial over-smoothing or heavy filters."
+      title: "Professional Editing",
+      desc: "Our high-end editorial retouching enhances warm skin tones and color harmony while preserving your family's authentic texture and expression."
     },
     {
       icon: HeartHandshake,
-      title: "Transparent Package Pricing",
-      desc: "Clear, upfront package pricing with zero hidden fees. Includes color-graded digital files and full print rights for your family."
-    },
-    {
-      icon: MapPin,
-      title: "Prime Location on Paud Road, Kothrud",
-      desc: "Conveniently located in Left Bhusari Colony with easy parking, private changing suites, and accessible studio facilities."
+      title: "Customer Experience",
+      desc: "Transparent package pricing with zero hidden fees, friendly guidance, and fast digital gallery delivery make your journey delightful."
     }
   ]
 
   return (
     <div className="bg-[#FFFDFB] text-[#242424] font-body" itemScope itemType="https://schema.org/AboutPage">
       <SEOHead
-        title="About ClickMates Photography Studio in Kothrud, Pune | Vision, Mission & Why Us"
-        description="Discover ClickMates Photography studio story, vision, mission, and why Pune parents choose us in Kothrud, Pune. Specialized in baby, newborn, maternity, family and event photography."
-        keywords="About ClickMates Photography, Why Choose ClickMates, ClickMates Vision Mission, Professional Photographer Kothrud, Photography Studio Pune Story"
-        canonicalUrl="https://clickmets.in/about"
+        title="About Clickmates Studio | Photography Studio in Kothrud, Pune"
+        description="Learn about Clickmates Studio, a professional photography studio in Kothrud, Pune, creating beautiful baby, newborn, maternity, family and event memories."
+        keywords="Clickmates Studio Pune, Clickmates Photography Studio, photographer in Kothrud Pune, professional photography studio Pune, photography studio Kothrud, photographers in Pune, Kothrud, Pune, Maharashtra, Paud Road, Bhusari Colony"
+        canonicalUrl={`https://${brandDetails.domain}/about`}
         faqs={aboutFaqs}
+        breadcrumbs={breadcrumbs}
       />
 
-      {/* Image-Driven Hero Header Banner */}
-      <section className="relative pt-28 pb-16 sm:pt-40 sm:pb-36 bg-[#111111] text-white text-center overflow-hidden">
+      {/* HERO HEADER SECTION (H1) */}
+      <section className="relative pt-28 pb-16 sm:pt-40 sm:pb-32 bg-[#111111] text-white text-center overflow-hidden">
         <img
           src={m18}
-          alt="ClickMates Photography Studio Story and Newborn Portraiture in Kothrud Pune"
-          className="absolute inset-0 w-full h-full object-cover object-center"
+          alt="Clickmates Studio - Photography Studio in Kothrud, Pune"
+          className="absolute inset-0 w-full h-full object-cover object-center opacity-30"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/70 to-[#111111]/80" />
 
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3.5 sm:space-y-5">
-          <span className="inline-block text-xs sm:text-sm font-semibold uppercase tracking-widest font-nav text-[#ED78A8] bg-white/20 backdrop-blur-md px-4 py-1.5 sm:px-6 sm:py-2.5 rounded-full border border-white/30 shadow-lg max-w-full text-center leading-normal">
-            OUR STORY & PHILOSOPHY
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+          <span className="inline-block text-xs sm:text-sm font-semibold uppercase tracking-widest font-nav text-[#ED78A8] bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/20">
+            BRAND & STUDIO STORY
           </span>
-          <h1 className="font-heading text-3xl sm:text-6xl lg:text-7xl font-extrabold text-white drop-shadow-lg leading-tight">
-            More Than Photography — We Preserve Feelings
+          <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
+            About Clickmates Studio – Photography in Kothrud, Pune
           </h1>
-          <p className="text-slate-200 text-sm sm:text-xl max-w-2xl mx-auto font-normal leading-relaxed drop-shadow-md">
-            ClickMates Photography was born out of a deep belief that every smile, tiny detail, and family milestone deserves to be frozen in time with warmth and artistic grace in Pune.
+          <p className="text-slate-300 text-sm sm:text-lg max-w-3xl mx-auto font-light leading-relaxed">
+            Welcome to <strong className="font-medium text-white">Clickmates Studio Pune</strong>, your premier destination for artistic milestone portraits, gentle newborn sessions, luxury maternity portraiture, and heartwarming family memories.
           </p>
         </div>
       </section>
 
-      {/* VISION & MISSION SECTION */}
-      <section className="pt-10 pb-14 sm:py-24 bg-[#FFF0F6]/40 border-b border-[#FFF0F6]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-12">
-          <div className="text-center max-w-3xl mx-auto space-y-2.5 sm:space-y-3">
-            <span className="inline-block text-xs font-semibold uppercase tracking-widest font-nav text-[#ED78A8] bg-white px-4 py-1.5 rounded-full border border-[#ED78A8]/20 shadow-xs max-w-full text-center leading-normal">
-              PURPOSE & DIRECTION
-            </span>
-            <h2 className="font-heading text-2xl sm:text-5xl font-bold text-[#242424]">
-              Our Vision & Mission
-            </h2>
-            <p className="text-[#666666] text-sm sm:text-base font-normal">
-              Guided by a commitment to safety, artistic perfection, and genuine human connection.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-[340px] md:max-w-none mx-auto">
-            {/* VISION CARD */}
-            <div className="p-6 sm:p-10 rounded-3xl bg-gradient-to-br from-white via-[#FFFDFB] to-[#FFF0F6]/40 border-t-4 border-t-[#ED78A8] border border-[#ED78A8]/20 shadow-xl hover:shadow-2xl transition-all duration-300 space-y-5 relative overflow-hidden group transform hover:-translate-y-1 flex flex-col justify-between">
-              <div className="space-y-4">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#ED78A8] text-white flex items-center justify-center shadow-md shadow-[#ED78A8]/25 shrink-0">
-                  <Eye className="w-6 h-6 sm:w-7 sm:h-7" />
-                </div>
-                <div className="space-y-2.5">
-                  <span className="inline-block px-3 py-1 rounded-full text-xs font-bold font-nav uppercase tracking-wider text-[#ED78A8] bg-[#FFF0F6] border border-[#ED78A8]/20">
-                    LOOKING FORWARD
-                  </span>
-                  <h3 className="font-heading text-xl sm:text-3xl font-bold text-[#242424]">
-                    Our Vision
-                  </h3>
-                  <p className="text-[#242424] text-sm sm:text-base leading-relaxed font-body font-normal">
-                    To be Pune's most cherished and trusted specialized photography studio—setting the benchmark for turning transient family moments, from the silent heartbeat of pregnancy to 1st birthday giggles, into timeless fine-art heirlooms passed down through generations.
-                  </p>
-                </div>
-              </div>
-
-              <div className="pt-4 border-t border-[#FFF0F6] space-y-2 text-xs sm:text-sm font-nav font-semibold text-[#242424]">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#ED78A8] shrink-0" />
-                  <span>Artistic fine-art maternity & baby portraiture standards</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#ED78A8] shrink-0" />
-                  <span>Trusted by 500+ families across Kothrud & Pune</span>
-                </div>
+      {/* SECTION 1: OUR STORY (H2) */}
+      <section className="py-14 sm:py-24 bg-[#FFFDFB] border-b border-[#FFF0F6]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+            <div className="lg:col-span-7 space-y-6 text-left">
+              <span className="inline-block text-xs font-semibold uppercase tracking-widest font-nav text-[#ED78A8] bg-[#FFF0F6] px-3.5 py-1.5 rounded-full border border-[#ED78A8]/20">
+                HOW IT ALL STARTED
+              </span>
+              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-[#242424]">
+                Our Story
+              </h2>
+              <div className="space-y-4 text-[#555555] text-base sm:text-lg font-light leading-relaxed">
+                <p>
+                  Clickmates Studio was born out of a deep-seated passion for visual storytelling and an unyielding desire to preserve the fleeting moments of family life. As photography enthusiasts in Pune, we realized that while time moves rapidly, photographs hold the unique power to freeze joy, tenderness, and love in their purest forms.
+                </p>
+                <p>
+                  Our motivation to establish <strong className="font-medium text-[#242424]">Clickmates Photography Studio</strong> in Kothrud stemmed from seeing expecting parents and new mothers look for a safe, comfortable, and truly professional photography experience. We envisioned a studio where warmth meets artistic perfection—a space where parents could feel relaxed knowing their newborn is handled with certified care, and where every milestone is celebrated with creative dedication.
+                </p>
               </div>
             </div>
 
-            {/* MISSION CARD */}
-            <div className="p-6 sm:p-10 rounded-3xl bg-gradient-to-br from-white via-[#FFFDFB] to-[#FFF0F6]/40 border-t-4 border-t-[#ED78A8] border border-[#ED78A8]/20 shadow-xl hover:shadow-2xl transition-all duration-300 space-y-5 relative overflow-hidden group transform hover:-translate-y-1 flex flex-col justify-between">
-              <div className="space-y-4">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#ED78A8] text-white flex items-center justify-center shadow-md shadow-[#ED78A8]/25 shrink-0">
-                  <Target className="w-6 h-6 sm:w-7 sm:h-7" />
-                </div>
-                <div className="space-y-2.5">
-                  <span className="inline-block px-3 py-1 rounded-full text-xs font-bold font-nav uppercase tracking-wider text-[#ED78A8] bg-[#FFF0F6] border border-[#ED78A8]/20">
-                    OUR EVERYDAY COMMITMENT
-                  </span>
-                  <h3 className="font-heading text-xl sm:text-3xl font-bold text-[#242424]">
-                    Our Mission
-                  </h3>
-                  <p className="text-[#242424] text-sm sm:text-base leading-relaxed font-body font-normal">
-                    To deliver an unhurried, 100% baby-safe, and deeply personalized photography experience. We combine rigorous sanitization, continuous soft lighting, luxury theme setups, and transparent pricing to create visual stories that honor every family's authentic bond.
-                  </p>
-                </div>
-              </div>
-
-              <div className="pt-4 border-t border-[#FFF0F6] space-y-2 text-xs sm:text-sm font-nav font-semibold text-[#242424]">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#ED78A8] shrink-0" />
-                  <span>Unhurried, baby-led shoot pacing with private nursing care</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#ED78A8] shrink-0" />
-                  <span>Full transparent pricing with zero hidden fees</span>
-                </div>
+            <div className="lg:col-span-5 relative">
+              <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white transform hover:scale-[1.01] transition-transform duration-500">
+                <img
+                  src={m16}
+                  alt="Our Story - Clickmates Studio Pune"
+                  className="w-full h-72 sm:h-96 object-cover"
+                />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* WHY CHOOSE US SECTION */}
-      <section className="pt-8 pb-14 sm:py-28 bg-[#FFFDFB]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-16">
-          <div className="text-center max-w-3xl mx-auto space-y-2.5 sm:space-y-3">
-            <span className="inline-block text-xs sm:text-sm font-semibold uppercase tracking-widest font-nav text-[#ED78A8] bg-[#FFF0F6] px-4 py-1.5 rounded-full border border-[#ED78A8]/20 max-w-full text-center leading-normal">
-              OUR DIFFERENCE & ADVANTAGE
+      {/* SECTION 2: PROFESSIONAL PHOTOGRAPHY IN PUNE (H2) */}
+      <section className="py-14 sm:py-24 bg-[#FFF0F6]/30 border-b border-[#FFF0F6]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          <div className="max-w-3xl space-y-4">
+            <span className="inline-block text-xs font-semibold uppercase tracking-widest font-nav text-[#ED78A8] bg-white px-3.5 py-1.5 rounded-full border border-[#ED78A8]/20">
+              OUR APPROACH & PHILOSOPHY
             </span>
-            <h2 className="font-heading text-2xl sm:text-5xl font-bold text-[#242424]">
-              Why Choose ClickMates Photography?
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-[#242424]">
+              Professional Photography in Pune
             </h2>
-            <p className="text-[#242424] text-sm sm:text-lg font-normal">
-              Here is why hundreds of expecting parents and families across Pune trust us with their milestone moments.
+            <p className="text-[#555555] text-base sm:text-lg font-light leading-relaxed">
+              At Clickmates Studio, our approach as a trusted <strong className="font-medium text-[#242424]">photographer in Kothrud Pune</strong> blends artistic vision with technical precision. We believe that professional photography is not merely about taking pictures—it is about creating an emotional atmosphere where authentic expressions unfold naturally.
+            </p>
+            <p className="text-[#555555] text-base sm:text-lg font-light leading-relaxed">
+              As a leading <strong className="font-medium text-[#242424]">professional photography studio Pune</strong> wide, we work closely with expecting mothers, newborn babies, growing toddlers, and multi-generational families. Whether capturing the gentle heartbeat of pregnancy, a baby's first independent sit, or the vibrant joy of a 1st birthday cake smash, we focus on genuine warmth, soft continuous lighting, and timeless aesthetics.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 3: OUR PHOTOGRAPHY SERVICES (H2) */}
+      <section className="py-14 sm:py-24 bg-[#FFFDFB] border-b border-[#FFF0F6]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <span className="inline-block text-xs font-semibold uppercase tracking-widest font-nav text-[#ED78A8] bg-[#FFF0F6] px-3.5 py-1.5 rounded-full border border-[#ED78A8]/20">
+              WHAT WE CAPTURE
+            </span>
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-[#242424]">
+              Our Photography Services
+            </h2>
+            <p className="text-[#666666] text-sm sm:text-base font-light">
+              Clickmates Studio provides a complete range of specialized portrait and milestone photography services in Pune:
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8 max-w-[340px] md:max-w-none mx-auto">
-            {whyUsReasons.map((item, index) => {
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Baby */}
+            <div className="bg-white p-6 rounded-3xl border border-[#ED78A8]/20 shadow-xs hover:shadow-md transition-all space-y-2">
+              <div className="w-10 h-10 rounded-2xl bg-[#FFF0F6] flex items-center justify-center text-[#ED78A8] font-bold text-lg">👶</div>
+              <h3 className="font-heading text-xl font-bold text-[#242424]">Baby Photography</h3>
+              <p className="text-xs sm:text-sm text-[#666666] font-light leading-relaxed">
+                Capturing milestone smiles, sitting achievements (6–11 months), and playful theme setups.
+              </p>
+            </div>
+
+            {/* Newborn */}
+            <div className="bg-white p-6 rounded-3xl border border-[#ED78A8]/20 shadow-xs hover:shadow-md transition-all space-y-2">
+              <div className="w-10 h-10 rounded-2xl bg-[#FFF0F6] flex items-center justify-center text-[#ED78A8] font-bold text-lg">🧸</div>
+              <h3 className="font-heading text-xl font-bold text-[#242424]">Newborn Photography</h3>
+              <p className="text-xs sm:text-sm text-[#666666] font-light leading-relaxed">
+                Gentle, 100% baby-safe sleepy posing within 5 to 14 days of birth in a sanitized studio.
+              </p>
+            </div>
+
+            {/* Maternity */}
+            <div className="bg-white p-6 rounded-3xl border border-[#ED78A8]/20 shadow-xs hover:shadow-md transition-all space-y-2">
+              <div className="w-10 h-10 rounded-2xl bg-[#FFF0F6] flex items-center justify-center text-[#ED78A8] font-bold text-lg">🤰</div>
+              <h3 className="font-heading text-xl font-bold text-[#242424]">Maternity Photography</h3>
+              <p className="text-xs sm:text-sm text-[#666666] font-light leading-relaxed">
+                Graceful pregnancy portraiture featuring complimentary designer gowns and custom lighting.
+              </p>
+            </div>
+
+            {/* Family */}
+            <div className="bg-white p-6 rounded-3xl border border-[#ED78A8]/20 shadow-xs hover:shadow-md transition-all space-y-2">
+              <div className="w-10 h-10 rounded-2xl bg-[#FFF0F6] flex items-center justify-center text-[#ED78A8] font-bold text-lg">👨‍👩‍👧</div>
+              <h3 className="font-heading text-xl font-bold text-[#242424]">Family Photography</h3>
+              <p className="text-xs sm:text-sm text-[#666666] font-light leading-relaxed">
+                Heartwarming multi-generational family portraits and candid bonding moments.
+              </p>
+            </div>
+
+            {/* Kids */}
+            <div className="bg-white p-6 rounded-3xl border border-[#ED78A8]/20 shadow-xs hover:shadow-md transition-all space-y-2">
+              <div className="w-10 h-10 rounded-2xl bg-[#FFF0F6] flex items-center justify-center text-[#ED78A8] font-bold text-lg">🎈</div>
+              <h3 className="font-heading text-xl font-bold text-[#242424]">Kids Photography</h3>
+              <p className="text-xs sm:text-sm text-[#666666] font-light leading-relaxed">
+                Fun, energetic portrait sessions celebrating toddler laughter and 1st birthday cake smashes.
+              </p>
+            </div>
+
+            {/* Portrait */}
+            <div className="bg-white p-6 rounded-3xl border border-[#ED78A8]/20 shadow-xs hover:shadow-md transition-all space-y-2">
+              <div className="w-10 h-10 rounded-2xl bg-[#FFF0F6] flex items-center justify-center text-[#ED78A8] font-bold text-lg">✨</div>
+              <h3 className="font-heading text-xl font-bold text-[#242424]">Portrait Photography</h3>
+              <p className="text-xs sm:text-sm text-[#666666] font-light leading-relaxed">
+                Expressive individual and couple portraits crafted with fine-art backdrop styling.
+              </p>
+            </div>
+
+            {/* Events */}
+            <div className="bg-white p-6 rounded-3xl sm:col-span-2 border border-[#ED78A8]/20 shadow-xs hover:shadow-md transition-all space-y-2">
+              <div className="w-10 h-10 rounded-2xl bg-[#FFF0F6] flex items-center justify-center text-[#ED78A8] font-bold text-lg">🎉</div>
+              <h3 className="font-heading text-xl font-bold text-[#242424]">Event Photography</h3>
+              <p className="text-xs sm:text-sm text-[#666666] font-light leading-relaxed">
+                Comprehensive candid event coverage for baby showers (Dohale Jevan), naming ceremonies (Namkaran), and birthday parties across Pune.
+              </p>
+            </div>
+          </div>
+
+          <div className="text-center pt-2">
+            <Link
+              to="/services"
+              className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider font-nav text-[#ED78A8] hover:text-[#d65f8f] underline"
+            >
+              View Full Photography Services Page →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 4: WHY CHOOSE CLICKMATES STUDIO? (H2) */}
+      <section className="py-14 sm:py-24 bg-[#FFF0F6]/20 border-b border-[#FFF0F6]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <span className="inline-block text-xs font-semibold uppercase tracking-widest font-nav text-[#ED78A8] bg-white px-3.5 py-1.5 rounded-full border border-[#ED78A8]/20">
+              OUR DIFFERENCE & ADVANTAGE
+            </span>
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-[#242424]">
+              Why Choose Clickmates Studio?
+            </h2>
+            <p className="text-[#666666] text-sm sm:text-base font-light">
+              Here is why families and expecting parents trust Clickmates Studio for photography in Pune:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {whyChooseFeatures.map((item, index) => {
               const IconComp = item.icon
               return (
                 <div
                   key={index}
-                  className="p-5 sm:p-7 rounded-3xl bg-gradient-to-br from-white via-[#FFFDFB] to-[#FFF0F6]/30 border-2 border-[#ED78A8]/30 shadow-lg hover:shadow-2xl hover:border-[#ED78A8] transition-all duration-300 space-y-3.5 relative group transform hover:-translate-y-1 flex flex-col justify-between"
+                  className="p-6 rounded-3xl bg-white border border-[#ED78A8]/20 shadow-sm hover:shadow-md transition-all space-y-3"
                 >
-                  <div className="space-y-3">
-                    <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-[#ED78A8] text-white group-hover:bg-[#D9578D] transition-colors duration-300 flex items-center justify-center shrink-0 shadow-md shadow-[#ED78A8]/25">
-                      <IconComp className="w-5 h-5 sm:w-6 sm:h-6" />
-                    </div>
-                    <h3 className="font-heading text-lg sm:text-xl font-bold text-[#242424]">
-                      {item.title}
-                    </h3>
-                    <p className="text-[#242424] text-sm sm:text-base leading-relaxed font-body font-normal">
-                      {item.desc}
-                    </p>
+                  <div className="w-12 h-12 rounded-2xl bg-[#ED78A8] text-white flex items-center justify-center shadow-md shadow-[#ED78A8]/20">
+                    <IconComp className="w-6 h-6" />
                   </div>
+                  <h3 className="font-heading text-xl font-bold text-[#242424]">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[#666666] leading-relaxed font-light">
+                    {item.desc}
+                  </p>
                 </div>
               )
             })}
           </div>
-
-          <div className="text-center pt-4">
-            <button
-              type="button"
-              onClick={onOpenBooking}
-              className="px-8 py-4 rounded-full text-xs font-semibold uppercase tracking-wider font-nav text-white bg-[#ED78A8] hover:bg-[#D9578D] transition shadow-xl shadow-[#ED78A8]/30 cursor-pointer"
-            >
-              Book Your Studio Session Now
-            </button>
-          </div>
         </div>
       </section>
 
-      {/* Main Philosophy Section */}
-      <section className="pt-8 pb-14 sm:py-24 border-t border-[#FFF0F6]">
+      {/* SECTION 5: OUR STUDIO IN KOTHRUD, PUNE (H2) */}
+      <section className="py-14 sm:py-24 bg-[#FFFDFB] border-b border-[#FFF0F6]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
-            <div className="lg:col-span-6 space-y-4 sm:space-y-6">
-              <h2 className="font-heading text-2xl sm:text-4xl font-bold text-[#242424]">
-                Creating Comfort First, Magic Second
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+            <div className="lg:col-span-7 space-y-5">
+              <span className="inline-block text-xs font-semibold uppercase tracking-widest font-nav text-[#ED78A8] bg-[#FFF0F6] px-3.5 py-1.5 rounded-full border border-[#ED78A8]/20">
+                LOCAL SEO & ACCESSIBILITY
+              </span>
+              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-[#242424]">
+                Our Studio in Kothrud, Pune
               </h2>
-              <p className="text-[#242424] text-sm sm:text-base leading-relaxed font-body font-normal">
-                When working with infants, pregnant mothers, and growing children, patience is our greatest tool. We design shoots around your baby's natural nap schedules and feeding needs, ensuring every session remains relaxed, unhurried, and joyful.
-              </p>
-              <p className="text-[#242424] text-sm sm:text-base leading-relaxed font-body font-normal">
-                Our custom Pune photography studio in Kothrud is equipped with sanitized baby props, temperature regulation for sleepy newborn shoots, and cozy parent lounges so you feel right at home.
-              </p>
-
-              <div className="grid grid-cols-2 gap-4 pt-4 border-t border-slate-100 font-nav">
-                <div>
-                  <div className="text-3xl sm:text-4xl font-extrabold text-[#ED78A8]">100%</div>
-                  <div className="text-xs sm:text-sm text-[#242424] uppercase tracking-wider font-semibold mt-1">Baby Safety Posing</div>
-                </div>
-                <div>
-                  <div className="text-3xl sm:text-4xl font-extrabold text-[#ED78A8]">500+</div>
-                  <div className="text-xs sm:text-sm text-[#242424] uppercase tracking-wider font-semibold mt-1">Memories Captured</div>
-                </div>
+              <div className="space-y-4 text-[#555555] text-base sm:text-lg font-light leading-relaxed">
+                <p>
+                  Clickmates Studio is proudly located in <strong className="font-medium text-[#242424]">Kothrud</strong>, one of the most accessible and central hubs in <strong className="font-medium text-[#242424]">Pune</strong>. Situated right on <strong className="font-medium text-[#242424]">Paud Road</strong> near <strong className="font-medium text-[#242424]">Bhusari Colony</strong>, our studio offers seamless connectivity and dedicated parking for visiting families.
+                </p>
+                <p>
+                  As a leading <strong className="font-medium text-[#242424]">photography studio Kothrud</strong>, our premises feature temperature control maintained at a cozy 26°C to 28°C for newborn comfort, sanitized props and backdrops, soft continuous lighting, and a private dressing suite. Whether you are traveling from Karve Nagar, Erandwane, Deccan, Bavdhan, Baner, or Wakad, our Paud Road studio near Bhusari Colony provides an inviting sanctuary for your session.
+                </p>
               </div>
             </div>
 
-            <div className="lg:col-span-6 grid grid-cols-2 gap-3 sm:gap-4 max-w-[320px] lg:max-w-none mx-auto">
-              <div className="rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-[#ED78A8]/30 shadow-xl h-52 sm:h-72 transform hover:scale-[1.02] transition-transform duration-500">
-                <img
-                  src={baby10}
-                  alt="ClickMates Studio Newborn Detail and Infant Photography Kothrud Pune"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-[#ED78A8]/30 shadow-xl h-52 sm:h-72 mt-4 sm:mt-8 transform hover:scale-[1.02] transition-transform duration-500">
-                <img
-                  src={m16}
-                  alt="ClickMates Maternity Photoshoot and Expecting Mother Portraiture Pune"
-                  className="w-full h-full object-cover"
-                />
+            <div className="lg:col-span-5">
+              <div className="bg-[#FFF0F6]/50 p-6 rounded-3xl border border-[#ED78A8]/20 space-y-4">
+                <div className="flex items-center gap-2 text-[#ED78A8] font-bold">
+                  <MapPin className="w-5 h-5" />
+                  <span>Exact Studio Location</span>
+                </div>
+                <p className="text-xs sm:text-sm text-[#444444] font-light leading-relaxed">
+                  Ishana II, Office No. 2, Sr. No. 77/2, Left Bhusari Colony, 38 Paud Road, Kothrud, Pune, Maharashtra 411038. Clickmates Photography Studio
+                </p>
+                <div className="pt-2 border-t border-[#ED78A8]/20 flex flex-col gap-2 text-xs font-nav font-medium text-[#242424]">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-[#ED78A8]" />
+                    <span>Located on main Paud Road in Left Bhusari Colony</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-[#ED78A8]" />
+                    <span>Easy parking & ground/elevator accessibility</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-[#ED78A8]" />
+                    <span>Serving Kothrud, Pune & Maharashtra</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Studio Standards Grid */}
-      <section className="py-12 sm:py-20 bg-[#111111] text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8 sm:space-y-12">
-          <div className="max-w-2xl mx-auto space-y-2.5 sm:space-y-3">
-            <span className="inline-block text-xs sm:text-sm font-semibold uppercase tracking-widest font-nav text-[#ED78A8] bg-[#ED78A8]/10 px-4 py-1.5 rounded-full border border-[#ED78A8]/30 max-w-full text-center leading-normal">
-              STUDIO GUARANTEE
-            </span>
-            <h2 className="font-heading text-2xl sm:text-4xl font-bold text-white">The ClickMates Promise</h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8 text-left max-w-[320px] md:max-w-none mx-auto">
-            <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#1e1e1e] to-[#141414] border border-[#ED78A8]/30 shadow-xl hover:border-[#ED78A8] transition-all duration-300 transform hover:-translate-y-1 space-y-2.5 sm:space-y-3">
-              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-[#ED78A8]/15 text-[#ED78A8] border border-[#ED78A8]/30 flex items-center justify-center shrink-0 shadow-xs">
-                <ShieldCheck className="w-5 h-5" />
-              </div>
-              <h3 className="font-heading text-base sm:text-xl font-bold text-white">Sanitized & Safe Environment</h3>
-              <p className="text-slate-200 text-xs sm:text-base leading-relaxed font-body font-normal">
-                All wraps, backdrops, props, and surfaces are thoroughly disinfected before every newborn and baby shoot.
-              </p>
-            </div>
-            <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#1e1e1e] to-[#141414] border border-[#ED78A8]/30 shadow-xl hover:border-[#ED78A8] transition-all duration-300 transform hover:-translate-y-1 space-y-2.5 sm:space-y-3">
-              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-[#ED78A8]/15 text-[#ED78A8] border border-[#ED78A8]/30 flex items-center justify-center shrink-0 shadow-xs">
-                <Sparkles className="w-5 h-5" />
-              </div>
-              <h3 className="font-heading text-base sm:text-xl font-bold text-white">High-End Custom Styling</h3>
-              <p className="text-slate-200 text-xs sm:text-base leading-relaxed font-body font-normal">
-                We work closely with you to curate color themes, outfit choices, and set decorations tailored to your taste.
-              </p>
-            </div>
-            <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#1e1e1e] to-[#141414] border border-[#ED78A8]/30 shadow-xl hover:border-[#ED78A8] transition-all duration-300 transform hover:-translate-y-1 space-y-2.5 sm:space-y-3">
-              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-[#ED78A8]/15 text-[#ED78A8] border border-[#ED78A8]/30 flex items-center justify-center shrink-0 shadow-xs">
-                <Award className="w-5 h-5" />
-              </div>
-              <h3 className="font-heading text-base sm:text-xl font-bold text-white">Editorial Quality Retouching</h3>
-              <p className="text-slate-200 text-xs sm:text-base leading-relaxed font-body font-normal">
-                Our retouching process preserves natural textures while enhancing warmth, color tones, and clarity.
-              </p>
-            </div>
-          </div>
-
-          <div className="pt-4 sm:pt-6">
-            <button
-              type="button"
-              onClick={onOpenBooking}
-              className="w-[270px] sm:w-auto px-5 py-3 sm:px-8 sm:py-4 rounded-full text-[11px] sm:text-xs font-semibold uppercase tracking-wider font-nav text-white bg-[#ED78A8] hover:bg-[#D9578D] transition-all duration-300 shadow-xl shadow-[#ED78A8]/40 mx-auto flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap"
-            >
-              Reserve Studio Session
-            </button>
-          </div>
+      {/* SECTION 6: CREATING MEMORIES THAT LAST (H2) */}
+      <section className="py-16 sm:py-28 bg-[#111111] text-white text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <span className="inline-block text-xs font-semibold uppercase tracking-widest font-nav text-[#ED78A8] bg-white/10 px-3.5 py-1.5 rounded-full border border-white/20">
+            HERITAGE & EMOTION
+          </span>
+          <h2 className="font-heading text-3xl sm:text-5xl font-bold leading-tight">
+            Creating Memories That Last
+          </h2>
+          <p className="text-slate-300 text-base sm:text-xl font-light leading-relaxed">
+            Children grow up in the blink of an eye, and moments pass by softly. At Clickmates Studio, we believe that a photograph is not just a digital file—it is a cherished family heirloom. It is the story of where your journey began, recorded with tenderness, grace, and timeless beauty for generations to look back on.
+          </p>
         </div>
       </section>
 
-      {/* ABOUT ACCORDION FAQS SECTION */}
-      <section className="pt-8 pb-14 sm:py-20 bg-[#FFFDFB] border-t border-[#FFF0F6]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 sm:space-y-8">
-          <div className="text-center space-y-2.5 sm:space-y-3">
-            <span className="inline-block text-xs sm:text-sm font-semibold uppercase tracking-widest font-nav text-[#ED78A8] bg-[#FFF0F6] px-4 py-1.5 rounded-full border border-[#ED78A8]/20 max-w-full text-center leading-normal">
-              DIRECT ANSWERS & FAQS
+      {/* SECTION 7: VISIT CLICKMATES STUDIO IN PUNE (H2) */}
+      <section className="py-14 sm:py-24 bg-[#FFF0F6]/40 border-b border-[#FFF0F6]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+          <div className="space-y-3">
+            <span className="inline-block text-xs font-semibold uppercase tracking-widest font-nav text-[#ED78A8] bg-white px-3.5 py-1.5 rounded-full border border-[#ED78A8]/20">
+              BOOK YOUR SESSION
             </span>
-            <h2 className="font-heading text-2xl sm:text-4xl font-bold text-[#242424]">
-              Frequently Asked Questions About Our Studio
+            <h2 className="font-heading text-3xl sm:text-5xl font-bold text-[#242424]">
+              Visit Clickmates Studio in Pune
             </h2>
+            <p className="text-[#666666] text-base sm:text-lg font-light leading-relaxed max-w-2xl mx-auto">
+              We invite you to experience the warmth of Clickmates Studio in Kothrud, Pune. Let us capture your family's story with artistry and care.
+            </p>
+          </div>
+
+          <div className="bg-white p-6 sm:p-8 rounded-3xl border border-[#ED78A8]/20 shadow-md text-left space-y-4 max-w-2xl mx-auto">
+            <h3 className="font-heading text-lg sm:text-xl font-bold text-[#242424] flex items-center gap-2">
+              <MapPin className="w-5 h-5 text-[#ED78A8]" />
+              Official Studio Address:
+            </h3>
+            <p className="text-sm text-[#444444] font-light leading-relaxed pl-7">
+              Ishana II, Office No. 2, Sr. No. 77/2, Left Bhusari Colony, 38 Paud Road, Kothrud, Pune, Maharashtra 411038. Clickmates Photography Studio
+            </p>
+
+            <div className="pt-4 border-t border-[#FFF0F6] flex flex-col sm:flex-row items-center justify-between gap-4 font-nav text-xs">
+              <div className="flex items-center gap-2 text-[#555555]">
+                <Phone className="w-4 h-4 text-[#ED78A8]" />
+                <span>+91 96999 45608 / +91 90213 80417</span>
+              </div>
+              <div className="flex items-center gap-2 text-[#555555]">
+                <Clock className="w-4 h-4 text-[#ED78A8]" />
+                <span>Mon - Sun: 9:30 AM - 8:00 PM</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2 font-nav text-xs font-semibold uppercase tracking-wider">
+            <button
+              onClick={onOpenBooking}
+              data-cursor="click"
+              className="w-[250px] sm:w-auto px-8 py-4 rounded-full text-white bg-[#ED78A8] hover:bg-[#D9578D] transition-all duration-300 shadow-lg shadow-[#ED78A8]/20 flex items-center justify-center gap-2 cursor-pointer"
+            >
+              <Calendar className="w-4 h-4 shrink-0" />
+              Book Studio Session
+            </button>
+            <a
+              href={`https://wa.me/${brandDetails.whatsapp}?text=Hi%20Clickmates%20Studio!%20I%20would%20like%20to%20enquire%20about%20a%20photoshoot.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-[250px] sm:w-auto px-8 py-4 rounded-full text-white bg-emerald-600 hover:bg-emerald-700 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg"
+            >
+              <MessageCircle className="w-4 h-4 shrink-0" />
+              WhatsApp Studio Team
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 8: ABOUT PAGE FAQ — HIGH-INTENT QUESTIONS (ACCORDION & SCHEMA) */}
+      <section className="py-14 sm:py-24 bg-[#FFFDFB] border-t border-[#FFF0F6]" itemScope itemType="https://schema.org/FAQPage">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          <div className="text-center space-y-3">
+            <span className="inline-block text-xs font-semibold uppercase tracking-widest font-nav text-[#ED78A8] bg-[#FFF0F6] px-3.5 py-1.5 rounded-full border border-[#ED78A8]/20">
+              FREQUENTLY ASKED QUESTIONS
+            </span>
+            <h2 className="font-heading text-3xl sm:text-4xl font-bold text-[#242424]">
+              About Clickmates Studio – High-Intent FAQs
+            </h2>
+            <p className="text-[#666666] text-xs sm:text-sm font-light">
+              Clear answers to your questions about our studio location, services, and booking process in Pune.
+            </p>
           </div>
 
           <div className="space-y-3 max-w-[340px] sm:max-w-none mx-auto">
@@ -361,6 +472,9 @@ export default function AboutPage({ onOpenBooking }) {
                       ? 'border-[#ED78A8] shadow-md ring-1 ring-[#ED78A8]/20'
                       : 'border-[#FFF0F6] shadow-xs hover:border-[#ED78A8]/40'
                     }`}
+                  itemScope
+                  itemProp="mainEntity"
+                  itemType="https://schema.org/Question"
                 >
                   <button
                     type="button"
@@ -368,7 +482,7 @@ export default function AboutPage({ onOpenBooking }) {
                     className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3 cursor-pointer"
                     aria-expanded={isOpen}
                   >
-                    <h3 className="font-heading font-bold text-sm sm:text-lg text-[#242424] flex items-center gap-2 pr-2">
+                    <h3 className="font-heading font-bold text-sm sm:text-lg text-[#242424] flex items-center gap-2 pr-2" itemProp="name">
                       <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#ED78A8] shrink-0" />
                       <span>{faq.q}</span>
                     </h3>
@@ -379,8 +493,8 @@ export default function AboutPage({ onOpenBooking }) {
                   </button>
 
                   {isOpen && (
-                    <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0 text-left border-t border-[#FFF0F6] animate-fade-in">
-                      <p className="text-[#242424] text-sm sm:text-base font-body font-normal leading-relaxed pl-6 sm:pl-7 pt-3">
+                    <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0 text-left border-t border-[#FFF0F6] animate-fade-in" itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+                      <p className="text-[#555555] text-xs sm:text-sm font-light leading-relaxed pl-6 sm:pl-7 pt-2.5" itemProp="text">
                         {faq.a}
                       </p>
                     </div>

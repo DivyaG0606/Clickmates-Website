@@ -1,11 +1,11 @@
 // Import user real images from src/assets
-import m16 from '../assets/m16.jpg'
-import m18 from '../assets/m18.jpg'
-import baby12 from '../assets/baby12.jpg'
-import baby1 from '../assets/baby1.jpg'
-import baby15 from '../assets/baby15.jpg'
-import e32 from '../assets/e32.jpg'
-import pet from '../assets/pet.jpg'
+import m16 from '../assets/maternity/maternity13.jpg'
+import m18 from '../assets/maternity/maternity15.jpg'
+import baby12 from '../assets/baby/baby12.jpg'
+import baby1 from '../assets/baby/baby1.jpg'
+import baby15 from '../assets/baby/baby15.jpg'
+import e32 from '../assets/event/event4.jpg'
+import pet from '../assets/pet/pet1.jpg'
 
 export default function MilestoneJourneyCarousel({ onOpenBooking }) {
   const journeyShoots = [

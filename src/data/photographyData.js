@@ -1,51 +1,66 @@
 // Import Real ClickMates Brand & Photography Assets
 import logoImg from '../assets/Clickmates logo.png'
 
-import img1 from '../assets/1.jpg'
-import img2 from '../assets/2.jpg'
-import img3 from '../assets/3.jpg'
-import img4 from '../assets/4.jpg'
-import img5 from '../assets/5.jpg'
-import img6 from '../assets/6.jpg'
-import img7 from '../assets/7.jpg'
-import img8 from '../assets/8.jpg'
+import img1 from '../assets/maternity/maternity1.JPG'
+import img2 from '../assets/baby/baby1.jpg'
+import img3 from '../assets/family/family1.JPG'
+import img4 from '../assets/event/event1.jpg'
+import img5 from '../assets/maternity/maternity13.jpg'
+import img6 from '../assets/baby/baby15.jpg'
+import img7 from '../assets/family/family shoot.jpg'
+import img8 from '../assets/pet/pet1.jpg'
 
-import baby1 from '../assets/baby1.jpg'
-import baby2 from '../assets/baby2.jpg'
-import baby3 from '../assets/baby3.jpg'
-import baby4 from '../assets/baby4.jpg'
-import baby5 from '../assets/baby5.jpg'
-import baby6 from '../assets/baby6.jpg'
-import baby7 from '../assets/baby7.jpg'
-import baby8 from '../assets/baby8.jpg'
-import baby9 from '../assets/baby9.jpg'
-import baby10 from '../assets/baby10.jpg'
-import baby11 from '../assets/baby11.jpg'
-import baby12 from '../assets/baby12.jpg'
-import baby13 from '../assets/baby13.jpg'
-import baby14 from '../assets/baby14.jpg'
-import baby15 from '../assets/baby15.jpg'
+import baby1 from '../assets/baby/baby1.jpg'
+import baby2 from '../assets/baby/baby2.jpg'
+import baby3 from '../assets/baby/baby3.jpg'
+import baby4 from '../assets/baby/baby4.jpg'
+import baby5 from '../assets/baby/baby5.jpg'
+import baby6 from '../assets/baby/baby6.jpg'
+import baby7 from '../assets/baby/baby7.jpg'
+import baby8 from '../assets/baby/baby8.jpg'
+import baby9 from '../assets/baby/baby9.jpg'
+import baby10 from '../assets/baby/baby10.jpg'
+import baby11 from '../assets/baby/baby1.jpg'
+import baby12 from '../assets/baby/baby12.jpg'
+import baby13 from '../assets/baby/baby13.jpg'
+import baby14 from '../assets/baby/baby14.jpg'
+import baby15 from '../assets/baby/baby15.jpg'
 
-import m2 from '../assets/m2.jpg'
-import m16 from '../assets/m16.jpg'
-import m17 from '../assets/m17.jpg'
-import m18 from '../assets/m18.jpg'
-import m19 from '../assets/m19.jpg'
-import m21 from '../assets/m21.jpg'
-import m25 from '../assets/m25.jpg'
-import m26 from '../assets/m26.jpg'
-import m27 from '../assets/m27.jpg'
-import m28 from '../assets/m28.jpg'
-import m29 from '../assets/m29.jpg'
+import b1Img from '../assets/baby/baby24.JPG'
+import b2Img from '../assets/baby/baby25.JPG'
+import b3Img from '../assets/baby/baby26.JPG'
+import b4Img from '../assets/baby/baby27.JPG'
+import b5Img from '../assets/baby/baby28.JPG'
+import b6Img from '../assets/baby/baby29.JPG'
 
-import e30 from '../assets/e30.jpg'
-import e31 from '../assets/e31.jpg'
-import e32 from '../assets/e32.jpg'
-import e33 from '../assets/e33.jpg'
-import e34 from '../assets/e34.jpg'
-import pet from '../assets/pet.jpg'
-import familyShoot from '../assets/family shoot.jpg'
-import decoration from '../assets/decoration.jpg'
+import m2 from '../assets/maternity/maternity2.JPG'
+import m16 from '../assets/maternity/maternity13.jpg'
+import m17 from '../assets/maternity/maternity14.jpg'
+import m18 from '../assets/maternity/maternity15.jpg'
+import m19 from '../assets/maternity/maternity16.jpg'
+import m21 from '../assets/maternity/maternity17.jpg'
+import m25 from '../assets/maternity/maternity18.jpg'
+import m26 from '../assets/maternity/maternity19.JPG'
+import m27 from '../assets/maternity/maternity20.JPG'
+import m28 from '../assets/maternity/maternity1.JPG'
+import m29 from '../assets/maternity/maternity3.JPG'
+
+import e30 from '../assets/event/event1.jpg'
+import e31 from '../assets/event/event2.jpg'
+import e32 from '../assets/event/event4.jpg'
+import e33 from '../assets/event/event5.jpg'
+import e34 from '../assets/event/event6.jpg'
+import pet from '../assets/pet/pet1.jpg'
+import familyShoot from '../assets/family/family shoot.jpg'
+import decoration from '../assets/event/event7.jpg'
+
+import fam1Img from '../assets/family/family1.JPG'
+import fam2Img from '../assets/family/family2.JPG'
+import fam3Img from '../assets/family/family3.JPG'
+import fam4Img from '../assets/family/family4.JPG'
+import fam5Img from '../assets/family/family5.JPG'
+import fam6Img from '../assets/family/family6.JPG'
+import fam7Img from '../assets/family/family7.JPG'
 
 export { logoImg }
 
@@ -436,186 +451,150 @@ export const servicesData = [
   }
 ]
 
+export const babyShootCarouselItems = [
+  {
+    id: 'b1',
+    title: 'Adorable Baby Joy',
+    category: 'BABY',
+    aspectRatio: 'portrait',
+    image: b1Img,
+    alt: 'Baby shoot portrait B1 by ClickMates Photography Pune',
+    caption: 'Charming studio baby portrait with custom setup and gentle soft lighting.'
+  },
+  {
+    id: 'b2',
+    title: 'Sweet Milestone Giggle',
+    category: 'BABY',
+    aspectRatio: 'landscape',
+    image: b2Img,
+    alt: 'Baby shoot portrait B2 by ClickMates Photography Pune',
+    caption: 'Capturing pure joy and playful expressions in our Kothrud studio.'
+  },
+  {
+    id: 'b3',
+    title: 'Little Angel Smiles',
+    category: 'BABY',
+    aspectRatio: 'square',
+    image: b3Img,
+    alt: 'Baby shoot portrait B3 by ClickMates Photography Pune',
+    caption: 'Safe, cozy prop setup designed for ultimate baby comfort.'
+  },
+  {
+    id: 'b4',
+    title: 'Precious Baby Expressions',
+    category: 'BABY',
+    aspectRatio: 'portrait',
+    image: b4Img,
+    alt: 'Baby shoot portrait B4 by ClickMates Photography Pune',
+    caption: 'Timeless milestone memory captured with high-res retouching.'
+  },
+  {
+    id: 'b5',
+    title: 'Cute Baby Portraiture',
+    category: 'BABY',
+    aspectRatio: 'landscape',
+    image: b5Img,
+    alt: 'Baby shoot portrait B5 by ClickMates Photography Pune',
+    caption: 'Adorable theme posing and natural giggles captured at studio.'
+  },
+  {
+    id: 'b6',
+    title: 'Charming Baby Milestone',
+    category: 'BABY',
+    aspectRatio: 'square',
+    image: b6Img,
+    alt: 'Baby shoot portrait B6 by ClickMates Photography Pune',
+    caption: 'Heartwarming baby portrait created at ClickMates Studio Pune.'
+  }
+]
+
 export const portfolioItems = [
+  ...babyShootCarouselItems
+]
+
+export const portfolioSections = [
   {
-    id: 1,
-    title: "Joyful Baby Smiles",
-    category: "BABY",
-    aspectRatio: "portrait",
-    image: baby1,
-    alt: "Baby photography session by ClickMates",
-    caption: "Candid milestone smile captured at ClickMates studio."
+    id: "baby-shoot",
+    title: "Baby Shoot Gallery",
+    subtitle: "Charming milestone smiles, playful theme setups & adorable portraits captured at ClickMates Pune.",
+    badge: "BABY SHOOT",
+    isCarousel: true,
+    items: [
+      ...babyShootCarouselItems,
+      { id: 'b7', title: 'Joyful Baby Smile', category: 'BABY', image: baby1, caption: 'Candid milestone smile captured at ClickMates studio.' },
+      { id: 'b8', title: 'Curious Baby Gaze', category: 'BABY', image: baby2, caption: 'Adorable baby curiosity in soft studio theme.' },
+      { id: 'b9', title: 'Playful Baby Giggles', category: 'BABY', image: baby3, caption: 'Interactive play session full of laughter.' },
+      { id: 'b10', title: 'Charming Sitting Milestone', category: 'BABY', image: baby4, caption: 'Independent sitting posture at 6 months.' },
+      { id: 'b11', title: 'Cute Studio Baby Pose', category: 'BABY', image: baby5, caption: 'Precious studio portrait with natural lighting.' }
+    ]
   },
   {
-    id: 2,
-    title: "Radiant Maternity Glow",
-    category: "MATERNITY",
-    aspectRatio: "landscape",
-    image: m16,
-    alt: "Maternity photoshoot by ClickMates Studio",
-    caption: "Celebrating motherhood in our signature soft studio lighting."
+    id: "newborn-shoot",
+    title: "Newborn Shoot Gallery",
+    subtitle: "Gentle, safe & cozy sleepy newborn poses captured within 5 to 14 days of birth.",
+    badge: "NEWBORN CARE",
+    items: [
+      { id: 'nb1', title: 'Serene Sleepy Newborn', category: 'NEWBORN', image: baby12, caption: 'Precious newborn sleeping peacefully wrapped in soft textures.' },
+      { id: 'nb2', title: 'Delicate Newborn Wrap', category: 'NEWBORN', image: baby6, caption: 'Safety wrapped newborn asleep peacefully in warm studio.' },
+      { id: 'nb3', title: 'Soft Blanket Posing', category: 'NEWBORN', image: baby7, caption: 'Gentle organic wraps and cozy sleeping cue.' },
+      { id: 'nb4', title: 'Tiny Hands & Feet Detail', category: 'NEWBORN', image: baby8, caption: 'Intimate macro details of newborn baby.' },
+      { id: 'nb5', title: 'Cuddled Newborn Rest', category: 'NEWBORN', image: baby10, caption: 'Peaceful sleeping portrait in sanitized climate control.' }
+    ]
   },
   {
-    id: 3,
-    title: "Serene Sleepy Newborn",
-    category: "NEWBORN",
-    aspectRatio: "square",
-    image: baby12,
-    alt: "Newborn baby photography session by ClickMates",
-    caption: "Precious newborn sleeping peacefully wrapped in soft textures."
+    id: "maternity-shoot",
+    title: "Maternity Shoot Gallery",
+    subtitle: "Elegant, editorial maternity portraits celebrating motherhood & pregnancy glow.",
+    badge: "MATERNITY SESSION",
+    items: [
+      { id: 'mat1', title: 'Radiant Maternity Glow', category: 'MATERNITY', image: m16, caption: 'Celebrating motherhood in our signature soft studio lighting.' },
+      { id: 'mat2', title: 'Graceful Flowing Gown', category: 'MATERNITY', image: m17, caption: 'Timeless portrait in designer flowing maternity gown.' },
+      { id: 'mat3', title: 'Couple Pregnancy Bonding', category: 'MATERNITY', image: m18, caption: 'Intimate couple moment celebrating new life.' },
+      { id: 'mat4', title: 'Artistic Maternity Silhouette', category: 'MATERNITY', image: m19, caption: 'Dramatic lighting highlighting motherly curves.' },
+      { id: 'mat5', title: 'High-Fashion Studio Pose', category: 'MATERNITY', image: m25, caption: 'Sophisticated portrait styling with soft textures.' },
+      { id: 'mat6', title: 'Tender Bump Closeup', category: 'MATERNITY', image: m27, caption: 'Beautiful memory captured at 30 weeks.' }
+    ]
   },
   {
-    id: 4,
-    title: "Warm Family Connection",
-    category: "FAMILY",
-    aspectRatio: "portrait",
-    image: e30,
-    alt: "Family photography session by ClickMates",
-    caption: "Natural family portrait filled with love and warmth."
+    id: "family-shoot",
+    title: "Family Shoot Gallery",
+    subtitle: "Heartwarming family portraits filled with genuine connection & smiles.",
+    badge: "FAMILY PORTRAITS",
+    items: [
+      { id: 'fam1', title: 'Joyful Family Laughter', category: 'FAMILY', image: fam1Img, caption: 'Authentic family bonding in our Pune studio.' },
+      { id: 'fam2', title: 'Warm Togetherness', category: 'FAMILY', image: fam2Img, caption: 'Candid family portrait full of love.' },
+      { id: 'fam3', title: 'Generational Connection', category: 'FAMILY', image: fam3Img, caption: 'Memories created with parents and children.' },
+      { id: 'fam4', title: 'Parent & Child Hug', category: 'FAMILY', image: fam4Img, caption: 'Spontaneous warm family interaction.' },
+      { id: 'fam5', title: 'Coordinated Family Portrait', category: 'FAMILY', image: fam5Img, caption: 'Color-harmonized family portraiture.' },
+      { id: 'fam6', title: 'Happy Family Smiles', category: 'FAMILY', image: fam6Img, caption: 'Precious family milestone captured at ClickMates.' },
+      { id: 'fam7', title: 'Timeless Family Memory', category: 'FAMILY', image: fam7Img, caption: 'Cherished keepsake for home display.' }
+    ]
   },
   {
-    id: 5,
-    title: "Grand Celebration Joy",
-    category: "EVENTS",
-    aspectRatio: "landscape",
-    image: e32,
-    alt: "Event photography by ClickMates Studio",
-    caption: "Vibrant family event celebration and candid reactions."
+    id: "kids-milestone",
+    title: "Kids & Milestone Gallery",
+    subtitle: "1st Birthday Cake Smash, sitting milestones & energetic kids sessions.",
+    badge: "MILESTONE WATCH",
+    items: [
+      { id: 'km1', title: '1st Birthday Cake Smash', category: 'MILESTONE', image: baby9, caption: 'Fun cake smash celebration setup with balloons.' },
+      { id: 'km2', title: 'Sitting Milestone Smile', category: 'MILESTONE', image: baby13, caption: '6-month sitting milestone captured in studio.' },
+      { id: 'km3', title: 'Playful Toddler Curiosity', category: 'KIDS', image: baby14, caption: 'Interactive play session capturing natural giggles.' },
+      { id: 'km4', title: 'Happy Milestone Pose', category: 'MILESTONE', image: baby15, caption: 'Minimalist clean theme for 1st year journey.' }
+    ]
   },
   {
-    id: 6,
-    title: "Milestone Sitting Moment",
-    category: "MILESTONES",
-    aspectRatio: "square",
-    image: baby15,
-    alt: "Baby milestone photoshoot by ClickMates",
-    caption: "A joyful sitting milestone portrait in clean minimalist aesthetic."
-  },
-  {
-    id: 7,
-    title: "Graceful Maternity Silhouette",
-    category: "MATERNITY",
-    aspectRatio: "portrait",
-    image: m16,
-    alt: "Maternity portrait by ClickMates",
-    caption: "Graceful silhouette celebrating pregnancy journey."
-  },
-  {
-    id: 8,
-    title: "Playful Baby Giggles",
-    category: "BABY",
-    aspectRatio: "landscape",
-    image: baby3,
-    alt: "Playful baby photoshoot by ClickMates",
-    caption: "Interactive baby play session full of giggles and curiosity."
-  },
-  {
-    id: 9,
-    title: "Birthday Party Sparkle",
-    category: "EVENTS",
-    aspectRatio: "square",
-    image: e34,
-    alt: "Birthday celebration photo by ClickMates",
-    caption: "Cake cutting ceremony and happiness with family."
-  },
-  {
-    id: 10,
-    title: "Delicate Newborn Wrap",
-    category: "NEWBORN",
-    aspectRatio: "portrait",
-    image: baby8,
-    alt: "Wrapped newborn photo by ClickMates",
-    caption: "Safety wrapped newborn baby asleep peacefully."
-  },
-  {
-    id: 11,
-    title: "Couple Maternity Romance",
-    category: "MATERNITY",
-    aspectRatio: "landscape",
-    image: m18,
-    alt: "Couple maternity photoshoot by ClickMates",
-    caption: "Intimate portrait of expecting parents sharing a tender moment."
-  },
-  {
-    id: 12,
-    title: "Adorable Baby Curiosity",
-    category: "BABY",
-    aspectRatio: "square",
-    image: baby5,
-    alt: "Baby portrait by ClickMates",
-    caption: "Cute baby expression captured in high detail."
-  },
-  {
-    id: 13,
-    title: "Family Outdoor Portrait",
-    category: "FAMILY",
-    aspectRatio: "portrait",
-    image: e31,
-    alt: "Outdoor family photo by ClickMates",
-    caption: "Golden hour family laughter in open natural setting."
-  },
-  {
-    id: 14,
-    title: "Sophisticated Maternity Style",
-    category: "MATERNITY",
-    aspectRatio: "landscape",
-    image: m25,
-    alt: "Fashion maternity shoot by ClickMates",
-    caption: "Editorial high-fashion maternity studio portrait."
-  },
-  {
-    id: 15,
-    title: "1st Year Cake Smash Fun",
-    category: "MILESTONES",
-    aspectRatio: "square",
-    image: baby9,
-    alt: "Cake smash baby photo by ClickMates",
-    caption: "Fun 1st birthday cake smash celebration setup."
-  },
-  {
-    id: 16,
-    title: "Warm Parent Hug",
-    category: "FAMILY",
-    aspectRatio: "portrait",
-    image: img4,
-    alt: "Parent-child portrait by ClickMates",
-    caption: "Genuine candid moment of parent and child bonding."
-  },
-  {
-    id: 17,
-    title: "Maternity Glow Close-up",
-    category: "MATERNITY",
-    aspectRatio: "landscape",
-    image: m28,
-    alt: "Close up maternity portrait by ClickMates",
-    caption: "Soft lighting accentuating beautiful maternity bump."
-  },
-  {
-    id: 18,
-    title: "Sweet Sleeping Baby",
-    category: "BABY",
-    aspectRatio: "square",
-    image: baby14,
-    alt: "Sleeping baby photo by ClickMates",
-    caption: "Gentle baby sleep portrait with soft props."
-  },
-  {
-    id: 19,
-    title: "Celebration Ceremony Highlights",
-    category: "EVENTS",
-    aspectRatio: "portrait",
-    image: e33,
-    alt: "Event ceremony coverage by ClickMates",
-    caption: "Documentary event coverage capturing authentic rituals."
-  },
-  {
-    id: 20,
-    title: "Classic Studio Portrait",
-    category: "PORTRAIT",
-    aspectRatio: "landscape",
-    image: img8,
-    alt: "Studio portrait by ClickMates",
-    caption: "Classic studio portrait with warm natural tones."
+    id: "event-photography",
+    title: "Events & Celebrations Gallery",
+    subtitle: "Vibrant documentary coverage for 1st birthdays, baby showers & ceremonies.",
+    badge: "EVENT COVERAGE",
+    items: [
+      { id: 'ev1', title: 'Decor & Theme Styling', category: 'EVENTS', image: decoration, caption: 'Artistic venue decoration and backdrop capture.' },
+      { id: 'ev2', title: 'Grand Celebration Joy', category: 'EVENTS', image: e30, caption: 'Capturing authentic reactions and family happiness.' },
+      { id: 'ev3', title: 'Ceremony Ritual Coverage', category: 'EVENTS', image: e31, caption: 'Documenting special traditional moments.' },
+      { id: 'ev4', title: 'Birthday Cake Cutting', category: 'EVENTS', image: e32, caption: 'Candids during cake cutting celebration.' },
+      { id: 'ev5', title: 'Family Event Gathering', category: 'EVENTS', image: e33, caption: 'Guest smiles and joyful interactions.' },
+      { id: 'ev6', title: 'Celebration Highlights', category: 'EVENTS', image: e34, caption: 'Memorable highlights of Pune family events.' }
+    ]
   }
 ]
 

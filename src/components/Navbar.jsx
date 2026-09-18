@@ -30,7 +30,9 @@ export default function Navbar({ onOpenBooking }) {
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
     { name: 'Services', path: '/services' },
+    { name: 'Portfolio', path: '/portfolio' },
     { name: 'Packages', path: '/packages' },
+    { name: 'Blog', path: '/blog' },
     { name: 'Contact', path: '/contact' },
   ]
 
@@ -53,12 +55,14 @@ export default function Navbar({ onOpenBooking }) {
           className="flex items-center gap-3 group shrink-0"
           title="ClickMates Photography Pune - Best Maternity & Newborn Photographers"
         >
-          <img
-            src={logoImg}
-            alt="ClickMates Photography Pune Studio Logo"
-            className="h-14 sm:h-18 lg:h-22 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-xs"
-            loading="eager"
-          />
+          <div className="bg-white p-2 sm:p-2.5 rounded-2xl border border-[#ED78A8]/30 shadow-md group-hover:border-[#ED78A8] group-hover:shadow-lg group-hover:shadow-[#ED78A8]/20 transition-all duration-300 flex items-center justify-center">
+            <img
+              src={logoImg}
+              alt="ClickMates Photography Pune Studio Logo"
+              className="h-12 sm:h-16 lg:h-18 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              loading="eager"
+            />
+          </div>
         </Link>
 
         {/* Desktop Navigation */}

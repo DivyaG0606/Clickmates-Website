@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { CheckCircle2, MessageCircle, Sparkles, Heart, Gift, Baby, Calendar, Camera, Star, ChevronDown } from 'lucide-react'
 import { brandDetails } from '../data/photographyData'
 import SEOHead from '../components/SEOHead'
-import baby15 from '../assets/baby15.jpg'
+import baby15 from '../assets/baby/baby15.jpg'
 
 export default function PackagesPage({ onOpenBooking }) {
   const [activeCategory, setActiveCategory] = useState('NEWBORN')
@@ -293,11 +293,10 @@ export default function PackagesPage({ onOpenBooking }) {
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`px-3.5 sm:px-6 py-2 sm:py-3 rounded-full transition-all duration-300 uppercase tracking-wider whitespace-nowrap cursor-pointer text-[11px] sm:text-xs font-bold ${
-                  activeCategory === cat.id
+                className={`px-3.5 sm:px-6 py-2 sm:py-3 rounded-full transition-all duration-300 uppercase tracking-wider whitespace-nowrap cursor-pointer text-[11px] sm:text-xs font-bold ${activeCategory === cat.id
                     ? 'bg-[#ED78A8] text-white shadow-md shadow-[#ED78A8]/30'
                     : 'bg-white text-[#242424] hover:bg-[#FFF0F6] border border-[#ED78A8]/20 shadow-xs'
-                }`}
+                  }`}
               >
                 {cat.name}
               </button>
@@ -318,9 +317,8 @@ export default function PackagesPage({ onOpenBooking }) {
               {newbornPackages.map((pkg, idx) => (
                 <div
                   key={idx}
-                  className={`p-6 rounded-3xl bg-gradient-to-br from-white via-[#FFFDFB] to-[#FFF0F6]/40 border-t-4 border-t-[#ED78A8] border border-[#ED78A8]/20 shadow-xl hover:shadow-2xl transition-all duration-300 relative flex flex-col justify-between transform hover:-translate-y-1 ${
-                    pkg.popular ? 'ring-2 ring-[#ED78A8]/40' : ''
-                  }`}
+                  className={`p-6 rounded-3xl bg-gradient-to-br from-white via-[#FFFDFB] to-[#FFF0F6]/40 border-t-4 border-t-[#ED78A8] border border-[#ED78A8]/20 shadow-xl hover:shadow-2xl transition-all duration-300 relative flex flex-col justify-between transform hover:-translate-y-1 ${pkg.popular ? 'ring-2 ring-[#ED78A8]/40' : ''
+                    }`}
                 >
                   {pkg.popular && (
                     <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#ED78A8] text-white px-4 py-1 rounded-full text-[10px] font-semibold uppercase tracking-widest font-nav shadow-md whitespace-nowrap">
@@ -368,9 +366,8 @@ export default function PackagesPage({ onOpenBooking }) {
               {babyPackages.map((pkg, idx) => (
                 <div
                   key={idx}
-                  className={`p-6 rounded-3xl bg-gradient-to-br from-white via-[#FFFDFB] to-[#FFF0F6]/40 border-t-4 border-t-[#ED78A8] border border-[#ED78A8]/20 shadow-xl hover:shadow-2xl transition-all duration-300 relative flex flex-col justify-between transform hover:-translate-y-1 ${
-                    pkg.popular ? 'ring-2 ring-[#ED78A8]/40' : ''
-                  }`}
+                  className={`p-6 rounded-3xl bg-gradient-to-br from-white via-[#FFFDFB] to-[#FFF0F6]/40 border-t-4 border-t-[#ED78A8] border border-[#ED78A8]/20 shadow-xl hover:shadow-2xl transition-all duration-300 relative flex flex-col justify-between transform hover:-translate-y-1 ${pkg.popular ? 'ring-2 ring-[#ED78A8]/40' : ''
+                    }`}
                 >
                   {pkg.popular && (
                     <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#ED78A8] text-white px-4 py-1 rounded-full text-[10px] font-semibold uppercase tracking-widest font-nav shadow-md whitespace-nowrap">
@@ -418,9 +415,8 @@ export default function PackagesPage({ onOpenBooking }) {
               {maternityPackages.map((pkg, idx) => (
                 <div
                   key={idx}
-                  className={`p-6 rounded-3xl bg-gradient-to-br from-white via-[#FFFDFB] to-[#FFF0F6]/40 border-t-4 border-t-[#ED78A8] border border-[#ED78A8]/20 shadow-xl hover:shadow-2xl transition-all duration-300 relative flex flex-col justify-between transform hover:-translate-y-1 ${
-                    pkg.popular ? 'ring-2 ring-[#ED78A8]/40' : ''
-                  }`}
+                  className={`p-6 rounded-3xl bg-gradient-to-br from-white via-[#FFFDFB] to-[#FFF0F6]/40 border-t-4 border-t-[#ED78A8] border border-[#ED78A8]/20 shadow-xl hover:shadow-2xl transition-all duration-300 relative flex flex-col justify-between transform hover:-translate-y-1 ${pkg.popular ? 'ring-2 ring-[#ED78A8]/40' : ''
+                    }`}
                 >
                   {pkg.popular && (
                     <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#ED78A8] text-white px-4 py-1 rounded-full text-[10px] font-semibold uppercase tracking-widest font-nav shadow-md whitespace-nowrap">
@@ -468,9 +464,8 @@ export default function PackagesPage({ onOpenBooking }) {
               {eventPackages.map((pkg, idx) => (
                 <div
                   key={idx}
-                  className={`p-6 rounded-3xl bg-gradient-to-br from-white via-[#FFFDFB] to-[#FFF0F6]/40 border-t-4 border-t-[#ED78A8] border border-[#ED78A8]/20 shadow-xl hover:shadow-2xl transition-all duration-300 relative flex flex-col justify-between transform hover:-translate-y-1 ${
-                    pkg.popular ? 'ring-2 ring-[#ED78A8]/40' : ''
-                  }`}
+                  className={`p-6 rounded-3xl bg-gradient-to-br from-white via-[#FFFDFB] to-[#FFF0F6]/40 border-t-4 border-t-[#ED78A8] border border-[#ED78A8]/20 shadow-xl hover:shadow-2xl transition-all duration-300 relative flex flex-col justify-between transform hover:-translate-y-1 ${pkg.popular ? 'ring-2 ring-[#ED78A8]/40' : ''
+                    }`}
                 >
                   {pkg.popular && (
                     <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#ED78A8] text-white px-4 py-1 rounded-full text-[10px] font-semibold uppercase tracking-widest font-nav shadow-md whitespace-nowrap">
@@ -660,11 +655,10 @@ export default function PackagesPage({ onOpenBooking }) {
               return (
                 <div
                   key={index}
-                  className={`bg-white rounded-2xl border transition-all duration-300 overflow-hidden ${
-                    isOpen
+                  className={`bg-white rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen
                       ? 'border-[#ED78A8] shadow-md ring-1 ring-[#ED78A8]/20'
                       : 'border-[#FFF0F6] shadow-xs hover:border-[#ED78A8]/40'
-                  }`}
+                    }`}
                 >
                   <button
                     onClick={() => setOpenFaqIndex(isOpen ? null : index)}
@@ -675,9 +669,8 @@ export default function PackagesPage({ onOpenBooking }) {
                       <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#ED78A8] shrink-0" />
                       <span>{faq.q}</span>
                     </h3>
-                    <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ${
-                      isOpen ? 'bg-[#ED78A8] text-white rotate-180' : 'bg-[#FFF0F6] text-[#ED78A8]'
-                    }`}>
+                    <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ${isOpen ? 'bg-[#ED78A8] text-white rotate-180' : 'bg-[#FFF0F6] text-[#ED78A8]'
+                      }`}>
                       <ChevronDown className="w-4 h-4" />
                     </div>
                   </button>

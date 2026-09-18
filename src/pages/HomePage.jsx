@@ -17,50 +17,39 @@ import {
 import HeroCarousel from '../components/HeroCarousel'
 import ServiceCarousel from '../components/ServiceCarousel'
 import MilestoneJourneyCarousel from '../components/MilestoneJourneyCarousel'
-import MasonryPortfolio from '../components/MasonryPortfolio'
+import BabyShootCarousel from '../components/BabyShootCarousel'
 import PackagesSection from '../components/PackagesSection'
 import MarqueeStrip from '../components/MarqueeStrip'
 import SEOHead from '../components/SEOHead'
 import TestimonialCarousel from '../components/TestimonialCarousel'
 
-import m16 from '../assets/m16.jpg'
-import baby10 from '../assets/baby10.jpg'
+// Category asset imports for homepage
+import m16 from '../assets/maternity/maternity13.jpg'
+import baby10 from '../assets/baby/baby10.jpg'
 
 export default function HomePage({ onOpenBooking }) {
   const [openFaqIndex, setOpenFaqIndex] = useState(0)
 
   const homeFaqs = [
     {
-      q: "Where is ClickMates Photography studio located in Pune?",
-      a: "ClickMates Photography Studio is located at Office No. 2, Ishana II, Sr.No.77/2, Left Bhusari Colony, 38, Paud Road, Kothrud, Pune, Maharashtra 411038, India."
+      q: "Where is Clickmates Studio located in Kothrud, Pune?",
+      a: "Clickmates Studio is a professional photography studio in Kothrud, Pune, located at Office No. 2, Ishana II, Sr.No.77/2, Left Bhusari Colony, 38, Paud Road, Kothrud, Pune, Maharashtra 411038."
     },
     {
-      q: "What photography services does ClickMates Photography offer in Kothrud, Pune?",
-      a: "ClickMates Photography specializes in baby photography, newborn safety shoots, maternity portraits, family portraits, baby milestone sessions (6-11 months, 1st birthday cake smash), and event photography."
+      q: "What photography services in Kothrud and Pune does Clickmates Studio offer?",
+      a: "Clickmates Studio offers baby photography Pune, newborn photography Pune, maternity photoshoot Pune, family photography Pune, portrait photography Pune, cake smash photography Pune, and event photography Pune."
     },
     {
-      q: "What makes ClickMates Photography baby and newborn shoots safe and comfortable?",
-      a: "Our Kothrud studio features sanitized props, climate-controlled warmth, baby-safe soft continuous lighting, private nursing rooms, and certified safety wrapping techniques for newborn babies."
+      q: "Why is Clickmates Studio the top photography studio in Kothrud, Pune?",
+      a: "As a leading professional photography studio Pune, Clickmates Studio provides sanitized baby props, climate-controlled warmth, certified newborn safety posing, designer maternity gowns, and custom theme backdrops."
     },
     {
-      q: "Who is the top baby and maternity photographer in Kothrud, Pune?",
-      a: "ClickMates Photography in Kothrud, Pune is widely trusted by parents across Pune for editorial quality maternity shoots, gentle newborn posing, creative baby themes, and transparent session packages."
+      q: "Which nearby areas in Pune does Clickmates Studio serve?",
+      a: "Located on Paud Road in Kothrud, our photography studio near Paud Road serves families from Bhusari Colony, Paud Road, Karve Nagar, Erandwane, Deccan, Shivajinagar, Bavdhan, Aundh, Baner, Wakad, Pashan, and Kothrud."
     },
     {
-      q: "Which localities in Pune does ClickMates Photography serve?",
-      a: "ClickMates Photography serves families across Pune including Kothrud, Paud Road, Bhusari Colony, Karve Nagar, Erandwane, Deccan, Shivajinagar, Bavdhan, Pashan, Aundh, Baner, Wakad, Hinjewadi, Kharadi, Viman Nagar, and Pimpri-Chinchwad."
-    },
-    {
-      q: "How far in advance should I book a newborn or maternity photoshoot in Pune?",
-      a: "We recommend booking maternity shoots during your 28th to 34th week of pregnancy, and reserving newborn shoots while still pregnant based on your expected due date."
-    },
-    {
-      q: "What are the opening hours and contact numbers for ClickMates Photography Studio?",
-      a: "Our studio operates Monday to Sunday from 9:30 AM to 8:00 PM. You can call us directly at +91 96999 45608 or +91 90213 80417, or message us via WhatsApp."
-    },
-    {
-      q: "How can I book a photoshoot session with ClickMates Photography?",
-      a: "You can book your shoot by clicking 'Book Your Shoot' on our website, calling +91 96999 45608, or messaging us on WhatsApp at +91 96999 45608."
+      q: "How can I book a photoshoot session at Clickmates Studio in Kothrud, Pune?",
+      a: "You can book your photography session by clicking 'Book Your Session', calling +91 96999 45608, or contacting Clickmates Studio directly on WhatsApp."
     }
   ]
 
@@ -71,9 +60,9 @@ export default function HomePage({ onOpenBooking }) {
   return (
     <div className="min-h-screen bg-[#FFFDFB] text-[#242424] font-body selection:bg-[#ED78A8] selection:text-white" itemScope itemType="https://schema.org/WebPage">
       <SEOHead
-        title="ClickMates Photography | Photography Studio in Kothrud, Pune"
-        description="ClickMates Photography is a professional photography studio in Kothrud, Pune, offering baby, newborn, maternity, family, milestone, and event photography."
-        keywords="ClickMates Photography, Photography Studio Pune, Photography Studio Kothrud, Photographer Pune, Baby Photographer Pune, Newborn Photographer Pune, Maternity Photographer Pune, Family Photographer Pune"
+        title="Photography Studio in Kothrud, Pune | Clickmates Studio"
+        description="Clickmates Studio is a professional photography studio in Kothrud, Pune, offering baby, newborn, maternity, family, kids, portrait and event photography. Book your session today."
+        keywords="Photography Studio in Kothrud Pune, photography studio Kothrud, photographer in Kothrud Pune, photography studio in Pune, professional photographer in Pune, professional photography studio Pune, photoshoot studio in Kothrud, photoshoot studio in Pune, photographer near Kothrud, photography services in Kothrud, photography services in Pune, baby photography Pune, baby photoshoot Pune, baby photographer Pune, baby photoshoot studio Pune, kids photography Pune, kids photoshoot Pune, child photography Pune, 1 year baby photoshoot Pune, first birthday photoshoot Pune, cake smash photography Pune, newborn photography Pune, newborn photographer Pune, newborn photoshoot Pune, newborn baby photoshoot Pune, newborn photography studio Pune, newborn photoshoot studio Pune, maternity photography Pune, maternity photoshoot Pune, maternity photographer Pune, maternity photoshoot studio Pune, pregnancy photoshoot Pune, maternity photography studio Pune, family photography Pune, family photographer Pune, family photoshoot Pune, family portrait photography Pune, kids and family photography Pune, portrait photography Pune, professional photoshoot Pune, event photography Pune, birthday photography Pune, baby shower photography Pune, couple photography Pune, model photography Pune, Kothrud Pune, Kothrud photography studio, photography studio Kothrud Pune, photographer Kothrud Pune, photoshoot studio Kothrud, Paud Road photography studio, photography studio near Paud Road, photographer near Kothrud, photography studio Pune Maharashtra, photographer Pune Maharashtra, Bhusari Colony, Paud Road, Karve Nagar, Erandwane, Deccan, Shivajinagar, Bavdhan, Aundh, Baner, Wakad, Pashan"
         canonicalUrl={`https://${brandDetails.domain}/`}
         faqs={homeFaqs}
         breadcrumbs={breadcrumbs}
@@ -92,24 +81,24 @@ export default function HomePage({ onOpenBooking }) {
             {/* Left Column: Narrative Content */}
             <div className="lg:col-span-7 space-y-6 text-left reveal-on-scroll">
               <span className="inline-block text-[10px] sm:text-xs font-semibold uppercase tracking-widest font-nav text-[#ED78A8] bg-[#FFF0F6] px-3.5 py-1.5 rounded-full border border-[#ED78A8]/20 max-w-full text-center leading-normal">
-                CLICKMATES PHOTOGRAPHY STUDIO KOTHRUD
+                CLICKMATES STUDIO | KOTHRUD, PUNE
               </span>
 
               <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#242424] leading-tight">
-                ClickMates Photography Studio in <span className="text-[#ED78A8]">Kothrud, Pune</span>
+                Professional Photography Studio in Kothrud, Pune
               </h1>
 
               <p className="text-[#666666] text-base sm:text-lg font-light leading-relaxed">
-                ClickMates Photography is a premier photography studio located in Left Bhusari Colony, Paud Road, Kothrud, Pune. We specialize in artistic baby milestone shoots, gentle newborn portraits, editorial maternity sessions, and timeless family gatherings.
+                Clickmates Studio is a premier <strong className="font-medium text-[#242424]">photography studio in Kothrud, Pune</strong>, recognized as a leading <strong className="font-medium text-[#242424]">professional photography studio Pune</strong> wide. Conveniently located at Paud Road in Bhusari Colony, our studio offers specialized <strong className="font-medium text-[#242424]">photography services in Kothrud</strong> and <strong className="font-medium text-[#242424]">photography services in Pune</strong> for newborn, baby, maternity, family, portrait, and celebration event sessions. Whether you are looking for an expert <strong className="font-medium text-[#242424]">photographer in Kothrud Pune</strong> or a state-of-the-art <strong className="font-medium text-[#242424]">photoshoot studio in Kothrud</strong>, Clickmates Studio delivers stunning visual art tailored to your journey.
               </p>
 
               {/* GEO Answer Entity Summary */}
               <div className="bg-[#FFF0F6]/50 p-5 rounded-2xl border border-[#ED78A8]/20 space-y-2 text-xs sm:text-sm" itemScope itemType="https://schema.org/LocalBusiness">
-                <meta itemProp="name" content="ClickMates Photography Studio" />
+                <meta itemProp="name" content="Clickmates Studio" />
                 <meta itemProp="telephone" content={brandDetails.phone} />
                 <p className="font-semibold text-[#242424] flex items-center gap-2">
                   <MapPin className="w-4 h-4 text-[#ED78A8]" />
-                  <span>Exact Studio Address:</span>
+                  <span>Exact Studio Location (Paud Road photography studio near Bhusari Colony):</span>
                 </p>
                 <p className="text-[#555555] font-light pl-6" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
                   <span itemProp="streetAddress">{brandDetails.fullAddress}</span>
@@ -122,7 +111,7 @@ export default function HomePage({ onOpenBooking }) {
                     Explore Packages & Pricing →
                   </Link>
                   <Link to="/contact" className="text-[#ED78A8] font-bold underline hover:text-[#d65f8f]">
-                    Book Studio Shoot →
+                    Book Studio Session →
                   </Link>
                 </div>
               </div>
@@ -152,14 +141,14 @@ export default function HomePage({ onOpenBooking }) {
                 <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white transform hover:scale-[1.02] transition-transform duration-500">
                   <img
                     src={m16}
-                    alt="ClickMates Photography Studio Kothrud Pune maternity and baby shoot setup"
+                    alt="Clickmates Studio - Photography Studio in Kothrud, Pune maternity and baby shoot setup"
                     className="w-full h-64 sm:h-80 lg:h-[420px] object-cover"
                   />
                 </div>
                 <div className="absolute -bottom-8 -left-8 w-48 sm:w-56 rounded-2xl overflow-hidden shadow-2xl border-4 border-white hidden sm:block">
                   <img
                     src={baby10}
-                    alt="Professional baby photographer in Kothrud Pune ClickMates studio"
+                    alt="Professional photographer in Kothrud Pune Clickmates Studio"
                     className="w-full h-40 object-cover"
                   />
                 </div>
@@ -175,8 +164,12 @@ export default function HomePage({ onOpenBooking }) {
       {/* SECTION 5: MILESTONE JOURNEY CAROUSEL */}
       <MilestoneJourneyCarousel onOpenBooking={onOpenBooking} />
 
-      {/* SECTION 6: EDITORIAL MASONRY PORTFOLIO */}
-      <MasonryPortfolio onOpenBooking={onOpenBooking} />
+      {/* SECTION 5.5: FEATURED BABY SHOOT CAROUSEL (B1 - B6) */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <BabyShootCarousel onOpenBooking={onOpenBooking} />
+      </div>
+
+
 
       {/* SECTION 7: WHY CHOOSE CLICKMATES */}
       <section className="pt-8 pb-14 sm:py-28 bg-[#FFF0F6]/40 border-y border-[#FFF0F6]">
@@ -242,6 +235,88 @@ export default function HomePage({ onOpenBooking }) {
       {/* SECTION 10: OFFICIAL PHOTOGRAPHY PACKAGES SECTION */}
       <PackagesSection onOpenBooking={onOpenBooking} />
 
+      {/* HOMEPAGE SEO GEO & SERVICES HUB */}
+      <section className="py-16 sm:py-24 bg-[#FFF0F6]/30 border-y border-[#FFF0F6]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+
+          {/* Section Header */}
+          <div className="text-center max-w-3xl mx-auto space-y-3 reveal-on-scroll">
+            <span className="inline-block text-[10px] sm:text-xs font-semibold uppercase tracking-widest font-nav text-[#ED78A8] bg-white px-3.5 py-1.5 rounded-full border border-[#ED78A8]/20">
+              PHOTOGRAPHY SERVICES IN KOTHRUD, PUNE, MAHARASHTRA
+            </span>
+            <h2 className="font-heading text-3xl sm:text-4xl font-bold text-[#242424]">
+              Top Photography Studio in Kothrud, Pune
+            </h2>
+            <p className="text-[#666666] text-sm sm:text-base font-light leading-relaxed">
+              At Clickmates Studio, we bring warmth, artistry, and professional excellence to every session. As a leading <strong className="font-medium text-[#242424]">professional photographer in Pune</strong> and dedicated <strong className="font-medium text-[#242424]">photography studio in Pune</strong>, we offer high-ranking studio sessions and creative photo shoots for families across Pune, Maharashtra.
+            </p>
+          </div>
+
+          {/* Service & Location Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            {/* Card 1: Baby & Newborn Photography Studio Pune */}
+            <div className="bg-white p-6 rounded-3xl border border-[#ED78A8]/20 shadow-sm hover:shadow-md transition-all space-y-4">
+              <div className="w-10 h-10 rounded-2xl bg-[#FFF0F6] flex items-center justify-center text-[#ED78A8] font-bold text-lg">
+                👶
+              </div>
+              <h3 className="font-heading text-xl font-bold text-[#242424]">
+                Baby & Newborn Photography Studio Pune
+              </h3>
+              <p className="text-xs sm:text-sm text-[#666666] leading-relaxed font-light">
+                Looking for an expert <strong className="font-medium text-[#242424]">baby photographer Pune</strong> or a safe <strong className="font-medium text-[#242424]">newborn photography studio Pune</strong>? We specialize in <strong className="font-medium text-[#242424]">baby photography Pune</strong>, <strong className="font-medium text-[#242424]">baby photoshoot Pune</strong>, and gentle <strong className="font-medium text-[#242424]">newborn baby photoshoot Pune</strong> sessions. Our <strong className="font-medium text-[#242424]">baby photoshoot studio Pune</strong> features sanitized setups for <strong className="font-medium text-[#242424]">kids photography Pune</strong>, <strong className="font-medium text-[#242424]">kids photoshoot Pune</strong>, <strong className="font-medium text-[#242424]">child photography Pune</strong>, memorable <strong className="font-medium text-[#242424]">1 year baby photoshoot Pune</strong>, <strong className="font-medium text-[#242424]">first birthday photoshoot Pune</strong>, and fun <strong className="font-medium text-[#242424]">cake smash photography Pune</strong>. As a certified <strong className="font-medium text-[#242424]">newborn photographer Pune</strong>, we offer comfortable <strong className="font-medium text-[#242424]">newborn photoshoot Pune</strong>, <strong className="font-medium text-[#242424]">newborn photography Pune</strong>, and <strong className="font-medium text-[#242424]">newborn photoshoot studio Pune</strong> experiences.
+              </p>
+            </div>
+
+            {/* Card 2: Maternity & Family Photography Pune */}
+            <div className="bg-white p-6 rounded-3xl border border-[#ED78A8]/20 shadow-sm hover:shadow-md transition-all space-y-4">
+              <div className="w-10 h-10 rounded-2xl bg-[#FFF0F6] flex items-center justify-center text-[#ED78A8] font-bold text-lg">
+                🤰
+              </div>
+              <h3 className="font-heading text-xl font-bold text-[#242424]">
+                Maternity & Family Photography Pune
+              </h3>
+              <p className="text-xs sm:text-sm text-[#666666] leading-relaxed font-light">
+                Capture the joy of parenthood with our top-rated <strong className="font-medium text-[#242424]">maternity photography studio Pune</strong> and <strong className="font-medium text-[#242424]">maternity photoshoot studio Pune</strong>. Work with an acclaimed <strong className="font-medium text-[#242424]">maternity photographer Pune</strong> for <strong className="font-medium text-[#242424]">maternity photography Pune</strong>, glowing <strong className="font-medium text-[#242424]">maternity photoshoot Pune</strong>, and elegant <strong className="font-medium text-[#242424]">pregnancy photoshoot Pune</strong> sessions. We also offer heartwarming <strong className="font-medium text-[#242424]">family photography Pune</strong>, sessions with a skilled <strong className="font-medium text-[#242424]">family photographer Pune</strong>, <strong className="font-medium text-[#242424]">family photoshoot Pune</strong>, classic <strong className="font-medium text-[#242424]">family portrait photography Pune</strong>, and vibrant <strong className="font-medium text-[#242424]">kids and family photography Pune</strong>.
+              </p>
+            </div>
+
+            {/* Card 3: Portrait, Event & Special Shoots */}
+            <div className="bg-white p-6 rounded-3xl border border-[#ED78A8]/20 shadow-sm hover:shadow-md transition-all space-y-4">
+              <div className="w-10 h-10 rounded-2xl bg-[#FFF0F6] flex items-center justify-center text-[#ED78A8] font-bold text-lg">
+                ✨
+              </div>
+              <h3 className="font-heading text-xl font-bold text-[#242424]">
+                Portrait, Event & Professional Shoots
+              </h3>
+              <p className="text-xs sm:text-sm text-[#666666] leading-relaxed font-light">
+                Beyond baby and maternity sessions, Clickmates Studio is your go-to <strong className="font-medium text-[#242424]">professional photography studio Pune</strong> for expressive <strong className="font-medium text-[#242424]">portrait photography Pune</strong> and a tailored <strong className="font-medium text-[#242424]">professional photoshoot Pune</strong>. We provide comprehensive <strong className="font-medium text-[#242424]">event photography Pune</strong>, capturing candid highlights for <strong className="font-medium text-[#242424]">birthday photography Pune</strong>, ceremonial <strong className="font-medium text-[#242424]">baby shower photography Pune</strong>, romantic <strong className="font-medium text-[#242424]">couple photography Pune</strong>, and sleek <strong className="font-medium text-[#242424]">model photography Pune</strong>.
+              </p>
+            </div>
+
+          </div>
+
+          {/* Local Area Coverage & Location Hierarchy */}
+          <div className="bg-white p-6 sm:p-8 rounded-3xl border border-[#ED78A8]/20 space-y-4">
+            <div className="flex items-center gap-2 text-[#ED78A8]">
+              <MapPin className="w-5 h-5" />
+              <h3 className="font-heading text-lg sm:text-xl font-bold text-[#242424]">
+                Local SEO & Geographic Hierarchy: Kothrud → Pune → Maharashtra
+              </h3>
+            </div>
+            <p className="text-xs sm:text-sm text-[#666666] leading-relaxed font-light">
+              As a premier <strong className="font-medium text-[#242424]">Kothrud photography studio</strong>, Clickmates Studio is established as the premier <strong className="font-medium text-[#242424]">photography studio Kothrud Pune</strong> and leading <strong className="font-medium text-[#242424]">photographer Kothrud Pune</strong>. Situated as a convenient <strong className="font-medium text-[#242424]">Paud Road photography studio</strong> and trusted <strong className="font-medium text-[#242424]">photography studio near Paud Road</strong>, we serve as the ideal <strong className="font-medium text-[#242424]">photographer near Kothrud</strong> and premier <strong className="font-medium text-[#242424]">photoshoot studio Kothrud</strong> for families across <strong className="font-medium text-[#242424]">Kothrud Pune</strong>.
+            </p>
+            <div className="pt-2 border-t border-[#FFF0F6]">
+              <p className="text-xs text-[#777777] font-light leading-relaxed">
+                <strong className="text-[#242424]">Nearby Areas Served:</strong> We proudly welcome clients from nearby localities across Pune including <span className="text-[#ED78A8] font-medium">Bhusari Colony</span>, <span className="text-[#ED78A8] font-medium">Paud Road</span>, <span className="text-[#ED78A8] font-medium">Karve Nagar</span>, <span className="text-[#ED78A8] font-medium">Erandwane</span>, <span className="text-[#ED78A8] font-medium">Deccan</span>, <span className="text-[#ED78A8] font-medium">Shivajinagar</span>, <span className="text-[#ED78A8] font-medium">Bavdhan</span>, <span className="text-[#ED78A8] font-medium">Aundh</span>, <span className="text-[#ED78A8] font-medium">Baner</span>, <span className="text-[#ED78A8] font-medium">Wakad</span>, <span className="text-[#ED78A8] font-medium">Pashan</span>, and all of <span className="text-[#ED78A8] font-medium">Kothrud</span> as a trusted <strong className="font-medium text-[#242424]">photography studio Pune Maharashtra</strong> and top <strong className="font-medium text-[#242424]">photographer Pune Maharashtra</strong>.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       {/* HOMEPAGE GEO / AEO DIRECT ANSWERS & FAQS ACCORDION */}
       <section className="pt-8 pb-14 sm:py-20 bg-[#FFFDFB] border-b border-[#FFF0F6]" itemScope itemType="https://schema.org/FAQPage">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 sm:space-y-8">
@@ -264,8 +339,8 @@ export default function HomePage({ onOpenBooking }) {
                 <div
                   key={index}
                   className={`bg-white rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen
-                      ? 'border-[#ED78A8] shadow-md ring-1 ring-[#ED78A8]/20'
-                      : 'border-[#FFF0F6] shadow-xs hover:border-[#ED78A8]/40'
+                    ? 'border-[#ED78A8] shadow-md ring-1 ring-[#ED78A8]/20'
+                    : 'border-[#FFF0F6] shadow-xs hover:border-[#ED78A8]/40'
                     }`}
                   itemScope
                   itemProp="mainEntity"

@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { MapPin, Phone, MessageCircle, Clock, CheckCircle2, ShieldCheck, Heart, Camera, Calendar, ChevronDown } from 'lucide-react'
 import SEOHead from '../components/SEOHead'
 import { brandDetails, portfolioItems } from '../data/photographyData'
-import m16 from '../assets/m16.jpg'
-import baby15 from '../assets/baby15.jpg'
+import m16 from '../assets/maternity/maternity13.jpg'
+import baby15 from '../assets/baby/baby15.jpg'
 
 export default function KothrudPage({ onOpenBooking }) {
   const [openFaqIndex, setOpenFaqIndex] = useState(0)

@@ -15,7 +15,7 @@ export default function SEOHead({
 }) {
   useEffect(() => {
     // 1. Document Title
-    const defaultTitle = 'ClickMates Photography | Baby, Maternity & Newborn Photography Studio in Kothrud, Pune'
+    const defaultTitle = 'Photography Studio in Kothrud, Pune | Clickmates Studio'
     const fullTitle = title || defaultTitle
     document.title = fullTitle
 
@@ -34,12 +34,13 @@ export default function SEOHead({
     const currentUrl = canonicalUrl || window.location.href
 
     // 2. Standard Meta Tags
-    const defaultDesc = 'ClickMates Photography is a top-rated photography studio based in Kothrud, Pune, offering baby, newborn safety, maternity, family portraits, cake smash, and celebration event photography.'
-    const defaultKeywords = 'ClickMates Photography, Photo Studio Near Me, Photo Studio Pune, Photo Studio Kothrud, Photography Studio in Pune, Best Baby Photography Pune, Newborn Photography Pune, Maternity Photoshoot Pune, Baby Photoshoot Kothrud, Cake Smash Photoshoot Pune, Family Photographer Pune, Photo Studio Paud Road, Baby Photographer Near Me, Maternity Photographer Near Me'
+    const defaultDesc = 'Clickmates Studio is a professional photography studio in Kothrud, Pune, offering baby, newborn, maternity, family, kids, portrait and event photography. Book your session today.'
+    const defaultKeywords = 'Photography Studio in Kothrud Pune, photography studio Kothrud, photographer in Kothrud Pune, photography studio in Pune, professional photographer in Pune, professional photography studio Pune, photoshoot studio in Kothrud, photoshoot studio in Pune, photographer near Kothrud, photography services in Kothrud, photography services in Pune, baby photography Pune, baby photoshoot Pune, baby photographer Pune, baby photoshoot studio Pune, kids photography Pune, kids photoshoot Pune, child photography Pune, 1 year baby photoshoot Pune, first birthday photoshoot Pune, cake smash photography Pune, newborn photography Pune, newborn photographer Pune, newborn photoshoot Pune, newborn baby photoshoot Pune, newborn photography studio Pune, newborn photoshoot studio Pune, maternity photography Pune, maternity photoshoot Pune, maternity photographer Pune, maternity photoshoot studio Pune, pregnancy photoshoot Pune, maternity photography studio Pune, family photography Pune, family photographer Pune, family photoshoot Pune, family portrait photography Pune, kids and family photography Pune, portrait photography Pune, professional photoshoot Pune, event photography Pune, birthday photography Pune, baby shower photography Pune, couple photography Pune, model photography Pune, Kothrud Pune, Kothrud photography studio, photography studio Kothrud Pune, photographer Kothrud Pune, photoshoot studio Kothrud, Paud Road photography studio, photography studio near Paud Road, photographer near Kothrud, photography studio Pune Maharashtra, photographer Pune Maharashtra, Bhusari Colony, Paud Road, Karve Nagar, Erandwane, Deccan, Shivajinagar, Bavdhan, Aundh, Baner, Wakad, Pashan'
 
     setMetaTag('meta[name="description"]', 'description', 'name', description || defaultDesc)
     setMetaTag('meta[name="keywords"]', 'keywords', 'name', keywords || defaultKeywords)
-    setMetaTag('meta[name="author"]', 'author', 'name', brandDetails?.name || 'ClickMates Photography')
+    setMetaTag('meta[name="author"]', 'author', 'name', brandDetails?.name || 'Clickmates Studio')
+    setMetaTag('meta[name="google-site-verification"]', 'google-site-verification', 'name', 'fgT1cUX-Xlov9PTCPbcqO_2x4WGjweG4YiDrcyka75E')
 
     // 3. Canonical Link
     let canonicalLink = document.querySelector('link[rel="canonical"]')

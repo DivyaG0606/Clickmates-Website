@@ -2,25 +2,25 @@ import { useState } from 'react'
 import { CheckCircle2, Heart, Gift, Baby, Calendar, Sparkles, Star } from 'lucide-react'
 
 // Import real photography assets for package cards
-import baby1 from '../assets/baby1.jpg'
-import baby2 from '../assets/baby2.jpg'
-import baby3 from '../assets/baby3.jpg'
-import baby5 from '../assets/baby5.jpg'
-import baby8 from '../assets/baby8.jpg'
-import baby10 from '../assets/baby10.jpg'
-import baby12 from '../assets/baby12.jpg'
-import baby15 from '../assets/baby15.jpg'
+import baby1 from '../assets/baby/baby1.jpg'
+import baby2 from '../assets/baby/baby2.jpg'
+import baby3 from '../assets/baby/baby3.jpg'
+import baby5 from '../assets/baby/baby5.jpg'
+import baby8 from '../assets/baby/baby8.jpg'
+import baby10 from '../assets/baby/baby10.jpg'
+import baby12 from '../assets/baby/baby12.jpg'
+import baby15 from '../assets/baby/baby15.jpg'
 
-import m16 from '../assets/m16.jpg'
-import m17 from '../assets/m17.jpg'
-import m18 from '../assets/m18.jpg'
-import m25 from '../assets/m25.jpg'
-import m27 from '../assets/m27.jpg'
+import m16 from '../assets/maternity/maternity13.jpg'
+import m17 from '../assets/maternity/maternity14.jpg'
+import m18 from '../assets/maternity/maternity15.jpg'
+import m25 from '../assets/maternity/maternity18.jpg'
+import m27 from '../assets/maternity/maternity20.jpg'
 
-import e30 from '../assets/e30.jpg'
-import e32 from '../assets/e32.jpg'
-import e33 from '../assets/e33.jpg'
-import e34 from '../assets/e34.jpg'
+import e30 from '../assets/event/event1.jpg'
+import e32 from '../assets/event/event4.jpg'
+import e33 from '../assets/event/event5.jpg'
+import e34 from '../assets/event/event6.jpg'
 
 export default function PackagesSection({ onOpenBooking }) {
   const [activeCategory, setActiveCategory] = useState('NEWBORN')
@@ -298,8 +298,8 @@ export default function PackagesSection({ onOpenBooking }) {
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
               className={`px-3.5 py-1.5 sm:px-5 sm:py-2.5 rounded-full transition-all duration-300 uppercase tracking-wider cursor-pointer ${activeCategory === cat.id
-                  ? 'bg-[#ED78A8] text-white shadow-md shadow-[#ED78A8]/25 scale-105'
-                  : 'bg-white text-[#242424] hover:bg-[#FFF0F6] border border-[#ED78A8]/20'
+                ? 'bg-[#ED78A8] text-white shadow-md shadow-[#ED78A8]/25 scale-105'
+                : 'bg-white text-[#242424] hover:bg-[#FFF0F6] border border-[#ED78A8]/20'
                 }`}
             >
               {cat.name}
@@ -314,8 +314,8 @@ export default function PackagesSection({ onOpenBooking }) {
               <div
                 key={idx}
                 className={`bg-white rounded-2xl sm:rounded-3xl overflow-hidden border flex flex-col justify-between relative transition-all duration-300 ${pkg.popular
-                    ? 'border-[#ED78A8] shadow-2xl ring-2 ring-[#ED78A8]/30'
-                    : 'border-[#FFF0F6] shadow-sm hover:shadow-md'
+                  ? 'border-[#ED78A8] shadow-2xl ring-2 ring-[#ED78A8]/30'
+                  : 'border-[#FFF0F6] shadow-sm hover:shadow-md'
                   }`}
               >
                 {pkg.popular && (
@@ -377,8 +377,8 @@ export default function PackagesSection({ onOpenBooking }) {
               <div
                 key={idx}
                 className={`bg-white rounded-2xl sm:rounded-3xl overflow-hidden border flex flex-col justify-between relative transition-all duration-300 ${pkg.popular
-                    ? 'border-[#ED78A8] shadow-2xl ring-2 ring-[#ED78A8]/30'
-                    : 'border-[#FFF0F6] shadow-sm hover:shadow-md'
+                  ? 'border-[#ED78A8] shadow-2xl ring-2 ring-[#ED78A8]/30'
+                  : 'border-[#FFF0F6] shadow-sm hover:shadow-md'
                   }`}
               >
                 {pkg.popular && (
@@ -440,8 +440,8 @@ export default function PackagesSection({ onOpenBooking }) {
               <div
                 key={idx}
                 className={`bg-white rounded-2xl sm:rounded-3xl overflow-hidden border flex flex-col justify-between relative transition-all duration-300 ${pkg.popular
-                    ? 'border-[#ED78A8] shadow-2xl ring-2 ring-[#ED78A8]/30'
-                    : 'border-[#FFF0F6] shadow-sm hover:shadow-md'
+                  ? 'border-[#ED78A8] shadow-2xl ring-2 ring-[#ED78A8]/30'
+                  : 'border-[#FFF0F6] shadow-sm hover:shadow-md'
                   }`}
               >
                 {pkg.popular && (
@@ -503,8 +503,8 @@ export default function PackagesSection({ onOpenBooking }) {
               <div
                 key={idx}
                 className={`bg-white rounded-2xl sm:rounded-3xl overflow-hidden border flex flex-col justify-between relative transition-all duration-300 ${pkg.popular
-                    ? 'border-[#ED78A8] shadow-2xl ring-2 ring-[#ED78A8]/30'
-                    : 'border-[#FFF0F6] shadow-sm hover:shadow-md'
+                  ? 'border-[#ED78A8] shadow-2xl ring-2 ring-[#ED78A8]/30'
+                  : 'border-[#FFF0F6] shadow-sm hover:shadow-md'
                   }`}
               >
                 {pkg.popular && (

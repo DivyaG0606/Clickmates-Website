@@ -4,7 +4,7 @@ import { brandDetails } from '../data/photographyData'
 import SEOHead from '../components/SEOHead'
 
 // Import real photography background asset
-import e30 from '../assets/e30.jpg'
+import e30 from '../assets/event/event1.jpg'
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
